@@ -5,6 +5,7 @@
     --body-copy: 20px;
     --title: 24px;
     --heading: 80px;
+    --section: 48px;
 }
 
 body
@@ -16,6 +17,12 @@ body
     width: 75%;
     margin: auto;
     letter-spacing: 0.75px;
+    padding-bottom: 3vh;
+}
+
+p
+{
+    margin-bottom: 3vh;
 }
 
 .hero
@@ -44,8 +51,17 @@ body
 h1
 {
     font-size: var(--heading);
+    line-height: 1.5;
     font-weight: 500;
     font-style: italic;
+}
+
+h2
+{
+    font-size: var(--section);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.5;
 }
 
 h3
@@ -54,9 +70,8 @@ h3
     font-weight: 500;
 }
 
-.right p
-{
-    margin-top: 3vh;
+.right h3 {
+    margin-bottom: 1.5vh;
 }
 
 .line
@@ -74,5 +89,24 @@ h3
 
 a:hover
 {
-    opacity: 70%;
+    color: blue;
+}
+
+.sessions 
+{
+    margin-top: 10vh;
+    margin-bottom: 30vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.sessions h3
+{
+    margin-top: 1.5vh;
+    font-weight: 400;
+}
+
+.footer p
+{
+    margin-top: 1.5vh;
 }
