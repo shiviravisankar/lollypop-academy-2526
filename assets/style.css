@@ -110,3 +110,15 @@ a:hover
 {
     margin-top: 1.5vh;
 }
+
+ul
+{
+    margin-bottom: 1vh;
+    list-style-type: disc;
+    margin-left: 2vw;
+}
+
+.one, .two, .three, .four
+{
+    margin-bottom: 10vh;
+}
