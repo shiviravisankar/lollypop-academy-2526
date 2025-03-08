@@ -145,3 +145,46 @@ width: 80%;
 height: 80%;
 border: 10px solid #fff;
 }
+
+.bias, .assumption
+{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+}
+
+.assumption h3, .about h3
+{
+    margin-top: 0vh;
+}
+
+.example1, .example2
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+img
+{
+    border-radius: 5px;
+}
+
+.example2
+{
+    margin-top: 10vh;
+}
+
+.task
+{
+    width: 70%;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+}
+
+.task h3
+{
+    margin-top: 5vh;
+    margin-bottom: 1.5vh;
+}
