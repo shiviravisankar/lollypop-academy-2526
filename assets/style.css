@@ -1,23 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+/*Font*/
+@font-face {
+    font-family: 'Apple Garamond';
+    src: url('../assets/font/AppleGaramond.woff2') format('woff2'),
+        url('../assets/font/AppleGaramond.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tabular';
+    src: url('../assets/font/Tabular-Regular.woff2') format('woff2'),
+        url('../assets/font/Tabular-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 :root 
 {
-    --body-copy: 20px;
-    --title: 24px;
-    --heading: 80px;
+    --body-copy: 18px;
+    --title: 18px;
+    --heading: 15vw;
     --section: 48px;
 }
 
 body
 {
-    font-family: "EB Garamond", serif;
+    font-family: "Apple Garamond", serif;
     font-size: var(--body-copy);
+    font-weight: normal;
     line-height: 1.5;
-    font-weight: 400;
-    width: 75%;
+    width: 80%;
     margin: auto;
     letter-spacing: 0.75px;
-    padding-bottom: 3vh;
+}
+
+a
+{
+    font-family: 'Tabular', monospace;
 }
 
 p
@@ -28,8 +49,8 @@ p
 .hero
 {
     display: flex;
-    flex-direction: row;
-    margin-top: 15vh;
+    flex-direction: column;
+    margin-top: 10vh;
 }
 
 .left
@@ -38,72 +59,70 @@ p
     margin-right: 10%;
 }
 
-.left h3
+.hero p
 {
-    margin-top: 3vh;
+    margin-bottom: 3vh;
 }
 
 .right
 {
-    flex: 40%;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 }
 
 h1
 {
     font-size: var(--heading);
-    line-height: 1.5;
-    font-weight: 500;
-    font-style: italic;
+    font-weight: normal;
+    line-height: 0.9;
+    margin-bottom: 2vh;
 }
 
 h2
 {
     font-size: var(--section);
-    font-style: italic;
-    font-weight: 500;
-    line-height: 1.5;
+    font-weight: normal;
+    line-height: 1;
+    margin-bottom: 1vh;
 }
 
 h3
 {
     font-size: var(--title);
-    font-weight: 500;
-}
-
-.right h3 {
-    margin-bottom: 1.5vh;
+    font-weight: 400;
+    margin-bottom: 1vh;
 }
 
 .line
 {
     border-bottom: 1.5px solid black;
-    margin-top: 5.5vh;
+    margin-top: 2vh;
+}
+
+.about1
+{
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 5vh;
 }
 
 .about
 {
-    display: flex;
-    flex-direction: row;
-    margin-top: 15vh;
+    margin-top: 10vh;
 }
 
-a:hover
-{
-    color: blue;
-}
 
 .sessions 
 {
-    margin-top: 10vh;
+    margin-top: 5vh;
     margin-bottom: 30vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .sessions h3
 {
     margin-top: 1.5vh;
-    font-weight: 400;
 }
 
 .footer p
@@ -123,35 +142,18 @@ ul
     margin-bottom: 10vh;
 }
 
-.photo-grid 
+.one h3, .two h3, .three h3, .four h3
 {
-position: relative;
-width: 100%;
-aspect-ratio: 1 / 1;
-overflow: hidden;
-}
-
-.photo 
-{
-position: absolute;
-background-size: cover;
-background-position: center;
-transition: all 0.5s ease;
-opacity: 0;
-transform: translate(-50%, -50%) rotateZ(0deg) translateZ(0px);
-left: 50%;
-top: 50%;
-width: 80%;
-height: 80%;
-border: 10px solid #fff;
+    font-family: 'Tabular', monospace;
+    text-transform: uppercase;
 }
 
 .bias, .assumption
 {
     display: flex;
-    flex-direction: row;
-    margin-top: 15vh;
-    margin-bottom: 15vh;
+    flex-direction: column;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }
 
 .assumption h3, .about h3
@@ -162,13 +164,14 @@ border: 10px solid #fff;
 .example1, .example2
 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     align-items: center;
 }
 
 img
 {
     border-radius: 5px;
+    margin-top: 1vh;
 }
 
 .example2
@@ -178,9 +181,8 @@ img
 
 .task
 {
-    width: 70%;
-    margin-top: 15vh;
-    margin-bottom: 15vh;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }
 
 .task h3
