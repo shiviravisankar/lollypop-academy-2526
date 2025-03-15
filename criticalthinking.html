@@ -6,50 +6,165 @@
 <link href="assets/reset.css" rel="stylesheet">
 <link href="assets/style.css" rel="stylesheet">
 <title>Critical Thinking</title>
+<style>
+/* Additional styles for this page */
+.two, .bias, .assumption, .example1, .example2, .task 
+{
+margin-bottom: 4vh;
+}
+
+h2 
+{
+    margin-top: 10vh;
+margin-bottom: 2vh;
+line-height: 1.2;
+}
+
+h3
+{
+color: gray;
+}
+
+p
+{
+    margin-top: 3vh;
+}
+
+ul 
+{
+margin-left: 1.5em;
+}
+
+li {
+margin-bottom: 0.5vh;
+list-style-type: disc;
+}
+
+.right img {
+max-width: 100%;
+height: auto;
+}
+
+.footer 
+{
+margin-top: 6vh;
+font-size: 0.9em;
+}
+
+/* Quote styling for mobile */
+.quote-mobile 
+{
+font-style: italic;
+color: blue;
+margin: 2vh 0 4vh 0;
+}
+
+/* Hide desktop quote in mobile */
+.quote-desktop 
+{
+display: none;
+}
+
+@media screen and (min-width: 768px) 
+{
+.left
+{
+    flex: 80%;
+}
+
+.two, .bias, .assumption, .example1, .example2, .task 
+{
+display: flex;
+justify-content: space-between;
+}
+
+.two .left, .bias .left, .assumption .left, .example1 .left, .example2 .left, .task .left 
+{
+width: 50%;
+margin-right: 10%;
+}
+
+.two .right, .bias .right, .assumption .right, .example1 .right, .example2 .right, .task .right 
+{
+width: 40%;
+margin-top: 0;
+}
+
+.quote-mobile {
+display: none;
+}
+
+.quote-desktop 
+{
+display: block;
+font-style: italic;
+color: blue;
+}
+
+.footer 
+{
+margin-top: 10vh;
+}
+}
+</style>
 </head>
 <body>
 <div class="hero">
 <div class="left">
 <h1>Critical Thinking</h1>
-<p><span style="font-family: 'Tabular', monospace; text-transform: uppercase;">Week 1, Design Foundation</span></p>
+<p>Week 1, Design Foundation</p>
 </div>
 </div>
+
 <div class="line"></div>
+
+<!-- Quote for mobile view -->
+<div class="quote-mobile">
+"As UX Designers, we're constantly making decisions - about users, interfaces and experiences. But how do we ensure that our decisions are truly user-centered and not based on personal biases, assumptions, or surface-level data? That's where critical thinking comes in."
+</div>
+
 <div class="about">
 <div class="left">
-<h3><span style="font-family: 'Tabular', monospace; text-transform: uppercase;">🎯 Goal</span></h3>
+<h3>🎯 Goal</h3>
 <p>Develop a structured approach to identifying patterns and insights. Learn to objectively analyze and evaluate information, challenge assumptions, recognize biases, and uncover meaningful connections.</p>
 </div>
 <div class="right">
-<p><span style="font-style: italic; color: blue;">"As UX Designers, we're constantly making decisions - about users, interfaces and experiences. But how do we ensure that our decisions are truly user-centered and not based on personal biases, assumptions, or surface-level data? That's where critical thinking comes in."</span></p>
+
+<!-- Quote for desktop view -->
+<p class="quote-desktop">"As UX Designers, we're constantly making decisions - about users, interfaces and experiences. But how do we ensure that our decisions are truly user-centered and not based on personal biases, assumptions, or surface-level data? That's where critical thinking comes in."</p>
 </div>
 </div>
-<div class="two"></div>
-    <h2>Are Biases and Assumptions Always Wrong in UX?</h2>
-    <ul></ul>
-    <li>We often hear that biases and assumptions are bad, but are they always?</li>
-    <li>Can we design a user experience without making any assumptions?</li>
+
+<div class="two">
+<div class="left">
+<h2>Are Biases and Assumptions Always Wrong in UX?</h2>
+<ul>
+<li>We often hear that biases and assumptions are bad, but are they always?</li>
+<li>Can we design a user experience without making any assumptions?</li>
 </ul>
 </div>
+<div class="right"></div>
+</div>
+
 <div class="bias">
 <div class="left">
-    <p>Biases are mental shortcuts that help us process information quickly. They aren&#39;t inherently bad, but they can lead to design decisions that exclude or misrepresent users. Some common UX-related biases include:</p>
-    <ul>
-        <li><span style="font-weight: 500; font-style: italic;">Confirmation Bias</span> &#8208; Favoring data that supports our existing beliefs.</li>
-        <li><span style="font-weight: 500; font-style: italic;">Recency Bias</span> &#8208; Giving more weight to recent feedback rather than long-term trends.</li>
-        <li><span style="font-weight: 500; font-style: italic;">Cultural Bias</span> &#8208; Designing for one&#39;s own cultural norms and neglecting diversity.</li>
-    </ul>
+<p>Biases are mental shortcuts that help us process information quickly. They aren't inherently bad, but they can lead to design decisions that exclude or misrepresent users. Some common UX-related biases include:</p>
+<ul>
+<li><span style="font-style: italic;">Confirmation Bias</span> &#8208; Favoring data that supports our existing beliefs.</li>
+<li><span style="font-style: italic;">Recency Bias</span> &#8208; Giving more weight to recent feedback rather than long-term trends.</li>
+<li><span style="font-style: italic;">Cultural Bias</span> &#8208; Designing for one's own cultural norms and neglecting diversity.</li>
+</ul>
 </div>
 <div class="right">
-    <p><span style="font-style: italic; color: blue;">"When starting a project, you assume users want a feature before testing it. Is this assumption bad? Or does it give us a starting point for research?"</span></p>
-    <p><span style="font-style: italic; color: blue;">"What happens if we design without any assumptions? Wouldn&#39;t that mean endless research with no decisions made?"</span></p>
+<p><span style="font-style: italic; color: blue;">"When starting a project, you assume users want a feature before testing it. Is this assumption bad? Or does it give us a starting point for research?"</span></p>
+<p><span style="font-style: italic; color: blue;">"What happens if we design without any assumptions? Wouldn't that mean endless research with no decisions made?"</span></p>
 </div>
 </div>
 
 <div class="assumption">
 <div class="left">
 <h3>Assumptions drive the initial stages of design.</h3>
-<p>Without them, we wouldn&#39;t have hypotheses to test. However, the key is to validate assumptions through research and data rather than blindly relying on them.</p>
+<p>Without them, we wouldn't have hypotheses to test. However, the key is to validate assumptions through research and data rather than blindly relying on them.</p>
 </div>
 <div class="right">
 <p>🕵️ Use assumptions as a hypothesis, not a conclusion.</p>
@@ -59,43 +174,40 @@
 </div>
 
 <h2>For Example,</h2>
+
 <div class="example1">
-    <div class="left">
-        <h3>Facebook's "Year in Review"</h3>
-        <p>Facebook auto-generated a "Year in Review" for users, highlighting their most engaging photos. While many users were delighted, for some the algorithm resurfaced painful memories, like a loved one's passing or a tragic event. Facebook assumed that <span style="color: blue; font-style: italic;">engagement = happiness</span>, without critically evaluating how different contexts could impact the user experience.</p>
-        <p><span style="font-style: italic; color: blue;">What other metrics could have been evaluated to create this review?</span></p>
-    </div>
-    <div class="right">
-        <img src="images/yir_fb.webp" alt="Facebook's Year in Review">
-    </div>
+<div class="left">
+<h3>Facebook's "Year in Review"</h3>
+<p>Facebook auto-generated a "Year in Review" for users, highlighting their most engaging photos. While many users were delighted, for some the algorithm resurfaced painful memories, like a loved one's passing or a tragic event. Facebook assumed that <span style="color: blue; font-style: italic;">engagement = happiness</span>, without critically evaluating how different contexts could impact the user experience.</p>
+<p><span style="font-style: italic; color: blue;">What other metrics could have been evaluated to create this review?</span></p>
+</div>
+<div class="right">
+<img src="images/yir_fb.webp" alt="Facebook's Year in Review">
+</div>
 </div>
 
 <div class="example2">
-    <div class="left">
-        <h3>LinkedIn's Biased Job Recommendation Algorithm"</h3>
-        <p>LinkedIn's job recommendation algorithm tended to suggest higher-paying jobs to men than to women, even when their profiles were similar. The algorithms learned from existing hiring patterns, <span style="color: blue; font-style: italic;">reinforcing systemic gender bias</span>.</p>
-        <p><span style="font-style: italic; color: blue;">UX and AI teams must audit algorithms for bias, what unseen factors are influencing decisions?</span></p>
-    </div>
-    <div class="right">
-        <img src="images/linkedinlogo.png" alt="Facebook's Year in Review">
-    </div>
+<div class="left">
+<h3>LinkedIn's Biased Job Recommendation Algorithm</h3>
+<p>LinkedIn's job recommendation algorithm tended to suggest higher-paying jobs to men than to women, even when their profiles were similar. The algorithms learned from existing hiring patterns, <span style="color: blue; font-style: italic;">reinforcing systemic gender bias</span>.</p>
+<p><span style="font-style: italic; color: blue;">UX and AI teams must audit algorithms for bias, what unseen factors are influencing decisions?</span></p>
+</div>
+<div class="right">
+<img src="images/linkedinlogo.png" alt="LinkedIn Logo">
+</div>
 </div>
 
 <div class="line"></div>
 
 <div class="task">
-    <h2>⏳ Today's Tasks <span style="color: gray;">(45 mins)</span></h2>
-    <h3><span style="font-style: italic; color: #FD2E35;">Spot the Bias + The 5 Whys</span></h3>
-        <p>☝️ Take a real-world UX case study or a popular app's interface. Critique it, identifying potential biases (e.g., cultural, accessibility, gender, or age-related biases).</p>
-        <p>
-            ✌️ Suggest improvements based on a more objective, inclusive perspective.
-        </p>
-        <p>👌 Apply the 5 Whys Technique to dig deeper into the root cause to refine their problem-solving approach using this framework.</p>
+<div class="left">
+<h2>⏳ Today's Tasks <span style="color: gray;">(45 mins)</span></h2>
+<h3><span style="font-style: italic; color: #FD2E35;">Spot the Bias + The 5 Whys</span></h3>
+<p>☝️ Take a real-world UX case study or a popular app's interface. Critique it, identifying potential biases (e.g., cultural, accessibility, gender, or age-related biases).</p>
+<p>✌️ Suggest improvements based on a more objective, inclusive perspective.</p>
+<p>👌 Apply the 5 Whys Technique to dig deeper into the root cause to refine their problem-solving approach using this framework.</p>
 </div>
-
-<div class="footer">
-<div class="line"></div>
-<p>UX Everywhere, Lollypop Academy 25 - 26</p>
+<div class="right"></div>
 </div>
 </body>
 </html>
