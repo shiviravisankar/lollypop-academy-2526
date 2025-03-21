@@ -5,32 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="assets/reset.css" rel="stylesheet">
 <link href="assets/style.css" rel="stylesheet">
-<title>Laws of UX</title>
+<title>UX Research</title>
 <style>
 li
 {
 list-style-type: disc;
 }
 
-.section-title 
-{
+.section-title {
 margin-bottom: 4vh;
 }
 
-.section-title p 
-{
+.section-title p {
 font-style: italic;
 font-weight: 300;
 margin-top: 1vh;
 }
 
-.quote-desktop 
-{
+.quote-desktop {
 display: none;
 }
 
-.quote-mobile 
-{
+.quote-mobile {
 font-style: italic;
 margin: 4vh 0;
 font-size: 20px;
@@ -38,138 +34,114 @@ line-height: 1.3;
 color: blue;
 }
 
-.laws-container 
-{
+.laws-container {
 display: grid;
 grid-template-columns: 1fr;
 gap: 2vh;
 margin-bottom: 6vh;
 }
 
-.law-card 
-{
+.law-card {
 border: 0.5px solid #000;
 padding: 2vh;
 transition: all 0.3s ease;
 }
 
-.law-card h3 
-{
+.law-card h3 {
 margin-bottom: 1vh;
 font-weight: normal;
 }
 
-.law-description 
-{
+.law-description {
 font-weight: 300;
 font-style: italic;
 }
 
-.activity 
-{
+.activity {
 margin: 6vh 0;
 }
 
-.activity h2 
-{
+.activity h2 {
 margin-bottom: 3vh;
 }
 
-.activity-content 
-{
+.activity-content {
 display: flex;
 flex-direction: column;
 }
 
-.activity-content .left 
-{
+.activity-content .left {
 margin-bottom: 3vh;
 }
 
-.activity-content ol 
-{
+.activity-content ol {
 margin-top: 2vh;
 margin-left: 2vh;
 }
 
-.activity-content ol li 
-{
+.activity-content ol li {
 margin-bottom: 1vh;
 }
 
-.highlight 
-{
+.highlight {
 font-style: italic;
 color: blue;
 margin-bottom: 1vh;
 }
 
-.emotional-design 
-{
+.emotional-design {
 margin: 4vh 0;
 display: flex;
 flex-direction: column;
 }
 
-.emotional-design .left 
-{
+.emotional-design .left {
 margin-bottom: 3vh;
 }
 
-.application 
-{
+.application {
 margin: 4vh 0;
 }
 
-.application h3 
-{
+.application h3 {
 margin-bottom: 2vh;
 }
 
-.steps 
-{
+.steps {
 margin-top: 2vh;
 }
 
-.step 
-{
+.step {
 margin-bottom: 3vh;
 }
 
-.step h4 
-{
+.step h4 {
 font-weight: normal;
 margin-bottom: 1vh;
 }
 
-.examples 
-{
+.examples {
 margin: 4vh 0;
 }
 
-.examples h2 
-{
+.examples h2 {
 margin-bottom: 3vh;
 }
 
-.example 
-{
+.example {
 margin-bottom: 4vh;
 }
 
-.example h4 
-{
+.example h4 {
 font-weight: normal;
 margin-bottom: 1vh;
 }
 
-.example .left 
-{
+.example .left {
 margin-bottom: 2vh;
 }
 
-.image-placeholder 
-{
+.image-placeholder {
 background-color: #f0f0f0;
 height: 150px;
 display: flex;
@@ -179,13 +151,11 @@ margin-bottom: 2vh;
 object-fit: cover;
 }
 
-.presenter 
-{
+.presenter {
 margin: 4vh 0;
 }
 
-.presenter .left 
-{
+.presenter .left {
 margin-bottom: 3vh;
 }
 
@@ -194,16 +164,13 @@ h2
     line-height: 1.1;
 }
 
-@media screen and (min-width: 768px) 
-{
+@media screen and (min-width: 768px) {
 /* Quote */
-.quote-mobile 
-{
+.quote-mobile {
 display: none;
 }
 
-.quote-desktop 
-{
+.quote-desktop {
 display: block;
 font-style: italic;
 font-size: 22px;
@@ -217,108 +184,91 @@ flex: 70%;
 }
 
 /* Laws grid */
-.laws-container 
-{
+.laws-container {
 grid-template-columns: repeat(2, 1fr);
 gap: 3vh 3vh;
 }
 
 /* Law cards hover effect */
-.law-card:hover 
-{
+.law-card:hover {
 background-color: #f0f0f0;
 }
 
 /* Activity layout */
-.activity-content 
-{
+.activity-content {
 flex-direction: row;
 justify-content: space-between;
 }
 
-.activity-content .left 
-{
+.activity-content .left {
 width: 60%;
 margin-right: 5%;
 margin-bottom: 0;
 }
 
-.activity-content .right 
-{
+.activity-content .right {
 width: 35%;
 align-self: flex-start;
 }
 
 /* Emotional design layout */
-.emotional-design 
-{
+.emotional-design {
 flex-direction: row;
 justify-content: space-between;
 }
 
-.emotional-design .left
-{
+.emotional-design .left {
 width: 60%;
 margin-right: 5%;
 margin-bottom: 0;
 }
 
-.emotional-design .right 
-{
+.emotional-design .right {
 width: 35%;
 }
 
 /* Steps grid */
-.steps 
-{
+.steps {
 display: grid;
 grid-template-columns: repeat(2, 1fr);
 gap: 3vh 3vh;
 }
 
 /* Examples layout */
-.example 
-{
+.example {
 display: flex;
 justify-content: space-between;
 }
 
-.example .left 
-{
+.example .left {
 width: 60%;
 margin-right: 5%;
 margin-bottom: 0;
 }
 
-.example .right 
-{
+.example .right {
 width: 35%;
 }
 
 /* Presenter layout */
-.presenter 
-{
+.presenter {
 display: flex;
 justify-content: space-between;
 }
 
-.presenter .left 
-{
+.presenter .left {
 width: 60%;
 margin-right: 5%;
 margin-bottom: 0;
 }
 
-.presenter .right 
-{
+.presenter .right {
 width: 35%;
 }
 
 /* Larger law cards grid for larger screens */
-@media screen and (min-width: 1024px) 
-{
-.laws-container 
-{
+@media screen and (min-width: 1024px) {
+.laws-container {
 grid-template-columns: repeat(3, 1fr);
 }
 }
