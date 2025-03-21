@@ -12,21 +12,26 @@ li
 list-style-type: disc;
 }
 
-.section-title {
+.section-title 
+{
+margin-top: 6vh;
 margin-bottom: 4vh;
 }
 
-.section-title p {
+.section-title p 
+{
 font-style: italic;
 font-weight: 300;
 margin-top: 1vh;
 }
 
-.quote-desktop {
+.quote-desktop 
+{
 display: none;
 }
 
-.quote-mobile {
+.quote-mobile 
+{
 font-style: italic;
 margin: 4vh 0;
 font-size: 20px;
@@ -34,98 +39,159 @@ line-height: 1.3;
 color: blue;
 }
 
-.laws-container {
+.activity 
+{
+margin: 5vh 0;
+}
+
+.activity h2 
+{
+margin-bottom: 3vh;
+}
+
+.activity-content 
+{
+display: flex;
+flex-direction: column;
+}
+
+.activity-content .left 
+{
+margin-bottom: 3vh;
+}
+
+.activity-content ol 
+{
+margin-top: 2vh;
+margin-left: 2vh;
+}
+
+.activity-content ol li 
+{
+margin-bottom: 1.5vh;
+}
+
+.highlight 
+{
+font-style: italic;
+color: blue;
+margin-bottom: 1vh;
+}
+
+.gray-text {
+color: gray;
+}
+
+.light-gray-text {
+color: lightgray;
+transition: color 0.3s ease;
+}
+
+.light-gray-text:hover {
+color: black;
+}
+
+.research-types-container {
 display: grid;
 grid-template-columns: 1fr;
 gap: 2vh;
 margin-bottom: 6vh;
 }
 
-.law-card {
+.research-type-card {
 border: 0.5px solid #000;
 padding: 2vh;
 transition: all 0.3s ease;
+margin-bottom: 4vh;
 }
 
-.law-card h3 {
-margin-bottom: 1vh;
+.research-type-card h3 {
+margin-bottom: 2vh;
 font-weight: normal;
 }
 
-.law-description {
-font-weight: 300;
-font-style: italic;
+.research-method {
+margin-bottom: 5vh;
 }
 
-.activity {
-margin: 6vh 0;
+.research-method h4 {
+font-weight: normal;
+margin-bottom: 2vh;
+margin-top: 4vh;
 }
 
-.activity h2 {
-margin-bottom: 3vh;
-}
-
-.activity-content {
-display: flex;
-flex-direction: column;
-}
-
-.activity-content .left {
-margin-bottom: 3vh;
-}
-
-.activity-content ol {
+.research-method h4:first-of-type {
 margin-top: 2vh;
-margin-left: 2vh;
 }
 
-.activity-content ol li {
-margin-bottom: 1vh;
-}
-
-.highlight {
-font-style: italic;
-color: blue;
-margin-bottom: 1vh;
-}
-
-.emotional-design {
-margin: 4vh 0;
-display: flex;
-flex-direction: column;
-}
-
-.emotional-design .left {
-margin-bottom: 3vh;
-}
-
-.application {
+.table-container {
+overflow-x: auto;
 margin: 4vh 0;
 }
 
-.application h3 {
+.research-table {
+width: 100%;
+border-collapse: collapse;
+}
+
+.research-table th, .research-table td {
+border: 1px solid #000;
+padding: 1vh;
+text-align: center;
+}
+
+.research-table th {
+background-color: #f0f0f0;
+}
+
+.research-brief {
+margin: 4vh 0;
+padding: 2vh;
+background-color: #f0f0f0;
+}
+
+.research-brief h3 {
 margin-bottom: 2vh;
 }
 
-.steps {
+.interview-section {
+margin: 5vh 0;
+}
+
+.interview-practices {
 margin-top: 2vh;
 }
 
-.step {
-margin-bottom: 3vh;
+.bad-practice, .good-practice {
+margin-bottom: 4vh;
 }
 
-.step h4 {
-font-weight: normal;
-margin-bottom: 1vh;
+.bad-practice h4, .good-practice h4 {
+margin-bottom: 2vh;
 }
 
-.examples {
-margin: 4vh 0;
+.bad-practice span {
+color: red;
 }
 
-.examples h2 {
-margin-bottom: 3vh;
+.good-practice span {
+color: green;
+}
+
+.questionnaire-section {
+margin: 3vh 0;
+padding: 2vh;
+background-color: #f0f0f0;
+margin-bottom: 4vh;
+}
+
+.questionnaire-section h4 {
+margin-bottom: 2vh;
+color: #333;
+}
+
+.real-world-examples {
+margin: 5vh 0;
 }
 
 .example {
@@ -134,7 +200,7 @@ margin-bottom: 4vh;
 
 .example h4 {
 font-weight: normal;
-margin-bottom: 1vh;
+margin-bottom: 2vh;
 }
 
 .example .left {
@@ -148,23 +214,130 @@ display: flex;
 align-items: center;
 justify-content: center;
 margin-bottom: 2vh;
+width: 100%;
+position: relative;
+overflow: hidden;
+}
+
+/* Fix for images to stay within containers */
+.image-placeholder img {
+max-width: 100%;
+max-height: 100%;
 object-fit: cover;
+width: 100%;
+height: 100%;
+}
+
+.emotional-design {
+margin: 5vh 0;
+display: flex;
+flex-direction: column;
+}
+
+.emotional-design .left {
+margin-bottom: 3vh;
 }
 
 .presenter {
-margin: 4vh 0;
+margin: 5vh 0;
 }
 
 .presenter .left {
 margin-bottom: 3vh;
 }
 
-h2
-{
-    line-height: 1.1;
+/* Better spacing for headings */
+h2 {
+line-height: 1.1;
+margin-bottom: 3vh;
+}
+
+h3 {
+margin-top: 4vh;
+margin-bottom: 2vh;
+}
+
+/* First h3 in a section shouldn't have extra top margin */
+h2 + h3, .section-title + h3, .activity h2 + .activity-content h3:first-of-type, 
+.left h3:first-of-type, .right h3:first-of-type {
+margin-top: 2vh;
+}
+
+/* Add spacing for paragraphs */
+p {
+margin-bottom: 2vh;
+}
+
+/* Improve spacing between list items */
+ul li, ol li {
+margin-bottom: 1.5vh;
+}
+
+/* Give more breathing room to nested lists */
+ul ul, ol ol, ul ol, ol ul {
+margin-top: 1.5vh;
+margin-left: 3vh;
+}
+
+/* Ensure consistent vertical rhythm in all content areas */
+.left > *, .right > * {
+margin-bottom: 2.5vh;
+}
+
+/* Remove margin from last elements in containers */
+.left > *:last-child, .right > *:last-child, 
+.activity-content > *:last-child, .emotional-design > *:last-child {
+margin-bottom: 0;
+}
+
+/* Add consistent spacing after divider lines */
+.line {
+margin-bottom: 4vh;
+}
+
+/* Fix activity spacing for headings */
+.activity-content h3 {
+margin-top: 4vh;
+}
+
+.activity-content h3:first-of-type {
+margin-top: 0;
+}
+
+.about {
+margin: 5vh 0;
+}
+
+.reflection {
+margin: 5vh 0;
+}
+
+/* Fix for Muthulakshmi's image to be displayed as portrait */
+.presenter .right .image-placeholder {
+  height: 250px;  /* Increased height to accommodate portrait orientation */
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2vh;
+}
+
+.presenter .right .image-placeholder img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;  /* Changed from cover to contain */
+  width: auto;  /* Changed from 100% to auto */
+  height: auto;  /* Allow natural proportions */
 }
 
 @media screen and (min-width: 768px) {
+    .presenter .right .image-placeholder {
+    height: 300px;
+  }
+
 /* Quote */
 .quote-mobile {
 display: none;
@@ -178,19 +351,18 @@ line-height: 1.3;
 color: blue;
 }
 
-.left
-{
+.left {
 flex: 70%;
 }
 
-/* Laws grid */
-.laws-container {
+/* Research types grid */
+.research-types-container {
 grid-template-columns: repeat(2, 1fr);
 gap: 3vh 3vh;
 }
 
-/* Law cards hover effect */
-.law-card:hover {
+/* Research type cards hover effect */
+.research-type-card:hover {
 background-color: #f0f0f0;
 }
 
@@ -227,13 +399,6 @@ margin-bottom: 0;
 width: 35%;
 }
 
-/* Steps grid */
-.steps {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 3vh 3vh;
-}
-
 /* Examples layout */
 .example {
 display: flex;
@@ -266,10 +431,14 @@ margin-bottom: 0;
 width: 35%;
 }
 
-/* Larger law cards grid for larger screens */
+.about {
+width: 70%;
+}
+
+/* Larger research type cards grid for larger screens */
 @media screen and (min-width: 1024px) {
-.laws-container {
-grid-template-columns: repeat(3, 1fr);
+.research-types-container {
+grid-template-columns: repeat(2, 1fr);
 }
 }
 }
@@ -278,8 +447,8 @@ grid-template-columns: repeat(3, 1fr);
 <body>
 <div class="hero">
 <div class="left">
-<h1>Crafting Experiences that Resonate</h1>
-<p>Week 2, Design Foundation - Laws of UX & Emotional Design</p>
+<h1>Decode, Discover, Design</h1>
+<p>Week 3, UI/UX Design - UX Research</p>
 </div>
 </div>
 
@@ -287,25 +456,25 @@ grid-template-columns: repeat(3, 1fr);
 
 <!-- Quote for mobile view -->
 <div class="quote-mobile">
-"Good design is based on psychology. Understanding UX laws helps create experiences that feel intuitive, effortless, and enjoyable."
+"Designs change based on assumptions, it reinforces the need for real user insights to guide decisions."
 </div>
 
-<!-- SECTION 1: Meet Varun (Moved to first section) -->
+<!-- SECTION 1: Meet Muthulakshmi (Moved to first section) -->
 <div class="presenter">
 <div class="left">
-<h2>Meet Varun</h2>
-<p>An ex-academy student who is now a full-time UX designer at Lollypop Design. Varun will share his journey and insights from transitioning from student to professional.</p><br>
-<p><span style="font-style: italic; color: gray;">Topics he'll cover:</span></p>
+<h2>Meet Muthulakshmi</h2>
+<p>A UX designer who has a strong social presence. She will be presenting how she uses social media to network, create a community and how it impacts her design on a day to day basis.</p><br>
+<p><span style="font-style: italic; color: gray;">Topics she'll cover:</span></p>
 <ul>
-<li>His experience at the academy</li>
-<li>The transition to professional work</li>
-<li>How he applies UX laws in real-world projects</li>
-<li>Advice for current students</li>
+<li>Building a professional network via social media</li>
+<li>Creating and engaging with design communities</li>
+<li>How social presence influences design decisions</li>
+<li>Practical tips for students to establish their online presence</li>
 </ul>
 </div>
 <div class="right">
 <div class="image-placeholder">
-<img src="assets/image/varun.jpg" alt="Varun KR">
+<img src="assets/image/muthu.jpg" alt="Muthulakshmi">
 </div>
 </div>
 </div>
@@ -317,13 +486,14 @@ grid-template-columns: repeat(3, 1fr);
 <h2>Last Week's Assignment</h2>
 <div class="activity-content">
 <div class="left">
-<p>Let's reflect on the UI designs you created last week:</p>
+<p>Let's reflect on the UX laws you identified in various applications:</p>
 <ul>
-<li>What design decisions did you make?</li>
-<li>What principles informed your layout choices?</li>
-<li>How did you consider the user's needs in your design?</li>
+<li>What was our takeaway from the exercise?</li>
+<li>Which UX laws did you find most commonly implemented?</li>
+<li>How did these laws contribute to a better user experience?</li>
+<li>Did you notice any applications that violated UX laws? What was the impact?</li>
 </ul>
-<p>Share your insights about how established design principles influenced your work.</p>
+<p>Share your insights about how these psychological principles shape our daily digital interactions.</p>
 </div>
 <div class="right">
 <p class="highlight">Open discussion</p>
@@ -331,341 +501,471 @@ grid-template-columns: repeat(3, 1fr);
 </div>
 </div>
 </div>
+
 <div class="line"></div>
 
-<!-- SECTION 3: Laws of UX -->
-<span style="color: blue; text-decoration: underline;"><a href="https://lawsofux.com/" target="_blank"><p>Laws of UX</p></a></span>
-
+<!-- SECTION 3: Decoding Research -->
 <div class="section-title">
-<h2>✨ Most Used UX Laws</h2>
-<p>(Critical for Everyday Design)</p>
+<h2>Decoding Research</h2>
 </div>
-
-<div class="about">
-<div class="left">
-<h3>🎯 <span style="color: gray;">Overview</span></h3>
-<p>Laws of UX are principles derived from human psychology and behavior that guide designers in creating intuitive, effective user experiences. These laws help us understand how users interact with interfaces and make decisions.</p>
-</div>
-<div class="right">
-<!-- Quote for desktop view -->
-<p class="quote-desktop">"Good design is based on psychology. Understanding UX laws helps create experiences that feel intuitive, effortless, and enjoyable."
-</p>
-</div>
-</div>
-
-<div class="laws-container">
-<div class="law-card">
-<h3>Jakob's Law</h3>
-<div class="law-description">
-<p>Users prefer familiar design patterns.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Fitts's Law</h3>
-<div class="law-description">
-<p>Larger, closer targets are easier to hit.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Hick's Law</h3>
-<div class="law-description">
-<p>More choices = longer decision time.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Law of Proximity</h3>
-<div class="law-description">
-<p>Related elements should be grouped.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Miller's Law</h3>
-<div class="law-description">
-<p>Users can hold 7±2 items in memory.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Aesthetic-Usability Effect</h3>
-<div class="law-description">
-<p>Beautiful design appears more usable.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Pareto Principle</h3>
-<div class="law-description">
-<p>80% of impact comes from 20% of features.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Tesler's Law</h3>
-<div class="law-description">
-<p>Systems should handle complexity, not users.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Law of Modularity</h3>
-<div class="law-description">
-<p>Breaking content into sections improves usability.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Law of Feedback</h3>
-<div class="law-description">
-<p>Users need immediate response to actions.</p>
-</div>
-</div>
-</div>
-
-<div class="line"></div>
-
-<div class="section-title">
-<h2>✍️ Commonly Used UX Laws</h2>
-<p>(Key for Good Design Practices)</p>
-</div>
-
-<div class="laws-container">
-<div class="law-card">
-<h3>Von Restorff Effect</h3>
-<div class="law-description">
-<p>Unique elements stand out more.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Zeigarnik Effect</h3>
-<div class="law-description">
-<p>Unfinished tasks stay in memory.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Doherty Threshold</h3>
-<div class="law-description">
-<p>Keep system response time under 400ms.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Law of Similarity</h3>
-<div class="law-description">
-<p>Similar elements feel related.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Law of Uniform Connectedness</h3>
-<div class="law-description">
-<p>Connected elements seem related.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Postel's Law</h3>
-<div class="law-description">
-<p>Be flexible in input, strict in output.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Serial Position Effect</h3>
-<div class="law-description">
-<p>Users remember the first and last items in a list best.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Occam's Razor</h3>
-<div class="law-description">
-<p>The simplest solution is usually the best.</p>
-</div>
-</div>
-</div>
-
-<div class="line"></div>
-
-<div class="section-title">
-<h2>🧠 Less Frequently Used UX Laws</h2>
-<p>(Situational, But Useful)</p>
-</div>
-
-<div class="laws-container">
-<div class="law-card">
-<h3>Law of Prägnanz</h3>
-<div class="law-description">
-<p>Users perceive complex shapes as simple.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Law of Figure-Ground</h3>
-<div class="law-description">
-<p>Users distinguish objects from the background.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Peak-End Rule</h3>
-<div class="law-description">
-<p>Users remember the best and last part of an experience.</p>
-</div>
-</div>
-
-<div class="law-card">
-<h3>Law of Top-Heavy Design</h3>
-<div class="law-description">
-<p>Users focus more on the top of a page.</p>
-</div>
-</div>
-</div>
-
-<div class="line"></div>
 
 <div class="activity">
-<h2>Activity 1: Spotting UX Laws in the Wild</h2>
+<h2>Activity: "Design a Chair" Challenge</h2>
 <div class="activity-content">
 <div class="left">
-<p>As a group, select one app of your choice and identify the different UX laws that have been implemented to create the user experience.</p>
+<p>Let's explore how assumptions impact design decisions:</p>
 <ol>
-<li>Choose any mobile or web application</li>
-<li>Identify at least 5 UX laws in action</li>
-<li>Discuss how these laws enhance the user experience</li>
+<li>Quickly sketch a chair in 2 minutes.</li>
+<li class="light-gray-text">Now, your chair is for a 90-year-old with back pain. Redesign it.</li>
+<li class="light-gray-text">Redesign these chairs for a 90-year-old who is active vs. one who is wheelchair-bound.</li>
 </ol>
 </div>
 <div class="right">
-<p class="highlight">Time: 20 minutes</p>
-<p class="highlight">Deliverable: Brief presentation of findings</p>
+<p class="highlight">Time: 10 minutes</p>
+<p class="highlight">Deliverable: Quick sketches</p>
 </div>
 </div>
-</div>
-
-<div class="line"></div>
-
-<!-- SECTION 4: Emotional Design -->
-<div class="section-title">
-<h2>Elevating UX Beyond Usability</h2>
-</div>
-
-<div style="position: relative; width: 100%; padding-top: 56.25%; overflow: hidden;">
-<iframe 
-src="https://www.youtube.com/embed/7zFeuSagktM" 
-style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-frameborder="0" allowfullscreen>
-</iframe>
 </div>
 
 <div class="emotional-design">
 <div class="left">
-<p>Emotional design taps into human psychology to create experiences that not only work well but also feel right. Whether it's a sense of delight, trust, or motivation, emotions shape how users perceive and interact with a product.</p>
+<h3>Outcome</h3>
+<p>Even though you don't have actual research, you immediately began empathizing with user needs. This is the early hypothesis stage in research, where assumptions are made but later need validation.</p>
+
+<h3>Food for Thought</h3>
+<ul>
+<li>How do we know if the new chair is actually helpful?</li>
+<li>Wouldn't it be better if we actually spoke to real elderly people with back pain?</li>
+<li>What if different 90-year-olds have different needs?</li>
+<li>What other information do you wish you had before designing this chair?</li>
+</ul>
 </div>
-<div class="right"></div>
+<div class="right">
+<!-- Quote for desktop view -->
+<p class="quote-desktop">"Designs change based on assumptions, it reinforces the need for real user insights to guide decisions."</p>
+</div>
 </div>
 
-<div class="application">
-<h3><span style="color: gray;">How to Apply Emotional Design in UX</span></h3>
-<div class="steps">
-<div class="step">
-<h4>😶‍🌫️ Understand Your Users' Emotions</h4>
-<p>Map out how users feel at different touchpoints and identify pain points where emotional design can make an impact.</p>
+<div class="line"></div>
+
+<div class="section-title">
+<h2>Why Research is the Foundation of Great Design</h2>
 </div>
-<div class="step">
-<h4>🖼️ Use Visual & Interactive Cues</h4>
-<p>Playful animations, delightful microinteractions, and empathetic messaging can make experiences more human.</p>
+
+<div class="about">
+<div class="left">
+<p>UX research is the process of understanding user behaviors, needs, and motivations through observation and feedback. It helps designers make informed decisions rather than relying on assumptions, leading to better usability and business outcomes.</p>
+<p>Good UX research ensures that:</p>
+<ul>
+<li>Products solve real user problems.</li>
+<li>Design decisions are backed by data.</li>
+<li>Users have a seamless and enjoyable experience.</li>
+<li>Businesses reduce costly redesigns and failures.</li>
+</ul>
 </div>
-<div class="step">
-<h4>🔐 Design for Trust & Security</h4>
-<p>Clarity in design, transparent processes, and secure interactions create confidence in your product.</p>
 </div>
-<div class="step">
-<h4>📱 Leverage Personalization</h4>
-<p>Data-driven customization can turn a standard experience into something deeply personal and engaging.</p>
+
+<div class="line"></div>
+
+<div class="section-title">
+<h2>Types of UX Research</h2>
+</div>
+
+<div class="research-types-container">
+<div class="research-type-card">
+<h3>Attitudinal Research</h3>
+<p>Focuses on what users say they do (e.g., surveys, interviews).</p>
+</div>
+
+<div class="research-type-card">
+<h3>Behavioral Research</h3>
+<p>Observes what users actually do (e.g., usability testing, heatmaps).</p>
+</div>
+
+<div class="research-type-card">
+<h3>Qualitative Research</h3>
+<p>Explores why users behave a certain way (e.g., interviews, ethnographic studies).</p>
+</div>
+
+<div class="research-type-card">
+<h3>Quantitative Research</h3>
+<p>Measures what is happening using numerical data (e.g., A/B testing, analytics).</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<div class="section-title">
+<h2>Deep Dive: Attitudinal vs. Behavioral Research</h2>
+<p>This distinction helps you understand what people say vs. what they do.</p>
+</div>
+
+<div class="research-method">
+<h4>Use Attitudinal Research When:</h4>
+<ul>
+<li>✅ You need to understand user opinions, perceptions, and preferences.</li>
+<li>✅ You want to learn why users make decisions.</li>
+<li>✅ You're in the early discovery phase and want to explore pain points.</li>
+</ul>
+
+<h4>💡 Example Methods:</h4>
+<ul>
+<li>Surveys – To gather opinions on feature preferences.</li>
+<li>Interviews – To explore motivations behind behaviors.</li>
+<li>Focus Groups – To discuss expectations or experiences.</li>
+</ul>
+
+<h4>🛑 Limitations:</h4>
+<ul>
+<li>Users often don't accurately predict their own behavior.</li>
+<li>Responses can be biased or influenced by the setting or the way questions are framed.</li>
+</ul>
+</div>
+
+<div class="research-method">
+<h4>Use Behavioral Research When:</h4>
+<ul>
+<li>✅ You need to understand how users actually interact with a product.</li>
+<li>✅ You're testing usability, friction points, or real-world usage patterns.</li>
+<li>✅ You're refining an existing product or validating a prototype.</li>
+</ul>
+
+<h4>💡 Example Methods:</h4>
+<ul>
+<li>Usability Testing – To observe where users struggle in a design.</li>
+<li>Heatmaps & Session Recordings – To track how users navigate an interface.</li>
+<li>A/B Testing – To compare different design variations based on actual user behavior.</li>
+</ul>
+
+<h4>🛑 Limitations:</h4>
+<ul>
+<li>Doesn't always explain why users behave a certain way.</li>
+<li>Requires more time and resources to conduct effectively.</li>
+</ul>
+</div>
+
+<div class="line"></div>
+
+<div class="section-title">
+<h2>How to Choose the Right Method?</h2>
+</div>
+
+<div class="table-container">
+<table class="research-table">
+<thead>
+<tr>
+<th>Research Goal</th>
+<th>Attitudinal</th>
+<th>Behavioral</th>
+<th>Qualitative</th>
+<th>Quantitative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Understand user needs, motivations, and emotions</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Identify usability issues in a design</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Measure how often an issue occurs</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Validate design changes with data</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Explore early-stage product ideas</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Track user flows and conversion rates</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="line"></div>
+
+<div class="section-title">
+<h2>Examples of Where Research Has Done Wonders</h2>
+</div>
+
+<div class="real-world-examples">
+<div class="example">
+<div class="left">
+<h4>✅ Good Research → Product Success</h4>
+<ul>
+<li><strong>Google Search:</strong> Continuous A/B testing and user feedback led to minimalistic, efficient search results.</li>
+<li><strong>Airbnb:</strong> Found that better photos increased bookings, leading to a company-wide photography initiative.</li>
+</ul>
+</div>
+<div class="right">
+<div class="image-placeholder">
+<img src="assets/image/Airbnb.jpg" alt="Good Research Example">
+</div>
+</div>
+</div>
+
+<div class="example">
+<div class="left">
+<h4>❌ Bad Research → Product Failure</h4>
+<ul>
+<li><strong>Google Glass:</strong> Ignored social and privacy concerns, leading to user rejection.</li>
+<li><strong>New Coke (1985):</strong> Focused only on taste tests (quantitative) but ignored emotional attachment to the original formula.</li>
+</ul>
+</div>
+<div class="right">
+<div class="image-placeholder">
+<img src="assets/image/google glass.png" alt="Bad Research Example">
+</div>
+</div>
+</div>
+</div>
+
+<div class="emotional-design">
+<div class="left">
+<h3>Key Takeaway</h3>
+<p>Great design starts with great research. Understanding users deeply ensures that products are intuitive, effective, and successful in the market.</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<div class="section-title">
+<h2>Conclusion</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p>Choosing the right research method depends on whether you need subjective opinions (attitudinal) or objective behavior data (behavioral), and whether you're looking for in-depth insights (qualitative) or measurable trends (quantitative). The best approach often combines multiple research types to balance what users say with what they actually do.</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<div class="section-title">
+<h2>UX Research Briefs</h2>
+<p>(Choose 1 for the rest of the academy. We will build upon this to have a final case study)</p>
+</div>
+
+<div class="research-brief">
+<h3>1️⃣ IRCTC Rail Connect - Redesign Brief</h3>
+<p>The IRCTC Rail Connect app is essential for millions of Indians booking train tickets, yet it suffers from a complex booking process, slow performance, and usability issues for diverse user groups (frequent travelers, senior citizens, first-time users). The goal is to redesign the experience to make ticket booking seamless, reduce friction in navigation, and improve accessibility across different user demographics.</p>
+</div>
+
+<div class="research-brief">
+<h3>2️⃣ BHIM UPI - Redesign Brief</h3>
+<p>Despite being India's flagship UPI app, BHIM has lost traction to competitors like PhonePe and Google Pay due to an outdated UI, a confusing onboarding flow, and a lack of advanced features that make digital payments feel effortless. The goal is to revamp the user experience by simplifying payments, improving trust signals, and making digital transactions intuitive and friction-free.</p>
+</div>
+
+<div class="line"></div>
+
+<div class="section-title">
+<h2>Setting Up a Structured User Interview Questionnaire for UX Research</h2>
+<p>A well-structured interview helps uncover real pain points, behaviors, and expectations without leading users toward pre-set answers.</p>
+</div>
+
+<div class="interview-section">
+<h3>🟢 Good vs. Bad Interview Practices</h3>
+
+<div class="interview-practices">
+<div class="bad-practice">
+<h4>🚫 <span>Bad Practices:</span></h4>
+<p>❌ Asking leading or biased questions</p>
+<ul>
+<li>"Don't you think the IRCTC app is slow and frustrating?"</li>
+<li>"Wouldn't you prefer if BHIM looked like Google Pay?"</li>
+<li>"Do you like this feature?" (Binary responses = limited insights)</li>
+</ul>
+
+<p>❌ Asking vague or hypothetical questions</p>
+<ul>
+<li>"How often do you book train tickets?" (What does 'often' mean?)</li>
+<li>"Would you use the app if it had feature X?" (People say yes, but real behavior may differ)</li>
+</ul>
+
+<p>❌ Stacking multiple questions into one</p>
+<ul>
+<li>"Do you think the IRCTC app is slow, confusing, and hard to use?" (Which issue are they referring to?)</li>
+</ul>
+</div>
+
+<div class="good-practice">
+<h4>✅ <span>Good Practices:</span></h4>
+<p>✔️ Use open-ended questions to get detailed insights</p>
+<ul>
+<li>"Tell me about the last time you booked a train ticket—what was your experience like?"</li>
+<li>"Walk me through how you usually send money using UPI. What challenges do you face?"</li>
+</ul>
+
+<p>✔️ Keep questions neutral and non-leading</p>
+<ul>
+<li>"What do you think about the IRCTC app's booking process?"</li>
+<li>"How do you feel about using BHIM UPI compared to other payment apps?"</li>
+</ul>
+
+<p>✔️ Ask for specific examples & behaviors</p>
+<ul>
+<li>"Can you describe a time when you faced a problem while booking a ticket?"</li>
+<li>"What do you do when a UPI transaction fails? What's your next step?"</li>
+</ul>
+
+<p>✔️ Follow up with why and how</p>
+<ul>
+<li>"You mentioned the IRCTC app takes time—why do you think that happens?"</li>
+<li>"What made you choose BHIM UPI over other apps, if at all?"</li>
+</ul>
 </div>
 </div>
 </div>
 
 <div class="line"></div>
 
-<!-- Fixed "Examples" section with h2 heading -->
-<div class="examples">
-<h2>Examples</h2>
-<div class="example">
-<div class="left">
-<h4>Delightful Microinteractions – Duolingo</h4>
-<p><strong>How it Works:</strong> Duolingo uses playful animations, sounds, and a friendly owl mascot (Duo) to encourage users.</p>
-<p><strong>Emotional Impact:</strong> Users feel motivated and rewarded, making language learning engaging rather than a chore.</p>
-</div>
-<div class="right">
-<div class="image-placeholder">
-<img src="assets/image/duolingo.jpeg" alt="Duolingo">
-</div>
-</div>
+<div class="section-title">
+<h2>Sample Structured Interview Questionnaire</h2>
 </div>
 
-<div class="example">
-<div class="left">
-<h4>Personalization – Spotify Wrapped</h4>
-<p><strong>How it Works:</strong> Spotify Wrapped presents users with personalized listening stats and shareable visuals.</p>
-<p><strong>Emotional Impact:</strong> Creates nostalgia and excitement, fostering a personal connection with the brand.</p>
-</div>
-<div class="right">
-<div class="image-placeholder">
-<img src="assets/image/spotify.png" alt="Spotify Wrapped">
-</div>
-</div>
+<div class="questionnaire-section">
+<h4>🔵 Section 1: User Background</h4>
+<ol>
+<li>Can you tell me a little about yourself and your daily digital habits?</li>
+<li>How often do you travel by train / make UPI transactions?</li>
+</ol>
 </div>
 
-<div class="example">
-<div class="left">
-<h4>Surprise & Delight – Google Doodles</h4>
-<p><strong>How it Works:</strong> Google changes its logo to interactive doodles or animations based on events, holidays, or notable figures.</p>
-<p><strong>Emotional Impact:</strong> Sparks curiosity and joy, turning a routine search into an engaging experience.</p>
-</div>
-<div class="right">
-<div class="image-placeholder">
-<img src="assets/image/googledoodle.jpg" alt="Google Doodle">
-</div>
-</div>
+<div class="questionnaire-section">
+<h4>🟠 Section 2: Understanding the Current Experience</h4>
+<p><strong>For IRCTC:</strong></p>
+<ol>
+<li>Walk me through the last time you booked a train ticket. What went well? What was frustrating?</li>
+<li>What steps do you usually take when booking a ticket?</li>
+<li>Do you ever face issues while making payments on IRCTC? How do you handle them?</li>
+<li>How do you check train schedules and availability? Is the process easy for you?</li>
+</ol>
+
+<p><strong>For BHIM UPI:</strong></p>
+<ol>
+<li>Can you describe the last time you made a UPI payment?</li>
+<li>What app do you usually use for UPI payments? Why?</li>
+<li>How was your first experience setting up and using BHIM UPI? Was anything confusing?</li>
+<li>What do you do when a UPI payment fails?</li>
+</ol>
 </div>
 
-<div class="example">
+<div class="questionnaire-section">
+<h4>🟢 Section 3: Pain Points & Opportunities</h4>
+<ol>
+<li>What are the biggest challenges you face while using this app?</li>
+<li>Have you ever switched to another platform because of a bad experience? If yes, why?</li>
+<li>If you could change one thing about this app, what would it be and why?</li>
+</ol>
+</div>
+
+<div class="questionnaire-section">
+<h4>🟣 Section 4: Closing Questions</h4>
+<ol>
+<li>Is there anything else about your experience that we haven't covered but you'd like to share?</li>
+<li>Would you be open to testing a new version of the app when we redesign it?</li>
+</ol>
+</div>
+
+<div class="emotional-design">
 <div class="left">
-<h4>Social Validation – Netflix's "Top Picks for You"</h4>
-<p><strong>How it Works:</strong> Netflix customizes recommendations based on viewing history.</p>
-<p><strong>Emotional Impact:</strong> Feels like a personal concierge, making users feel seen and valued.</p>
-</div>
-<div class="right">
-<div class="image-placeholder">
-<img src="assets/image/netflix.jpeg" alt="Netflix">
-</div>
-</div>
+<h3>Final Thoughts</h3>
+<ul>
+<li>Keep it conversational – don't just go down a list; adapt based on their responses.</li>
+<li>Listen more, talk less – let users tell their stories.</li>
+<li>Observe behaviors, not just words – what they do often matters more than what they say.</li>
+</ul>
 </div>
 </div>
 
 <div class="line"></div>
 
 <div class="activity">
-<h2>Activity 2: Design a Feel-Good Experience</h2>
+<h2>In-Class Activity: "Keep the Conversation Going!"</h2>
 <div class="activity-content">
 <div class="left">
-<p>Create a design that evokes a specific emotion in your users:</p>
-<ol>
-<li>Select one emotion you want to evoke (joy, trust, surprise, etc.)</li>
-<li>Sketch wireframes or create a user flow that aims to evoke that emotion</li>
-<li>Challenge: Design without using color</li>
-</ol>
+<h3>Objective:</h3>
+<p>Help participants practice open-ended questioning and active listening by keeping a conversation flowing—without letting it end abruptly!</p>
+
+<h3>How It Works:</h3>
+<ul>
+<li><strong>Pair Up</strong> – Each participant pairs with a partner.</li>
+<li><strong>Pick a General Topic</strong> – Participants choose everyday topics like:
+<ul>
+<li>Ordering food online 🍔</li>
+<li>Buying something from an e-commerce website 🛒</li>
+<li>Using a ride-hailing app 🚖</li>
+<li>Planning a weekend trip 🏖</li>
+<li>Booking a doctor's appointment online 🏥</li>
+</ul>
+</li>
+<li><strong>Start the Conversation</strong> – One person starts by asking a broad, open-ended question.</li>
+<li><strong>Answer with a Question!</strong> – The second person responds, but instead of answering directly, they must continue the conversation by framing their response as another question.</li>
+<li><strong>Keep It Going</strong> – The goal is to continue the conversation for at least 5 rounds without letting it stall!</li>
+</ul>
+
+<h3>Reflection & Debrief:</h3>
+<ul>
+<li>What was challenging about keeping the conversation going?</li>
+<li>Did any responses spark unexpected insights?</li>
+<li>How did reframing answers as questions change the way you explored the topic?</li>
+</ul>
 </div>
 <div class="right">
-<p class="highlight">Time: 25 minutes</p>
-<p class="highlight">Deliverable: Sketches/wireframes and brief explanation</p>
+<p class="highlight">Time: 15 minutes</p>
+<p class="highlight">Deliverable: Improved questioning skills</p>
 </div>
+</div>
+</div>
+
+<div class="line"></div>
+
+<div class="section-title">
+<h2>Take-Home Tasks for This Week</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<h3>💡 Step 1: Understanding the Current Experience</h3>
+<p>Explore the existing IRCTC & BHIM UPI apps—list usability pain points, confusing flows, and areas where users may struggle.</p>
+
+<h3>🗣️ Step 2: User Research - Who Are We Designing For?</h3>
+<ul>
+<li>Identify user groups: Frequent train travelers, senior citizens, small business owners, first-time UPI users, etc.</li>
+<li>Create an interview/survey plan: Who will you interview, and what key questions will you ask?</li>
+</ul>
+
+<h3>📝 Step 3: Draft Your Research Plan</h3>
+<ul>
+<li>Define your research objectives: What do you need to learn before redesigning?</li>
+<li>Set up a structured interview questionnaire to gather meaningful insights.</li>
+</ul>
 </div>
 </div>
 
@@ -675,10 +975,11 @@ frameborder="0" allowfullscreen>
 <div class="left">
 <h2>Key Takeaways</h2>
 <ul>
-<li>UX laws provide a foundation for making informed design decisions</li>
-<li>Emotional design elevates user experiences beyond mere functionality</li>
-<li>Understanding both the rational and emotional aspects of design leads to more effective user experiences</li>
-<li>Practice identifying UX laws in everyday applications to enhance your design intuition</li>
+<li>Quality research is the foundation of successful design</li>
+<li>Choose the right research method based on your specific goals</li>
+<li>Use a mix of attitudinal and behavioral methods for comprehensive insights</li>
+<li>Well-structured interview questions reveal deeper user needs and pain points</li>
+<li>Always validate assumptions with real user data</li>
 </ul>
 </div>
 </div>
