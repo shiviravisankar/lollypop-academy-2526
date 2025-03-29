@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="assets/reset.css" rel="stylesheet">
+<link href="assets/style.css" rel="stylesheet">
+<title>User Interviews and Research Planning</title>
+<style>
+li
+{
+list-style-type: disc;
+}
+
+.section-title 
+{
+margin-top: 6vh;
+margin-bottom: 4vh;
+}
+
+.section-title p 
+{
+font-style: italic;
+font-weight: 300;
+margin-top: 1vh;
+}
+
+.quote-desktop 
+{
+display: none;
+}
+
+.quote-mobile 
+{
+font-style: italic;
+margin: 4vh 0;
+font-size: 20px;
+line-height: 1.3;
+color: blue;
+}
+
+.activity 
+{
+margin: 5vh 0;
+}
+
+.activity h2 
+{
+margin-bottom: 3vh;
+}
+
+.activity-content 
+{
+display: flex;
+flex-direction: column;
+}
+
+.activity-content .left 
+{
+margin-bottom: 3vh;
+}
+
+.activity-content ol 
+{
+margin-top: 2vh;
+margin-left: 2vh;
+}
+
+.activity-content ol li 
+{
+margin-bottom: 1.5vh;
+}
+
+.highlight 
+{
+font-style: italic;
+color: blue;
+margin-bottom: 1vh;
+}
+
+.gray-text {
+color: gray;
+}
+
+.light-gray-text {
+color: lightgray;
+transition: color 0.3s ease;
+}
+
+.light-gray-text:hover {
+color: black;
+}
+
+.research-types-container {
+display: grid;
+grid-template-columns: 1fr;
+gap: 2vh;
+margin-bottom: 6vh;
+}
+
+.research-type-card {
+border: 0.5px solid #000;
+padding: 2vh;
+transition: all 0.3s ease;
+margin-bottom: 4vh;
+}
+
+.research-type-card h3 {
+margin-bottom: 2vh;
+font-weight: normal;
+}
+
+.research-method {
+margin-bottom: 5vh;
+}
+
+.research-method h4 {
+font-weight: normal;
+margin-bottom: 2vh;
+margin-top: 4vh;
+}
+
+.research-method h4:first-of-type {
+margin-top: 2vh;
+}
+
+.table-container {
+overflow-x: auto;
+margin: 4vh 0;
+}
+
+.research-table {
+width: 100%;
+border-collapse: collapse;
+}
+
+.research-table th, .research-table td {
+border: 1px solid #000;
+padding: 1vh;
+text-align: center;
+}
+
+.research-table th {
+background-color: #f0f0f0;
+}
+
+.research-brief {
+margin: 4vh 0;
+padding: 2vh;
+background-color: #f0f0f0;
+}
+
+.research-brief h3 {
+margin-bottom: 2vh;
+}
+
+.interview-section {
+margin: 5vh 0;
+}
+
+.interview-practices {
+margin-top: 2vh;
+}
+
+.bad-practice, .good-practice {
+margin-bottom: 4vh;
+}
+
+.bad-practice h4, .good-practice h4 {
+margin-bottom: 2vh;
+}
+
+.bad-practice span {
+color: red;
+}
+
+.good-practice span {
+color: green;
+}
+
+.questionnaire-section {
+margin: 3vh 0;
+padding: 2vh;
+background-color: #f0f0f0;
+margin-bottom: 4vh;
+}
+
+.questionnaire-section h4 {
+margin-bottom: 2vh;
+color: #333;
+}
+
+.real-world-examples {
+margin: 5vh 0;
+}
+
+.example {
+margin-bottom: 4vh;
+}
+
+.example h4 {
+font-weight: normal;
+margin-bottom: 2vh;
+}
+
+.example .left {
+margin-bottom: 2vh;
+}
+
+.image-placeholder {
+background-color: #f0f0f0;
+height: 150px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 2vh;
+width: 100%;
+position: relative;
+overflow: hidden;
+}
+
+/* Fix for images to stay within containers */
+.image-placeholder img {
+max-width: 100%;
+max-height: 100%;
+object-fit: cover;
+width: 100%;
+height: 100%;
+}
+
+.emotional-design {
+margin: 5vh 0;
+display: flex;
+flex-direction: column;
+}
+
+.emotional-design .left {
+margin-bottom: 3vh;
+}
+
+.presenter {
+margin: 5vh 0;
+}
+
+.presenter .left {
+margin-bottom: 3vh;
+}
+
+/* Better spacing for headings */
+h2 {
+line-height: 1.1;
+margin-bottom: 3vh;
+}
+
+h3 {
+margin-top: 4vh;
+margin-bottom: 2vh;
+}
+
+/* First h3 in a section shouldn't have extra top margin */
+h2 + h3, .section-title + h3, .activity h2 + .activity-content h3:first-of-type, 
+.left h3:first-of-type, .right h3:first-of-type {
+margin-top: 2vh;
+}
+
+/* Add spacing for paragraphs */
+p {
+margin-bottom: 2vh;
+}
+
+/* Improve spacing between list items */
+ul li, ol li {
+margin-bottom: 1.5vh;
+}
+
+/* Give more breathing room to nested lists */
+ul ul, ol ol, ul ol, ol ul {
+margin-top: 1.5vh;
+margin-left: 3vh;
+}
+
+/* Ensure consistent vertical rhythm in all content areas */
+.left > *, .right > * {
+margin-bottom: 2.5vh;
+}
+
+/* Remove margin from last elements in containers */
+.left > *:last-child, .right > *:last-child, 
+.activity-content > *:last-child, .emotional-design > *:last-child {
+margin-bottom: 0;
+}
+
+/* Add consistent spacing after divider lines */
+.line {
+margin-bottom: 4vh;
+}
+
+/* Fix activity spacing for headings */
+.activity-content h3 {
+margin-top: 4vh;
+}
+
+.activity-content h3:first-of-type {
+margin-top: 0;
+}
+
+.about {
+margin: 5vh 0;
+}
+
+.reflection {
+margin: 5vh 0;
+}
+
+/* Fix for presenter's image to be displayed as portrait */
+.presenter .right .image-placeholder {
+  height: 250px;  /* Increased height to accommodate portrait orientation */
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2vh;
+}
+
+.presenter .right .image-placeholder img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;  /* Changed from cover to contain */
+  width: auto;  /* Changed from 100% to auto */
+  height: auto;  /* Allow natural proportions */
+}
+
+.checklist-container {
+  padding: 3vh;
+  background-color: #f9f9f9;
+  border-left: 3px solid blue;
+  margin: 3vh 0;
+}
+
+.checklist-item {
+  margin-bottom: 2vh;
+  display: flex;
+  align-items: flex-start;
+}
+
+.checklist-item span {
+  display: inline-block;
+  margin-right: 1vh;
+  color: blue;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+    .presenter .right .image-placeholder {
+    height: 300px;
+  }
+
+/* Quote */
+.quote-mobile {
+display: none;
+}
+
+.quote-desktop {
+display: block;
+font-style: italic;
+font-size: 22px;
+line-height: 1.3;
+color: blue;
+}
+
+.left {
+flex: 70%;
+}
+
+/* Research types grid */
+.research-types-container {
+grid-template-columns: repeat(2, 1fr);
+gap: 3vh 3vh;
+}
+
+/* Research type cards hover effect */
+.research-type-card:hover {
+background-color: #f0f0f0;
+}
+
+/* Activity layout */
+.activity-content {
+flex-direction: row;
+justify-content: space-between;
+}
+
+.activity-content .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.activity-content .right {
+width: 35%;
+align-self: flex-start;
+}
+
+/* Emotional design layout */
+.emotional-design {
+flex-direction: row;
+justify-content: space-between;
+}
+
+.emotional-design .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.emotional-design .right {
+width: 35%;
+}
+
+/* Examples layout */
+.example {
+display: flex;
+justify-content: space-between;
+}
+
+.example .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.example .right {
+width: 35%;
+}
+
+/* Presenter layout */
+.presenter {
+display: flex;
+justify-content: space-between;
+}
+
+.presenter .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.presenter .right {
+width: 35%;
+}
+
+.about {
+width: 70%;
+}
+
+/* Larger research type cards grid for larger screens */
+@media screen and (min-width: 1024px) {
+.research-types-container {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="left">
+<h1>Validating Our Assumptions</h1>
+<p>Week 4, UI/UX Design - Research Plan to Real Insights</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- Quote for mobile view -->
+<div class="quote-mobile">
+"Stories inspire emotions, emotions inspire invention. As researchers, we uncover these stories to build better designs."
+</div>
+
+<!-- SECTION 1: Meet Unnati -->
+<div class="presenter">
+<div class="left">
+<h2>Meet Unnati</h2>
+<p>A Senior UX Researcher with a passion for storytelling and accessible design. She believes in the power of stories to shape how we design and innovate.</p><br>
+</div>
+<div class="right">
+<div class="image-placeholder">
+<img src="assets/image/unnati.jpeg" alt="Unnati">
+</div>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 2: Work Session Overview -->
+<div class="section-title">
+<h2>Today's Work Session</h2>
+<p>Preparing our research plans for actionable user interviews</p>
+</div>
+
+<div class="about">
+<div class="left">
+<p>Today is a working session where each person will present last week's assignment. Our goal is to establish a solid foundation for next week's synthesis process. Each person should be ready to discuss:</p>
+<ul>
+<li>The product you chose and why it interests you</li>
+<li>Your initial thoughts about the app</li>
+<li>The platforms you explored (mobile, web, or both)</li>
+<li>Preliminary usability pain points and confusing flows you've identified</li>
+<li>User groups you've defined for your research</li>
+</ul>
+<p>By the end of today's session, you should have a finalized research plan ready for conducting interviews.</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 3: Research Plan Checklist -->
+<div class="section-title">
+<h2>Finalizing Your Research Plan</h2>
+<p>Key questions to answer before conducting interviews</p>
+</div>
+
+<div class="checklist-container">
+<h3>1. Research Clarity Check</h3>
+<div class="checklist-item">
+<span>✅</span> <p><strong>What are the top 3 things we need to learn from users?</strong><br>
+Define clear research objectives that will guide your interview questions.</p>
+</div>
+<div class="checklist-item">
+<span>✅</span> <p><strong>How will we ensure diversity in our interview sample?</strong><br>
+Consider different age groups, tech-savviness levels, and usage patterns.</p>
+</div>
+</div>
+
+<div class="checklist-container">
+<h3>2. Interview Structure Check</h3>
+<div class="checklist-item">
+<span>✅</span> <p><strong>Do our questions encourage stories and real experiences rather than yes/no answers?</strong><br>
+"Tell me about a time when..." vs. "Do you like this feature?"</p>
+</div>
+<div class="checklist-item">
+<span>✅</span> <p><strong>Do we have follow-up prompts if a user gives vague answers?</strong><br>
+"Can you elaborate on that?" or "What specifically made you feel that way?"</p>
+</div>
+<div class="checklist-item">
+<span>✅</span> <p><strong>Have we tested our questions for bias and clarity?</strong><br>
+Practice with team members to identify leading questions or unclear wording.</p>
+</div>
+</div>
+
+<div class="checklist-container">
+<h3>3. Practical Considerations</h3>
+<div class="checklist-item">
+<span>✅</span> <p><strong>How will we document responses?</strong><br>
+Recording, note-taking, observation templates, etc.</p>
+</div>
+<div class="checklist-item">
+<span>✅</span> <p><strong>Who will be responsible for conducting interviews and synthesizing insights?</strong><br>
+Assign roles: interviewer, note-taker, observer, etc.</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 4: Team Presentations & Work Session -->
+<div class="activity">
+<h2>Presentation & Collaborative Feedback</h2>
+<div class="activity-content">
+<div class="left">
+<h3>Format:</h3>
+<ol>
+<li>Each person presents their findings (5 minutes)</li>
+<li>Instructor and peers provide feedback (3 minutes)</li>
+<li>Refine your approach based on feedback (remaining time)</li>
+</ol>
+
+<h3>What to Present:</h3>
+<ul>
+<li>Brief overview of your chosen product (IRCTC or BHIM UPI)</li>
+<li>Initial assessment of pain points and user challenges</li>
+<li>User groups you've identified</li>
+<li>Research objectives and key questions</li>
+<li>Interview structure and approach</li>
+</ul>
+
+<h3>Questions to Consider:</h3>
+<ul>
+<li>Are your research objectives specific and actionable?</li>
+<li>Do your interview questions avoid bias and leading language?</li>
+<li>Have you considered different user perspectives in your research plan?</li>
+<li>Is your documentation strategy clear and thorough?</li>
+</ul>
+</div>
+<div class="right">
+<p class="highlight">Time: 1.5 hours</p>
+<p class="highlight">Deliverable: Refined research plan</p>
+</div>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- Quote for desktop view -->
+<div class="emotional-design">
+<div class="left">
+<h3>Research Best Practices</h3>
+<ul>
+<li>Stay neutral during interviews — avoid leading users or showing judgment</li>
+<li>Listen more than you speak — let users tell their stories</li>
+<li>Capture direct quotes when possible — they provide powerful insights</li>
+<li>Look for behavioral patterns across different users</li>
+<li>Pay attention to what users do, not just what they say</li>
+</ul>
+</div>
+<div class="right">
+<p class="quote-desktop">"Stories inspire emotions, emotions inspire invention. As researchers, we uncover these stories to build better designs."</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 5: Task for Next Week -->
+<div class="section-title">
+<h2>Task to Complete Before Next Week</h2>
+</div>
+
+<div class="research-brief">
+<h3>💡 Conduct User Interviews</h3>
+<ul>
+<li><strong>Interview at least 5 participants</strong></li>
+<li>Record responses and note down key takeaways</li>
+<li>Identify patterns or surprises in user behaviors</li>
+<li>Bring all raw insights to next week's session — don't filter any responses</li>
+<li>Prepare to share your most significant findings</li>
+</ul>
+<p><strong>Remember:</strong> The goal of these interviews is to gather rich, unfiltered data that will fuel our synthesis process next week. Collect both direct quotes and behavioral observations.</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 6: Interview Tips -->
+<div class="section-title">
+<h2>Interview Tips for Quality Insights</h2>
+</div>
+
+<div class="real-world-examples">
+<div class="example">
+<div class="left">
+<h4>📝 Before the Interview</h4>
+<ul>
+<li><strong>Test your equipment:</strong> Make sure recording devices work</li>
+<li><strong>Prepare your environment:</strong> Find a quiet space without distractions</li>
+<li><strong>Review your questions:</strong> Be familiar with the flow without reading word-for-word</li>
+<li><strong>Prepare a brief script:</strong> Introduce yourself and explain the purpose of the interview</li>
+</ul>
+</div>
+<div class="right">
+</div>
+</div>
+
+<div class="example">
+<div class="left">
+<h4>🗣️ During the Interview</h4>
+<ul>
+<li><strong>Build rapport:</strong> Start with easy questions to make participants comfortable</li>
+<li><strong>Use silence effectively:</strong> Give users time to think and elaborate</li>
+<li><strong>Stay focused but flexible:</strong> Follow interesting tangents while keeping on track</li>
+<li><strong>Take notes on non-verbal cues:</strong> Observe frustration, confusion, or excitement</li>
+</ul>
+</div>
+<div class="right">
+</div>
+</div>
+
+<div class="example">
+<div class="left">
+<h4>✅ After the Interview</h4>
+<ul>
+<li><strong>Debrief immediately:</strong> Write down key insights while fresh in your mind</li>
+<li><strong>Transcribe important quotes:</strong> Capture exact wording for powerful insights</li>
+<li><strong>Review recordings:</strong> Listen for things you might have missed</li>
+<li><strong>Identify initial patterns:</strong> Note similarities across different interviews</li>
+</ul>
+</div>
+<div class="right">
+</div>
+</div>
+</div>
+
+<div class="line"></div>
+
+<div class="section-title">
+<h2>Conclusion</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p>Today's working session is crucial for ensuring your research plan is thorough and well-structured. By carefully preparing your interview approach now, you'll gather higher quality insights that will form the foundation of your design solutions. Remember that good research is about uncovering the stories behind user behaviors — the why, not just the what.</p>
+<p>Next week, we'll focus on synthesizing your findings into actionable insights that will drive your redesign. Come prepared with all your interview data and be ready to identify patterns that will inform your design decisions.</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<div class="conclusion">
+<div class="left">
+<h2>Key Takeaways</h2>
+<ul>
+<li>A well-structured research plan leads to more valuable user insights</li>
+<li>Focus on open-ended questions that encourage detailed responses</li>
+<li>Document everything — quotes, observations, and behavioral patterns</li>
+<li>Interview at least 5 participants to identify meaningful patterns</li>
+<li>Bring all your raw data to next week's synthesis session</li>
+</ul>
+</div>
+</div>
+</body>
+</html>
