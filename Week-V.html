@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="assets/reset.css" rel="stylesheet">
+<link href="assets/style.css" rel="stylesheet">
+<title>UX Synthesis</title>
+<style>
+li {
+  list-style-type: disc;
+}
+
+.section-title {
+  margin-bottom: 4vh;
+}
+
+.section-title p {
+  font-style: italic;  
+  font-weight: 300;
+  margin-top: 1vh;
+}
+
+.quote-desktop {
+  display: none;
+}
+
+.quote-mobile {
+  font-style: italic;
+  margin: 4vh 0;
+  font-size: 20px;
+  line-height: 1.3;
+  color: blue;
+}
+
+.synthesis-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2vh;
+  margin-bottom: 6vh;
+}
+
+.synthesis-card {
+  border: 0.5px solid #000;
+  padding: 2vh;
+  transition: all 0.3s ease;
+}
+
+.synthesis-card h3 {
+  margin-bottom: 1vh;
+  font-weight: normal;
+}
+
+.synthesis-description {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.activity {
+  margin: 6vh 0;
+}
+
+.activity h2 {
+  margin-bottom: 3vh;
+}
+
+.activity-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-content .left {
+  margin-bottom: 3vh;
+}
+
+.activity-content ol {
+  margin-top: 2vh;
+  margin-left: 2vh;
+}
+
+.activity-content ol li {
+  margin-bottom: 1vh;
+}
+
+.highlight {
+  font-style: italic;
+  color: blue;
+  margin-bottom: 1vh;
+}
+
+.quadrant-container {
+  margin: 4vh 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: 2vh;
+}
+
+.quadrant {
+  border: 1px solid #000;
+  padding: 2vh;
+  margin-bottom: 2vh;
+}
+
+.quadrant h4 {
+  font-weight: bold;
+  margin-bottom: 1vh;
+}
+
+.persona {
+  margin: 4vh 0;
+  border: 1px solid #000;
+  padding: 2vh;
+}
+
+.persona h3 {
+  margin-bottom: 1vh;
+}
+
+.persona .details {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  margin-bottom: 2vh;
+}
+
+.persona .details p {
+  margin: 0;
+}
+
+.hmw-list {
+  margin-top: 2vh;
+}
+
+.hmw-list li {
+  margin-bottom: 1vh;
+}
+
+.image-placeholder {
+  background-color: #f0f0f0;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2vh;
+  object-fit: cover;
+}
+
+h2 {
+  line-height: 1.1;
+}
+
+.key-point {
+  background-color: #f8f8f8;
+  padding: 2vh;
+  margin: 3vh 0;
+  border-left: 4px solid blue;
+}
+
+.checklist li {
+  margin-bottom: 1vh;
+  list-style-type: none;
+  position: relative;
+  padding-left: 2vh;
+}
+
+.checklist li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: green;
+}
+
+/* Added style for better spacing of brief/task titles */
+strong {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 1.5vh;
+}
+
+.activity-content .left p strong {
+  margin-top: 2vh;
+}
+
+.activity-content .left p:first-child strong {
+  margin-top: 0;
+}
+
+/* Ensure proper spacing after brief/task sections */
+.activity-content .left p {
+  margin-bottom: 2vh;
+}
+
+@media screen and (min-width: 768px) {
+  /* Quote */
+  .quote-mobile {
+    display: none;
+  }
+
+  .quote-desktop {
+    display: block;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.3;
+    color: blue;
+  }
+
+  .left {
+    flex: 70%;
+  }
+
+  /* Synthesis grid */
+  .synthesis-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3vh 3vh;
+  }
+
+  /* Card hover effect */
+  .synthesis-card:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Activity layout */
+  .activity-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .activity-content .left {
+    width: 60%;
+    margin-right: 5%;
+    margin-bottom: 0;
+  }
+
+  .activity-content .right {
+    width: 35%;
+    align-self: flex-start;
+  }
+
+  /* Quadrant layout */
+  .quadrant-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  /* Examples layout */
+  .example {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .example .left {
+    width: 60%;
+    margin-right: 5%;
+    margin-bottom: 0;
+  }
+
+  .example .right {
+    width: 35%;
+  }
+
+  /* Larger synthesis cards grid for larger screens */
+  @media screen and (min-width: 1024px) {
+    .synthesis-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="left">
+    <h1>Mapping & Grouping</h1>
+    <p>Week 5, UI/UX Design - UX Synthesis & Insights</p>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<!-- Quote for mobile view -->
+<div class="quote-mobile">
+  "Research gives us the 'what'—synthesis helps us understand the 'why.'"
+</div>
+
+<!-- SECTION 3: Why Do We Do Synthesis in UX -->
+<div class="section-title">
+  <h2>✨ Why Do We Do Synthesis in UX?</h2>
+  <p>(Transforming Raw Data into Meaningful Insights)</p>
+</div>
+
+<div class="about">
+  <div class="left">
+    <h3>🎯 <span style="color: gray;">Overview</span></h3>
+    <p>Synthesis is the critical bridge between raw research data and actionable design insights. It helps us make sense of user behaviors, identify patterns, and develop a deeper understanding of user needs and motivations.</p>
+  </div>
+  <div class="right">
+    <!-- Quote for desktop view -->
+    <p class="quote-desktop">"Research gives us the 'what'—synthesis helps us understand the 'why.'"</p>
+  </div>
+</div>
+
+<div class="synthesis-container">
+  <div class="synthesis-card">
+    <h3>To Make Sense of the Mess</h3>
+    <div class="synthesis-description">
+      <p>Bringing order to chaos by spotting patterns, grouping similar themes, and connecting dots.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>To Discover Real Insights</h3>
+    <div class="synthesis-description">
+      <p>Going beyond summaries to extract meaning and underlying motivations.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>To Find Patterns Across Users</h3>
+    <div class="synthesis-description">
+      <p>Identifying connections across multiple data points that reveal important user patterns.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>To Build Empathy with Users</h3>
+    <div class="synthesis-description">
+      <p>Understanding pain points, goals, mindsets, and moments of tension.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>To Generate Design Opportunities</h3>
+    <div class="synthesis-description">
+      <p>Creating foundations for ideation, prototyping, and testing.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>To Align the Team</h3>
+    <div class="synthesis-description">
+      <p>Building shared understanding and removing subjective assumptions.</p>
+    </div>
+  </div>
+</div>
+
+<div class="key-point">
+  <p>"We do synthesis to transform messy research into meaningful insights and actionable design directions. It's where real user-centered design begins."</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 4: Affinity Mapping -->
+<div class="section-title">
+  <h2>🧩 Affinity Mapping</h2>
+  <p>(Finding Patterns in Chaos)</p>
+</div>
+
+<div class="about">
+  <div class="left">
+    <p>Affinity mapping is a key synthesis method where we group related data points to identify patterns or themes. It helps us organize scattered information into meaningful clusters that reveal deeper insights.</p>
+  </div>
+</div>
+
+<div class="activity">
+  <h2>Activity 1: Affinity Mapping Exercise</h2>
+  <div class="activity-content">
+    <div class="left">
+      <p><strong>Brief:</strong></p>
+      <p>Group the following Tamil personalities into logical categories.</p>
+      <p>M.G. Ramachandran, J. Jayalalithaa, Kamal Haasan, Vijayakanth, Udhayanidhi Stalin, Dhanush, Vijay Sethupathi, Suriya, Rajinikanth, Vishal, Raghava Lawrence, Aishwarya Rajinikanth</p>
+      
+      <p><strong>Task:</strong></p>
+      <ol>
+        <li>Work in teams to cluster these names into logical groups</li>
+        <li>Name each cluster based on common themes</li>
+        <li>Discuss why you placed certain personalities in specific groups</li>
+      </ol>
+    </div>
+    <div class="right">
+      <p class="highlight">Time: 10 minutes</p>
+      <p class="highlight">Deliverable: Categorized groups with names</p>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">
+  <h3>Affinity Mapping Takeaways</h3>
+</div>
+
+<div class="synthesis-container">
+  <div class="synthesis-card">
+    <h3>Themes are Fluid, Not Fixed</h3>
+    <div class="synthesis-description">
+      <p>Categories aren't absolute—they're emergent and created based on patterns.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Context Matters</h3>
+    <div class="synthesis-description">
+      <p>The same data point can feel different depending on the lens you apply.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Practice Prioritization</h3>
+    <div class="synthesis-description">
+      <p>Ask: "What is this data most strongly indicating right now?"</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Justify Your Decisions</h3>
+    <div class="synthesis-description">
+      <p>Explain why something belongs in a cluster to stakeholders.</p>
+    </div>
+  </div>
+</div>
+
+<div class="key-point">
+  <h4>There's No "Correct" Cluster</h4>
+  <p>Two teams might group the same data points differently—and that's okay. What matters is whether your clustering leads to actionable understanding.</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 5: Empathy Mapping -->
+<div class="section-title">
+  <h2>🧠 Empathy Mapping</h2>
+  <p>(Understanding Users Through Four Lenses)</p>
+</div>
+
+<div class="about">
+  <div class="left">
+    <p>Empathy mapping helps us understand a user's experience through four distinct lenses: what they say, think, do, and feel. This approach creates a holistic picture of the user's world and builds deeper empathy among team members.</p>
+  </div>
+</div>
+
+<div class="activity">
+  <h2>Activity 2: Empathy Mapping Practice</h2>
+  <div class="activity-content">
+    <div class="left">
+      <p><strong>Brief:</strong></p>
+      <p>Explore the following quote through empathy mapping:</p>
+      <p><em>"I usually take a cab to work because I hate the unpredictability of autos. Sometimes they refuse rides, and other times the fare is just too much. I wish I didn't have to explain my destination five times in a rush."</em></p>
+      
+      <p><strong>Task:</strong></p>
+      <ol>
+        <li>Break down this quote into the four quadrants: Say, Think, Feel, Do</li>
+        <li>Go beyond what's explicitly stated to infer thoughts and feelings</li>
+        <li>Consider the context and user's potential motivations</li>
+      </ol>
+    </div>
+    <div class="right">
+      <p class="highlight">Time: 5 minutes</p>
+      <p class="highlight">Deliverable: Completed empathy map</p>
+    </div>
+  </div>
+</div>
+
+<div class="quadrant-container">
+  <div class="quadrant">
+    <h4>🗣️ SAY</h4>
+    <p>"I hate the unpredictability of autos."</p>
+    <p>"Sometimes they refuse rides."</p>
+    <p>"The fare is just too much."</p>
+  </div>
+  
+  <div class="quadrant">
+    <h4>💭 THINK</h4>
+    <p>"Why can't commuting be more reliable?"</p>
+    <p>"Is it worth the stress to save a little money?"</p>
+    <p>"I hope I'm not late again."</p>
+  </div>
+  
+  <div class="quadrant">
+    <h4>❤️ FEEL</h4>
+    <p>Frustrated, anxious, mentally drained before work even begins.</p>
+    <p>Feeling helpless or not in control of the commute.</p>
+  </div>
+  
+  <div class="quadrant">
+    <h4>🏃 DO</h4>
+    <p>Books a cab instead of taking an auto.</p>
+    <p>Tries to plan ahead.</p>
+    <p>Explains destination multiple times.</p>
+    <p>Likely checks traffic or fare apps often.</p>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 6: Personas -->
+<div class="section-title">
+  <h2>👤 Creating Personas</h2>
+  <p>(Bringing User Archetypes to Life)</p>
+</div>
+
+<div class="about">
+  <div class="left">
+    <p>Personas are composite characters that represent different user types who might use your product in similar ways. They help teams understand and empathize with the users they're designing for, making abstract data concrete and memorable.</p>
+  </div>
+</div>
+
+<div class="activity">
+  <h2>Activity 3: From Quotes to Personas</h2>
+  <div class="activity-content">
+    <div class="left">
+      <p><strong>Brief:</strong></p>
+      <p>Review the following quotes from interviews about commuting</p>
+      <ul>
+        <li>"I leave by 8 am and need something predictable. I prefer booking through an app, even if it's slightly expensive. I don't want to bargain with auto drivers. Also, I feel safer knowing the driver details are on the app."</li>
+        <li>"I use my scooter most of the time. But when it rains or when I need to carry stuff, I take a local auto. I prefer calling my usual auto anna directly. He knows my timings."</li>
+        <li>"I travel 2–3 times a week, mostly mid-day. I check both Ola and Uber, but often there's no availability or surge pricing. Sometimes I call a local cab guy I know."</li>
+        <li>"We usually take share-autos or buses. It's cheap and we don't mind waiting. If we're going out in a group, we pool in for a cab. I don't use apps much unless I'm traveling late."</li>
+        <li>"I don't use smartphones for booking. I usually call my neighbor's son to drop me or take a taxi from the stand. I don't like talking to new drivers."</li>
+      </ul>
+      
+      <p><strong>Task:</strong></p>
+      <ol>
+        <li>Identify common patterns or user types from these quotes</li>
+        <li>Create a persona for one user type you identify</li>
+        <li>Include their goals, frustrations, and behaviors</li>
+      </ol>
+    </div>
+    <div class="right">
+      <p class="highlight">Time: 15 minutes</p>
+      <p class="highlight">Deliverable: One complete persona</p>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">
+  <h3>Example Personas</h3>
+</div>
+
+<div class="persona">
+  <h3>Ramya – The App-First Commuter</h3>
+  <div class="details">
+    <p><strong>Age:</strong> 26</p>
+    <p><strong>Occupation:</strong> Software Developer</p>
+  </div>
+  <br>
+  <h4>🟢 Goals:</h4>
+  <ul>
+    <li>Quick, predictable, and safe daily commute</li>
+    <li>Minimal interaction or negotiation</li>
+  </ul>
+  <br>
+  <h4>🔴 Frustrations:</h4>
+  <ul>
+    <li>Bargaining with local drivers</li>
+    <li>Unreliable driver behavior</li>
+  </ul>
+  <br>
+  <h4>🚕 Commuting Behavior:</h4>
+  <ul>
+    <li>Always uses ride-hailing apps</li>
+    <li>Willing to pay extra for convenience and safety</li>
+    <li>Prioritizes digital trust (e.g., knowing driver details)</li>
+  </ul>
+  <br>
+  <h4>🔧 How Might We Questions:</h4>
+  <ul class="hmw-list">
+    <li>How might we make digital bookings more transparent and stress-free?</li>
+    <li>How might we ensure a consistent and trusted driver experience for app users?</li>
+    <li>How might we build features that eliminate the need for fare negotiation?</li>
+  </ul>
+</div>
+
+<div class="persona">
+  <h3>Sundar – The Relationship-Based Local Rider</h3>
+  <div class="details">
+    <p><strong>Age:</strong> 41</p>
+    <p><strong>Occupation:</strong> Small Business Owner</p>
+  </div>
+  
+  <h4>🟢 Goals:</h4>
+  <ul>
+    <li>Reliable, on-time transport</li>
+    <li>Minimal effort in coordinating rides</li>
+  </ul>
+  <br>
+  <h4>🔴 Frustrations:</h4>
+  <ul>
+    <li>Unfamiliar drivers</li>
+    <li>Having to repeat instructions or locations</li>
+  </ul>
+  <br>
+  <h4>🚕 Commuting Behavior:</h4>
+  <ul>
+    <li>Uses personal contacts (known auto drivers)</li>
+    <li>Switches to local autos or taxis when needed</li>
+    <li>Values familiarity and routine</li>
+  </ul>
+  <br>
+  <h4>🔧 How Might We Questions:</h4>
+  <ul class="hmw-list">
+    <li>How might we let users book their regular/local driver more easily?</li>
+    <li>How might we help drivers remember recurring users' preferences?</li>
+    <li>How might we create a seamless way to mix tech convenience with local trust?</li>
+  </ul>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 7: Preparing for Next Week -->
+<div class="section-title">
+  <h2>🛠️ Working Session & Prep Check</h2>
+  <p>(45–60 minutes)</p>
+</div>
+
+<div class="activity">
+  <h2>Project Status Roundtable</h2>
+  <div class="activity-content">
+    <div class="left">
+      <p><strong>Brief:</strong></p>
+      <p>Share your current project status with your group to get feedback and identify gaps before next week's deep dive.</p>
+      
+      <p><strong>Task:</strong></p>
+      <ol>
+        <li>Report on the number of interviews or data sources you have</li>
+        <li>Describe the format of your notes (quotes, behaviors, etc.)</li>
+        <li>Share any patterns you've already noticed</li>
+      </ol>
+    </div>
+    <div class="right">
+      <p class="highlight">Time: 10-15 minutes</p>
+      <p class="highlight">Deliverable: Verbal status update</p>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">
+  <h3>Is Your Research Ready for Synthesis?</h3>
+</div>
+
+<ul class="checklist">
+  <li>At least 2–3 user interviews or data points</li>
+  <li>Raw notes are written clearly</li>
+  <li>Patterns or repeat behaviors spotted</li>
+  <li>Quotes and observations separated</li>
+  <li>Notes organized (Affinity map-friendly)</li>
+</ul>
+
+<div class="section-title">
+  <h3>🗓️ Next Week: Synthesis Deep Dive</h3>
+</div>
+
+<div class="synthesis-container">
+  <div class="synthesis-card">
+    <h3>Next Saturday: Practice Day</h3>
+    <div class="synthesis-description">
+      <p>Practice synthesis methods with structured activities and new data sets.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Next Sunday: Project Day</h3>
+    <div class="synthesis-description">
+      <p>Apply synthesis to your research. Generate themes, insights, and HMWs from your own data.</p>
+    </div>
+  </div>
+</div>
+
+<div class="key-point">
+  <p>Come with clean, organized research. That way, you'll get the most out of synthesis week.</p>
+</div>
+
+<div class="line"></div>
+
+<div class="conclusion">
+  <div class="left">
+    <h2>Key Takeaways</h2>
+    <ul>
+      <li>Synthesis transforms raw research into actionable insights</li>
+      <li>Affinity mapping helps identify patterns and themes across user data</li>
+      <li>Empathy mapping deepens understanding of user perspectives</li>
+      <li>Personas humanize data and create shared understanding</li>
+      <li>Well-structured research is essential for effective synthesis</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
