@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="assets/reset.css" rel="stylesheet">
+<link href="assets/style.css" rel="stylesheet">
+<title>UX Synthesis Activities</title>
+<style>
+li {
+  list-style-type: disc;
+}
+
+.section-title {
+  margin-bottom: 4vh;
+}
+
+.section-title p {
+  font-style: italic;  
+  font-weight: 300;
+  margin-top: 1vh;
+}
+
+.quote-desktop {
+  display: none;
+}
+
+.quote-mobile {
+  font-style: italic;
+  margin: 4vh 0;
+  font-size: 20px;
+  line-height: 1.3;
+  color: blue;
+}
+
+.synthesis-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2vh;
+  margin-bottom: 6vh;
+}
+
+.synthesis-card {
+  border: 0.5px solid #000;
+  padding: 2vh;
+  transition: all 0.3s ease;
+}
+
+.synthesis-card h3 {
+  margin-bottom: 1vh;
+  font-weight: normal;
+}
+
+.synthesis-description {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.activity {
+  margin: 6vh 0;
+}
+
+.activity h2 {
+  margin-bottom: 3vh;
+}
+
+.activity-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-content .left {
+  margin-bottom: 3vh;
+}
+
+.activity-content ol {
+  margin-top: 2vh;
+  margin-left: 2vh;
+}
+
+.activity-content ol li {
+  margin-bottom: 1vh;
+}
+
+.highlight {
+  font-style: italic;
+  color: blue;
+  margin-bottom: 1vh;
+}
+
+.quadrant-container {
+  margin: 4vh 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: 2vh;
+}
+
+.quadrant {
+  border: 1px solid #000;
+  padding: 2vh;
+  margin-bottom: 2vh;
+}
+
+.quadrant h4 {
+  font-weight: bold;
+  margin-bottom: 1vh;
+}
+
+.persona {
+  margin: 4vh 0;
+  border: 1px solid #000;
+  padding: 2vh;
+}
+
+.persona h3 {
+  margin-bottom: 1vh;
+}
+
+.persona .details {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  margin-bottom: 2vh;
+}
+
+.persona .details p {
+  margin: 0;
+}
+
+.hmw-list {
+  margin-top: 2vh;
+}
+
+.hmw-list li {
+  margin-bottom: 1vh;
+}
+
+.image-placeholder {
+  background-color: white;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10vh;
+  object-fit: cover;
+}
+
+.image-placeholder img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 2vh;
+}
+
+h2 {
+  line-height: 1.1;
+}
+
+.key-point {
+  background-color: #f8f8f8;
+  padding: 2vh;
+  margin: 3vh 0;
+  border-left: 4px solid blue;
+}
+
+.checklist li {
+  margin-bottom: 1vh;
+  list-style-type: none;
+  position: relative;
+  padding-left: 2vh;
+}
+
+.checklist li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: green;
+}
+
+/* Added style for better spacing of brief/task titles */
+strong {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 1.5vh;
+}
+
+.activity-content .left p strong {
+  margin-top: 2vh;
+}
+
+.activity-content .left p:first-child strong {
+  margin-top: 0;
+}
+
+/* Ensure proper spacing after brief/task sections */
+.activity-content .left p {
+  margin-bottom: 2vh;
+}
+
+/* Accordion styles for Week 6 */
+.accordion {
+  margin-bottom: 2vh;
+}
+
+.accordion-header {
+  background-color: #f0f0f0;
+  padding: 1.5vh;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-header:after {
+  content: "+";
+  font-size: 1.2em;
+}
+
+.accordion-header.active:after {
+  content: "-";
+}
+
+.accordion-content {
+  padding: 2vh;
+  border: 1px solid #ddd;
+  border-top: none;
+  display: none;
+}
+
+.accordion-content.show {
+  display: block;
+}
+
+/* Example box styles */
+.example-box {
+  background-color: #f8f8f8;
+  padding: 2vh;
+  border-left: 3px solid #007bff;
+  margin: 2vh 0;
+}
+
+.example-box h4 {
+  margin-bottom: 1vh;
+  color: #007bff;
+}
+
+.example-comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  margin: 2vh 0;
+}
+
+.example-item {
+  padding: 1vh;
+}
+
+.vague {
+  border-left: 3px solid #ff6b6b;
+}
+
+.sharp {
+  border-left: 3px solid #51cf66;
+}
+
+@media screen and (min-width: 768px) {
+  /* Profile photo */
+  .image-placeholder img {
+    margin-bottom: 0;
+    max-width: 300px;
+  }
+
+  .image-placeholder {
+  background-color: white;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10vh;
+  object-fit: cover;
+}
+
+  .left {
+    flex: 70%;
+  }
+
+  /* Synthesis grid */
+  .synthesis-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3vh 3vh;
+  }
+
+  /* Card hover effect */
+  .synthesis-card:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Activity layout */
+  .activity-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .activity-content .left {
+    width: 60%;
+    margin-right: 5%;
+    margin-bottom: 0;
+  }
+
+  .activity-content .right {
+    width: 35%;
+    align-self: flex-start;
+  }
+
+  /* Quadrant layout */
+  .quadrant-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  /* Examples layout */
+  .example {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .example .left {
+    width: 60%;
+    margin-right: 5%;
+    margin-bottom: 0;
+  }
+
+  .example .right {
+    width: 35%;
+  }
+
+  /* Example comparison for desktop */
+  .example-comparison {
+    flex-direction: row;
+  }
+
+  .example-item {
+    width: 48%;
+  }
+
+  /* Larger synthesis cards grid for larger screens */
+  @media screen and (min-width: 1024px) {
+    .synthesis-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Accordion functionality
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const content = this.nextElementSibling;
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+        } else {
+          content.style.display = 'block';
+        }
+      });
+    });
+
+    // Emoji animation on scroll (simple version)
+    const emojis = ['🍕', '🍔', '🍜', '🍣', '🍩', '🍦', '🍎', '🥗'];
+    window.addEventListener('scroll', function() {
+      if (Math.random() > 0.9) {
+        const emoji = document.createElement('div');
+        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.style.position = 'fixed';
+        emoji.style.left = Math.random() * window.innerWidth + 'px';
+        emoji.style.top = '-50px';
+        emoji.style.fontSize = '24px';
+        emoji.style.animation = 'fall 5s linear forwards';
+        document.body.appendChild(emoji);
+        
+        setTimeout(() => {
+          document.body.removeChild(emoji);
+        }, 5000);
+      }
+    });
+  });
+  
+  // CSS animation for falling emojis
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes fall {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(${window.innerHeight + 100}px);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+</head>
+<body>
+<div class="hero">
+  <div class="left">
+    <h1>Synthesis In Action</h1>
+    <p>Week 6, UI/UX Design - Applied Synthesis Methods</p>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<!-- Introduction Section - Only about Vadivelu -->
+<div class="section-title">
+  <h2>👋 Meet Vadivelu</h2>
+</div>
+
+<div class="about">
+  <div class="left">
+    <p>Vadivelu is going to take us through how UI and UX design connects and why from a UI designer perspective, strong UX foundation is important.</p>
+  </div>
+  <div class="right">
+    <!-- Profile photo instead of quote -->
+    <div class="image-placeholder">
+      <img src="assets/image/vadivelu.jpeg" alt="Vadivelu">
+    </div>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<!-- Today's Session as part of the next section -->
+<div class="section-title">
+  <h2>🍽️ Food Experience Synthesis</h2>
+  <p>(Today's Fun Session)</p>
+</div>
+
+<div class="about">
+  <div class="left">
+    <p>Today is a fun session! Before we start individually synthesizing our work tomorrow, let's try and explore different methods of synthesis through some fun activities. And today we explore the world of Food!</p>
+  </div>
+</div>
+
+<!-- Activity 1 -->
+<div class="section-title">
+  <h2>🧩 Activity 1: Problem Dump & Thematic Clustering</h2>
+  <p>(Finding Patterns in Food Experiences)</p>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">Activity Description</div>
+  <div class="accordion-content">
+    <div class="activity-content">
+      <div class="left">
+        <p><strong>Step 1: Individual Problem Writing (7–8 mins)</strong></p>
+        <p>Write down all problems you experience in the world of food. Don't restrict yourself, this could be ordering, eating at a restaurant, sourcing ingredients, anything. Could be problems you've faced or seen someone face.</p>
+        <p>Be specific and personal (what annoyed, confused, or slowed them down).</p>
+        
+        <p><strong>Step 2: Group-Level Thematic Clustering (7–8 mins)</strong></p>
+        <p>Cluster these problems under broad experience stages or themes: (for ex, Discovery/Info search, Booking & Checkout, Payment Flow, Trust/Security, Error Handling, Customer Support and others.)</p>
+      </div>
+      <div class="right">
+        <p class="highlight">Time: 15-16 minutes</p>
+        <p class="highlight">Deliverable: Problem clusters</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">
+  <h3>Key Takeaways</h3>
+</div>
+
+<div class="synthesis-container">
+  <div class="synthesis-card">
+    <h3>Problems are More Powerful When Specific</h3>
+    <div class="synthesis-description">
+      <p>The more contextual your problem, the better the design response can be.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Multiple Problems in One Experience</h3>
+    <div class="synthesis-description">
+      <p>By dumping raw problems, we begin to see how friction builds up across a journey — not just in one screen or step.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Themes Reveal Patterns, Not Just Categories</h3>
+    <div class="synthesis-description">
+      <p>Grouping similar problems makes it easier to see recurring pain points and broader opportunity spaces.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Solutions Should Not Come Immediately</h3>
+    <div class="synthesis-description">
+      <p>Letting solutions emerge after grouping problems encourages problem framing before problem-solving.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Everyone's Problems Are Different</h3>
+    <div class="synthesis-description">
+      <p>This builds empathy: you're not designing for "users" — you're designing for different people with different contexts.</p>
+    </div>
+  </div>
+</div>
+
+<div class="example-comparison">
+  <div class="example-item vague">
+    <h4>Vague Problem:</h4>
+    <p>"The app is confusing."</p>
+  </div>
+  <div class="example-item sharp">
+    <h4>Sharp Problem:</h4>
+    <p>"I couldn't find where to check if my booking was confirmed."</p>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<!-- Activity 2 -->
+<div class="section-title">
+  <h2>🧠 Activity 2: Insight Mining</h2>
+  <p>(From Problems to Deeper Understanding)</p>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">Activity Description</div>
+  <div class="accordion-content">
+    <div class="activity-content">
+      <div class="left">
+        <p><strong>Goal:</strong> Turn raw problems into insight statements.</p>
+        <p>Pick 1–2 clusters from the board.</p>
+        <p>Write multiple insight statements in the format:</p>
+        <p><em>"Users feel ___ because ___."</em></p>
+        <p>Try to write insights that are non-obvious or reveal a deeper frustration.</p>
+        
+        <p><strong>Examples:</strong></p>
+        <ul>
+          <li>"Users feel uncertain when booking trains because they don't understand what class/seat type gives them comfort for long journeys."</li>
+          <li>"Users worry about whether the payment went through because they receive no confirmation but the money is deducted."</li>
+        </ul>
+      </div>
+      <div class="right">
+        <p class="highlight">Time: 20 minutes</p>
+        <p class="highlight">Deliverable: Insight statements</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">
+  <h3>Key Takeaways</h3>
+</div>
+
+<div class="synthesis-container">
+  <div class="synthesis-card">
+    <h3>Insights Are Explanations, Not Observations</h3>
+    <div class="synthesis-description">
+      <p>Insights explain why a behavior or problem is happening, not just what is happening.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Great Insights Are Specific and Generative</h3>
+    <div class="synthesis-description">
+      <p>A good insight feels like both a revelation and a doorway to design solutions.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>You Surface Insights From Patterns</h3>
+    <div class="synthesis-description">
+      <p>Repeated frustrations across different users or scenarios often signal a deeper unmet need or assumption.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Insights Are Not UI-Specific</h3>
+    <div class="synthesis-description">
+      <p>They should be emotional, motivational, or behavioral rather than focused on interface elements.</p>
+    </div>
+  </div>
+</div>
+
+<div class="example-comparison">
+  <div class="example-item vague">
+    <h4>Observation:</h4>
+    <p>"People abandon booking midway"</p>
+  </div>
+  <div class="example-item sharp">
+    <h4>Insight:</h4>
+    <p>"People feel unsure if their payment went through, so they drop off"</p>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<!-- Activity 3 -->
+<div class="section-title">
+  <h2>🎯 Activity 3: JTBD Builder</h2>
+  <p>(Jobs To Be Done Framework)</p>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">Activity Description</div>
+  <div class="accordion-content">
+    <div class="activity-content">
+      <div class="left">
+        <p><strong>What is JTBD?</strong></p>
+        <p>Jobs To Be Done is a framework that shifts focus from what users are doing to why they're doing it. Instead of asking: "What features do users want?" We ask: "What job is the user hiring this product to do in their life?"</p>
+        
+        <p><strong>Goal:</strong> Practice job framing from insight.</p>
+        <p>For each insight, write a Jobs To Be Done sentence:</p>
+        <p><em>"When I [situation], I want to [motivation] so that I can [expected outcome]."</em></p>
+        <p>Encourage realistic, relatable scenarios.</p>
+        
+        <p><strong>Example:</strong></p>
+        <p>"When I'm booking a train at night for an emergency, I want to quickly know which seats are available so that I don't waste time and miss my window."</p>
+      </div>
+      <div class="right">
+        <p class="highlight">Time: 15 minutes</p>
+        <p class="highlight">Deliverable: JTBD statements</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">
+  <h3>Key Takeaways</h3>
+</div>
+
+<div class="synthesis-container">
+  <div class="synthesis-card">
+    <h3>It's Grounded in Real-Life Goals</h3>
+    <div class="synthesis-description">
+      <p>You design for what matters to users, not just what's broken in the UI.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>It Helps Uncover Unmet Needs</h3>
+    <div class="synthesis-description">
+      <p>People don't always say what they need, but JTBD helps you find the underlying intent behind their actions.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>It's More Future-Proof</h3>
+    <div class="synthesis-description">
+      <p>Tech changes, but human jobs (like feeling secure, saving time, staying informed) stay consistent.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>It Bridges User and Business Goals</h3>
+    <div class="synthesis-description">
+      <p>When you know the job, you can build better solutions and make a stronger case for them to stakeholders.</p>
+    </div>
+  </div>
+</div>
+
+<div class="key-point">
+  <p>"JTBD focuses on the progress a person is trying to make in a particular circumstance rather than on the product they might use to get there."</p>
+</div>
+
+<div class="line"></div>
+
+<!-- Activity 4 -->
+<div class="section-title">
+  <h2>💡 Activity 4: Problem → HMW Flip</h2>
+  <p>(How Might We Questions)</p>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">Activity Description</div>
+  <div class="accordion-content">
+    <div class="activity-content">
+      <div class="left">
+        <p><strong>Goal:</strong> Frame insights into design challenges.</p>
+        <p>Take top JTBDs or pain points and turn them into HMWs:</p>
+        <p><em>"How might we help users [goal] even when [constraint]?"</em></p>
+        <p>Encourage multiple HMWs per problem — one practical, one aspirational, one weird/fun.</p>
+        
+        <p><strong>Examples:</strong></p>
+        <ul>
+          <li>"How might we help users feel confident their payment went through even when the app crashes?"</li>
+          <li>"How might we make booking a train feel like planning a vacation?"</li>
+        </ul>
+      </div>
+      <div class="right">
+        <p class="highlight">Time: 15 minutes</p>
+        <p class="highlight">Deliverable: HMW questions</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">
+  <h3>Types of HMW Questions</h3>
+</div>
+
+<div class="synthesis-container">
+  <div class="synthesis-card">
+    <h3>Practical HMWs</h3>
+    <div class="synthesis-description">
+      <p>Focus on feasible solutions to immediate problems.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Aspirational HMWs</h3>
+    <div class="synthesis-description">
+      <p>Explore ideal scenarios without immediate constraints.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Creative HMWs</h3>
+    <div class="synthesis-description">
+      <p>Generate unexpected or novel approaches to problems.</p>
+    </div>
+  </div>
+</div>
+
+<div class="quadrant-container">
+  <div class="quadrant">
+    <h4>Practical HMW</h4>
+    <p>"How might we help users confirm their order status even when notifications fail?"</p>
+  </div>
+  
+  <div class="quadrant">
+    <h4>Aspirational HMW</h4>
+    <p>"How might we make grocery shopping feel like a personalized cooking show experience?"</p>
+  </div>
+  
+  <div class="quadrant">
+    <h4>Creative HMW</h4>
+    <p>"How might we turn food delivery tracking into a game that reduces anxiety?"</p>
+  </div>
+  
+  <div class="quadrant">
+    <h4>Constraint-Focused HMW</h4>
+    <p>"How might we help users discover new recipes even when they have limited ingredients?"</p>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<!-- Tomorrow's Session -->
+<div class="section-title">
+  <h2>🗓️ Tomorrow: Individual Synthesis</h2>
+  <p>(Applying Methods to Your Research)</p>
+</div>
+
+<div class="about">
+  <div class="left">
+    <p>Get ready to get into some real synthesis tomorrow! We'll be applying these methods to your actual research data.</p>
+  </div>
+</div>
+
+<div class="synthesis-container">
+  <div class="synthesis-card">
+    <h3>Apply Affinity Mapping</h3>
+    <div class="synthesis-description">
+      <p>Cluster your research data into meaningful groups.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Extract Key Insights</h3>
+    <div class="synthesis-description">
+      <p>Use the "Users feel ___ because ___" format to articulate deeper patterns.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Create JTBD Statements</h3>
+    <div class="synthesis-description">
+      <p>Express user needs in terms of situations, motivations, and outcomes.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Frame as HMW Questions</h3>
+    <div class="synthesis-description">
+      <p>Turn insights into actionable design challenges.</p>
+    </div>
+  </div>
+</div>
+
+<div class="key-point">
+  <p>Come prepared with your research data organized and ready for synthesis. Good luck! 🙂</p>
+</div>
+
+<div class="line"></div>
+
+<div class="conclusion">
+  <div class="left">
+    <h2>Key Takeaways</h2>
+    <ul>
+      <li>Specific problems lead to better solutions than vague ones</li>
+      <li>Insights explain the "why" behind user behavior</li>
+      <li>Jobs To Be Done framework focuses on user goals, not just features</li>
+      <li>HMW questions transform problems into design opportunities</li>
+      <li>Synthesis is about finding patterns across individual experiences</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
