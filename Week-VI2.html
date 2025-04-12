@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="assets/reset.css" rel="stylesheet">
+<link href="assets/style.css" rel="stylesheet">
+<title>Competitor Analysis & Benchmarking</title>
+<style>
+li {
+  list-style-type: disc;
+}
+
+.section-title {
+  margin-bottom: 4vh;
+}
+
+.section-title p {
+  font-style: italic;  
+  font-weight: 300;
+  margin-top: 1vh;
+}
+
+.quote-desktop {
+  display: none;
+}
+
+.quote-mobile {
+  font-style: italic;
+  margin: 4vh 0;
+  font-size: 20px;
+  line-height: 1.3;
+  color: blue;
+}
+
+.synthesis-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2vh;
+  margin-bottom: 6vh;
+}
+
+.synthesis-card {
+  border: 0.5px solid #000;
+  padding: 2vh;
+  transition: all 0.3s ease;
+}
+
+.synthesis-card h3 {
+  margin-bottom: 1vh;
+  font-weight: normal;
+}
+
+.synthesis-description {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.activity {
+  margin: 6vh 0;
+}
+
+.activity h2 {
+  margin-bottom: 3vh;
+}
+
+.activity-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-content .left {
+  margin-bottom: 3vh;
+}
+
+.activity-content ol {
+  margin-top: 2vh;
+  margin-left: 2vh;
+}
+
+.activity-content ol li {
+  margin-bottom: 1vh;
+}
+
+.highlight {
+  font-style: italic;
+  color: blue;
+  margin-bottom: 1vh;
+}
+
+.quadrant-container {
+  margin: 4vh 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: 2vh;
+}
+
+.quadrant {
+  border: 1px solid #000;
+  padding: 2vh;
+  margin-bottom: 2vh;
+}
+
+.quadrant h4 {
+  font-weight: bold;
+  margin-bottom: 1vh;
+}
+
+.persona {
+  margin: 4vh 0;
+  border: 1px solid #000;
+  padding: 2vh;
+}
+
+.persona h3 {
+  margin-bottom: 1vh;
+}
+
+.persona .details {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  margin-bottom: 2vh;
+}
+
+.persona .details p {
+  margin: 0;
+}
+
+.hmw-list {
+  margin-top: 2vh;
+}
+
+.hmw-list li {
+  margin-bottom: 1vh;
+}
+
+.image-placeholder {
+  background-color: #f0f0f0;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2vh;
+  object-fit: cover;
+}
+
+h2 {
+  line-height: 1.1;
+}
+
+.key-point {
+  background-color: #f8f8f8;
+  padding: 2vh;
+  margin: 3vh 0;
+  border-left: 4px solid blue;
+}
+
+.checklist li {
+  margin-bottom: 1vh;
+  list-style-type: none;
+  position: relative;
+  padding-left: 2vh;
+}
+
+.checklist li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: green;
+}
+
+/* Added style for better spacing of brief/task titles */
+strong {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 1.5vh;
+}
+
+.activity-content .left p strong {
+  margin-top: 2vh;
+}
+
+.activity-content .left p:first-child strong {
+  margin-top: 0;
+}
+
+/* Ensure proper spacing after brief/task sections */
+.activity-content .left p {
+  margin-bottom: 2vh;
+}
+
+/* Added table styles for benchmarking table */
+.benchmark-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 4vh 0;
+}
+
+.benchmark-table th, .benchmark-table td {
+  border: 1px solid #ccc;
+  padding: 1.5vh;
+  text-align: left;
+}
+
+.benchmark-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.benchmark-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+@media screen and (min-width: 768px) {
+  /* Quote */
+  .quote-mobile {
+    display: none;
+  }
+
+  .quote-desktop {
+    display: block;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.3;
+    color: blue;
+  }
+
+  .left {
+    flex: 70%;
+  }
+
+  /* Synthesis grid */
+  .synthesis-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3vh 3vh;
+  }
+
+  /* Card hover effect */
+  .synthesis-card:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Activity layout */
+  .activity-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .activity-content .left {
+    width: 60%;
+    margin-right: 5%;
+    margin-bottom: 0;
+  }
+
+  .activity-content .right {
+    width: 35%;
+    align-self: flex-start;
+  }
+
+  /* Quadrant layout */
+  .quadrant-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  /* Examples layout */
+  .example {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .example .left {
+    width: 60%;
+    margin-right: 5%;
+    margin-bottom: 0;
+  }
+
+  .example .right {
+    width: 35%;
+  }
+
+  /* Competitor grid layout */
+  .competitor-types {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3vh;
+    margin: 4vh 0;
+  }
+
+  .competitor-type {
+    border: 1px solid #000;
+    padding: 2vh;
+  }
+
+  /* Larger synthesis cards grid for larger screens */
+  @media screen and (min-width: 1024px) {
+    .synthesis-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="left">
+    <h1>Learning from the Competition</h1>
+    <p>Week 6, UI/UX Design - Competitive Research & Discovery Reports</p>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<!-- Quote for mobile view -->
+<div class="quote-mobile">
+  "It's not just about what your competitors are doing — it's about why they're doing it."
+</div>
+
+<!-- SECTION 1: What is Competitor Analysis -->
+<div class="section-title">
+  <h2>💡 What is Competitor Analysis?</h2>
+  <p>(Learning from existing solutions in the marketplace)</p>
+</div>
+
+<div class="about">
+  <div class="left">
+    <p>Competitor analysis is the process of studying companies that offer similar products or services to understand their strengths, weaknesses, user experience patterns, and business strategies. It helps us identify industry standards, understand user expectations, spot opportunities to differentiate, and learn from others' successes and mistakes.</p>
+  </div>
+  <div class="right">
+    <!-- Quote for desktop view -->
+    <p class="quote-desktop">"It's not just about what your competitors are doing — it's about why they're doing it."</p>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 2: Why Do We Analyze Competitors -->
+<div class="section-title">
+  <h2>🔍 Why Do We Analyze Competitors?</h2>
+  <p>(Finding opportunities by understanding the landscape)</p>
+</div>
+
+<div class="synthesis-container">
+  <div class="synthesis-card">
+    <h3>To Learn From What Works (And What Doesn't)</h3>
+    <div class="synthesis-description">
+      <p>Save time by building on proven solutions rather than reinventing the wheel.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>To Uncover Gaps We Can Uniquely Fill</h3>
+    <div class="synthesis-description">
+      <p>Identify opportunities in the market that competitors aren't addressing.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>To Build Better Products By Design, Not Just Instinct</h3>
+    <div class="synthesis-description">
+      <p>Make informed decisions based on evidence rather than assumptions.</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>To Help Align Business + User Expectations</h3>
+    <div class="synthesis-description">
+      <p>Create realistic benchmarks that balance innovation with familiarity.</p>
+    </div>
+  </div>
+</div>
+
+<div class="key-point">
+  <h4>Real-World Examples</h4>
+  <p>Instagram borrowed from Snapchat → better onboarding & story features</p>
+  <p>Airbnb simplified flows after benchmarking e-commerce sites</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 3: Types of Competitors -->
+<div class="section-title">
+  <h2>🏆 Types of Competitors</h2>
+  <p>(Different perspectives for your analysis)</p>
+</div>
+
+<div class="competitor-types">
+  <div class="competitor-type">
+    <h3>Direct Competitors</h3>
+    <p>Offer the same service/product to the same audience</p>
+    <div class="synthesis-description">
+      <p>Example: Red Taxi vs. Ola</p>
+    </div>
+  </div>
+  <div class="competitor-type">
+    <h3>Indirect Competitors</h3>
+    <p>Target same users with different solutions</p>
+    <div class="synthesis-description">
+      <p>Example: Red Taxi vs. Zoomcar</p>
+    </div>
+  </div>
+  <div class="competitor-type">
+    <h3>Aspirational Benchmarks</h3>
+    <p>Not competitors, but amazing UX to learn from</p>
+    <div class="synthesis-description">
+      <p>Example: Apple, Tesla, Airbnb</p>
+    </div>
+  </div>
+</div>
+
+<div class="quote-mobile">
+  "Don't just look at what they do — look at how they do it."
+</div>
+
+<div class="quote-desktop">
+  "Don't just look at what they do — look at how they do it."
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 4: What is Benchmarking -->
+<div class="section-title">
+  <h2>📊 What is Benchmarking?</h2>
+  <p>(Comparing specific features and metrics)</p>
+</div>
+
+<div class="about">
+  <div class="left">
+    <p>Benchmarking is the act of comparing specific features, flows, or metrics from different competitors to evaluate how your product stacks up. You can benchmark things like onboarding time, number of steps in a checkout flow, visual consistency or loading speed, language tone and clarity, and conversion rates (if data is available).</p>
+  </div>
+</div>
+
+<table class="benchmark-table">
+  <tr>
+    <th>Dimension</th>
+    <th>What to Look For</th>
+  </tr>
+  <tr>
+    <td>Onboarding</td>
+    <td>Clarity, steps, friction points</td>
+  </tr>
+  <tr>
+    <td>Navigation</td>
+    <td>Menus, filters, search</td>
+  </tr>
+  <tr>
+    <td>Visual Design</td>
+    <td>Consistency, accessibility, branding</td>
+  </tr>
+  <tr>
+    <td>Language & Tone</td>
+    <td>Friendly, formal, localised?</td>
+  </tr>
+  <tr>
+    <td>Microinteractions</td>
+    <td>Feedback on actions? Delight moments?</td>
+  </tr>
+  <tr>
+    <td>Conversion Path</td>
+    <td>Checkout / booking / contact ease</td>
+  </tr>
+  <tr>
+    <td>Performance</td>
+    <td>Page speed, responsiveness</td>
+  </tr>
+  <tr>
+    <td>Accessibility</td>
+    <td>Color contrast, keyboard nav</td>
+  </tr>
+</table>
+
+<div class="section-title">
+  <h3>Tools to Use:</h3>
+</div>
+
+<div class="synthesis-container">
+  <div class="synthesis-card">
+    <h3>Loom</h3>
+    <div class="synthesis-description">
+      <p>For recording user flows and interactions</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Figma</h3>
+    <div class="synthesis-description">
+      <p>For UI teardowns and visual comparisons</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Notion/Excel</h3>
+    <div class="synthesis-description">
+      <p>For creating comparison tables</p>
+    </div>
+  </div>
+
+  <div class="synthesis-card">
+    <h3>Nielsen's Heuristics</h3>
+    <div class="synthesis-description">
+      <p>For comprehensive UX audits</p>
+    </div>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 5: Tasks for Next Week -->
+<div class="section-title">
+  <h2>📅 Tasks for Next Week</h2>
+  <p>(Preparing for discovery reports)</p>
+</div>
+
+<div class="section-title">
+  <h3>1. Start Synthesis on Your Real Projects</h3>
+</div>
+
+<ul class="checklist">
+  <li>Look at your notes, research, and stakeholder inputs</li>
+  <li>Begin identifying key patterns, user pain points, and opportunities</li>
+  <li>Create affinity clusters or insight themes where needed</li>
+  <li>Start forming <em>How Might We</em> questions or opportunity areas</li>
+</ul>
+
+<div class="section-title">
+  <h3>2. Complete Competitor Analysis & Benchmarking</h3>
+</div>
+
+<ul class="checklist">
+  <li>Identify 3–5 relevant competitors per project</li>
+  <li>Audit 1–2 key flows per competitor (onboarding, booking, checkout, etc.)</li>
+  <li>Benchmark them using the template: What works, What doesn't, What we can borrow/avoid</li>
+  <li>Visualise your findings — screenshots, journey comparisons, or flow maps</li>
+</ul>
+
+<div class="key-point">
+  <p>We will put together a discovery report next week!</p>
+</div>
+
+<div class="line"></div>
+
+<div class="conclusion">
+  <div class="left">
+    <h2>Key Takeaways</h2>
+    <ul>
+      <li>Competitor analysis helps us understand the landscape and user expectations</li>
+      <li>Look at direct competitors, indirect competitors, and aspirational benchmarks</li>
+      <li>Benchmarking specific features lets us compare apples to apples</li>
+      <li>The goal is finding opportunities, not copying what already exists</li>
+      <li>Discovery reports combine user research and competitive analysis into actionable insights</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
