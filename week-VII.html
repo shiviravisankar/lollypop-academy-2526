@@ -5,656 +5,699 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="assets/reset.css" rel="stylesheet">
 <link href="assets/style.css" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap" rel="stylesheet">
 <title>Intro to Wireframing</title>
 <style>
-li {
-  list-style-type: disc;
+li 
+{
+list-style-type: disc;
 }
 
-.section-title {
-  margin-bottom: 4vh;
+.section-title 
+{
+margin-bottom: 4vh;
 }
 
-.section-title p {
-  font-style: italic;  
-  font-weight: 300;
-  margin-top: 1vh;
+.section-title p 
+{ 
+font-weight: 300;
+margin-top: 1vh;
 }
 
-.quote-desktop {
-  display: none;
+.quote-desktop 
+{
+display: none;
 }
 
-.quote-mobile {
-  font-style: italic;
-  margin: 4vh 0;
-  font-size: 20px;
-  line-height: 1.3;
-  color: blue;
+.quote-mobile 
+{
+margin: 4vh 0;
+font-size: 20px;
+line-height: 1.3;
+color: blue;
+}
+
+.synthesis-container 
+{
+display: grid;
+grid-template-columns: 1fr;
+gap: 2vh;
+margin-bottom: 6vh;
+}
+
+.synthesis-card 
+{
+border: 0.5px solid #000;
+padding: 2vh;
+transition: all 0.3s ease;
+}
+
+.synthesis-card h3 
+{
+margin-bottom: 1vh;
+font-weight: normal;
+}
+
+.synthesis-description 
+{
+font-weight: 300;
+}
+
+.activity 
+{
+margin: 6vh 0;
+}
+
+.activity h2 
+{
+margin-bottom: 3vh;
+}
+
+.activity-content 
+{
+display: flex;
+flex-direction: column;
+}
+
+.activity-content .left 
+{
+margin-bottom: 3vh;
+}
+
+.activity-content ol 
+{
+margin-top: 2vh;
+margin-left: 2vh;
+}
+
+.activity-content ol li 
+{
+margin-bottom: 1vh;
+}
+
+.highlight 
+{
+color: blue;
+margin-bottom: 1vh;
+}
+
+.quadrant-container 
+{
+margin: 4vh 0;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: auto auto;
+gap: 2vh;
+}
+
+.quadrant 
+{
+border: 1px solid #000;
+padding: 2vh;
+margin-bottom: 2vh;
+}
+
+.quadrant h4 
+{
+font-weight: bold;
+margin-bottom: 1vh;
+}
+
+.persona 
+{
+margin: 4vh 0;
+border: 1px solid #000;
+padding: 2vh;
+}
+
+.persona h3 
+{
+margin-bottom: 1vh;
+}
+
+.persona .details 
+{
+display: flex;
+flex-direction: column;
+gap: 1vh;
+margin-bottom: 2vh;
+}
+
+.persona .details p 
+{
+margin: 0;
+}
+
+.hmw-list 
+{
+margin-top: 2vh;
+}
+
+.hmw-list li 
+{
+margin-bottom: 1vh;
+}
+
+.image-placeholder 
+{
+background-color: #f0f0f0;
+height: 150px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 2vh;
+}
+
+h2 
+{
+line-height: 1.1;
+}
+
+.key-point 
+{
+background-color: #f8f8f8;
+padding: 2vh;
+margin: 3vh 0;
+border-left: 4px solid blue;
+}
+
+.checklist li 
+{
+margin-bottom: 1vh;
+list-style-type: none;
+position: relative;
+padding-left: 2vh;
+}
+
+.checklist li:before 
+{
+content: "✓";
+position: absolute;
+left: 0;
+color: green;
+}
+
+strong 
+{
+font-weight: bold;
+display: block;
+margin-bottom: 1.5vh;
+}
+
+.activity-content .left p strong 
+{
+margin-top: 2vh;
+}
+
+.activity-content .left p:first-child strong 
+{
+margin-top: 0;
+}
+
+.activity-content .left p 
+{
+margin-bottom: 2vh;
+}
+
+.wireframe-example 
+{
+border: 1px solid #ccc;
+padding: 2vh;
+margin-bottom: 3vh;
+}
+
+.fidelity-comparison 
+{
+display: grid;
+grid-template-columns: 1fr;
+gap: 2vh;
+margin-bottom: 4vh;
+}
+
+.fidelity-item 
+{
+border: 1px solid #000;
+padding: 2vh;
+}
+
+.fidelity-item h4 
+{
+margin-bottom: 1vh;
+font-weight: bold;
+}
+
+.do-dont-container 
+{
+display: grid;
+grid-template-columns: 1fr;
+gap: 3vh;
+margin: 4vh 0;
+}
+
+.do-dont 
+{
+padding: 2vh;
+}
+
+.do 
+{
+border: 1px solid green;
+}
+
+.dont 
+{
+border: 1px solid red;
+}
+
+.do h4 
+{
+color: green;
+}
+
+.dont h4 
+{
+color: red;
+}
+
+@media screen and (min-width: 768px) 
+{
+.quote-mobile 
+{
+display: none;
+}
+
+.quote-desktop 
+{
+display: block;
+font-size: 22px;
+line-height: 1.3;
+color: blue;
+}
+
+.left {
+flex: 70%;
 }
 
 .synthesis-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2vh;
-  margin-bottom: 6vh;
+grid-template-columns: repeat(2, 1fr);
+gap: 3vh 3vh;
 }
 
-.synthesis-card {
-  border: 0.5px solid #000;
-  padding: 2vh;
-  transition: all 0.3s ease;
-}
-
-.synthesis-card h3 {
-  margin-bottom: 1vh;
-  font-weight: normal;
-}
-
-.synthesis-description {
-  font-weight: 300;
-  font-style: italic;
-}
-
-.activity {
-  margin: 6vh 0;
-}
-
-.activity h2 {
-  margin-bottom: 3vh;
+.synthesis-card:hover {
+background-color: #f0f0f0;
 }
 
 .activity-content {
-  display: flex;
-  flex-direction: column;
+flex-direction: row;
+justify-content: space-between;
 }
 
 .activity-content .left {
-  margin-bottom: 3vh;
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
 }
 
-.activity-content ol {
-  margin-top: 2vh;
-  margin-left: 2vh;
-}
-
-.activity-content ol li {
-  margin-bottom: 1vh;
-}
-
-.highlight {
-  font-style: italic;
-  color: blue;
-  margin-bottom: 1vh;
+.activity-content .right {
+width: 35%;
+align-self: flex-start;
 }
 
 .quadrant-container {
-  margin: 4vh 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-  gap: 2vh;
-}
-
-.quadrant {
-  border: 1px solid #000;
-  padding: 2vh;
-  margin-bottom: 2vh;
-}
-
-.quadrant h4 {
-  font-weight: bold;
-  margin-bottom: 1vh;
-}
-
-.persona {
-  margin: 4vh 0;
-  border: 1px solid #000;
-  padding: 2vh;
-}
-
-.persona h3 {
-  margin-bottom: 1vh;
-}
-
-.persona .details {
-  display: flex;
-  flex-direction: column;
-  gap: 1vh;
-  margin-bottom: 2vh;
-}
-
-.persona .details p {
-  margin: 0;
-}
-
-.hmw-list {
-  margin-top: 2vh;
-}
-
-.hmw-list li {
-  margin-bottom: 1vh;
-}
-
-.image-placeholder {
-  background-color: #f0f0f0;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 2vh;
-}
-
-h2 {
-  line-height: 1.1;
-}
-
-.key-point {
-  background-color: #f8f8f8;
-  padding: 2vh;
-  margin: 3vh 0;
-  border-left: 4px solid blue;
-}
-
-.checklist li {
-  margin-bottom: 1vh;
-  list-style-type: none;
-  position: relative;
-  padding-left: 2vh;
-}
-
-.checklist li:before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: green;
-}
-
-strong {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 1.5vh;
-}
-
-.activity-content .left p strong {
-  margin-top: 2vh;
-}
-
-.activity-content .left p:first-child strong {
-  margin-top: 0;
-}
-
-.activity-content .left p {
-  margin-bottom: 2vh;
-}
-
-.wireframe-example {
-  border: 1px solid #ccc;
-  padding: 2vh;
-  margin-bottom: 3vh;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 1fr);
 }
 
 .fidelity-comparison {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2vh;
-  margin-bottom: 4vh;
-}
-
-.fidelity-item {
-  border: 1px solid #000;
-  padding: 2vh;
-}
-
-.fidelity-item h4 {
-  margin-bottom: 1vh;
-  font-weight: bold;
+grid-template-columns: repeat(3, 1fr);
 }
 
 .do-dont-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3vh;
-  margin: 4vh 0;
+grid-template-columns: repeat(2, 1fr);
 }
 
-.do-dont {
-  padding: 2vh;
+@media screen and (min-width: 1024px) {
+.synthesis-container {
+grid-template-columns: repeat(3, 1fr);
 }
-
-.do {
-  border: 1px solid green;
 }
-
-.dont {
-  border: 1px solid red;
-}
-
-.do h4 {
-  color: green;
-}
-
-.dont h4 {
-  color: red;
-}
-
-@media screen and (min-width: 768px) {
-  .quote-mobile {
-    display: none;
-  }
-
-  .quote-desktop {
-    display: block;
-    font-style: italic;
-    font-size: 22px;
-    line-height: 1.3;
-    color: blue;
-  }
-
-  .left {
-    flex: 70%;
-  }
-
-  .synthesis-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3vh 3vh;
-  }
-
-  .synthesis-card:hover {
-    background-color: #f0f0f0;
-  }
-
-  .activity-content {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .activity-content .left {
-    width: 60%;
-    margin-right: 5%;
-    margin-bottom: 0;
-  }
-
-  .activity-content .right {
-    width: 35%;
-    align-self: flex-start;
-  }
-
-  .quadrant-container {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-
-  .fidelity-comparison {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .do-dont-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media screen and (min-width: 1024px) {
-    .synthesis-container {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
 }
 </style>
 </head>
 <body>
 <div class="hero">
-  <div class="left">
-    <h1>Intro to Wireframing</h1>
-    <p>Week 7, UI/UX Design - Translating Insights into Structure</p>
-  </div>
+<div class="left">
+<h1>Intro to Wireframing</h1>
+<p>Week 7, UI/UX Design - Translating Insights into Structure</p>
+</div>
 </div>
 
 <div class="line"></div>
 
 <!-- Quote for mobile view -->
 <div class="quote-mobile">
-  "Wireframes are the architect's sketch before the interior designer steps in."
+"Wireframes are the architect's sketch before the interior designer steps in."
 </div>
 
 <!-- SECTION 1: What is Wireframing -->
 <div class="section-title">
-  <h2>🏗️ What is Wireframing?</h2>
-  <p>(The Blueprint of Digital Design)</p>
+<h2>🏗️ What is Wireframing?</h2>
+<p>(The Blueprint of Digital Design)</p>
 </div>
 
 <div class="about">
-  <div class="left">
-    <h3>🎯 <span style="color: gray;">Overview</span></h3>
-    <p>A wireframe is a low-fidelity visual guide that represents the skeletal framework of a digital product. Think of it like a blueprint for a house – it lays out structure without getting into color, branding, or visuals.</p>
-  </div>
-  <div class="right">
-    <!-- Quote for desktop view -->
-    <p class="quote-desktop">"Wireframes are the architect's sketch before the interior designer steps in."</p>
-  </div>
+<div class="left">
+<h3>🎯 <span style="color: gray;">Overview</span></h3>
+<p>A wireframe is a low-fidelity visual guide that represents the skeletal framework of a digital product. Think of it like a blueprint for a house – it lays out structure without getting into color, branding, or visuals.</p>
+</div>
+<div class="right">
+<!-- Quote for desktop view -->
+<p class="quote-desktop">"Wireframes are the architect's sketch before the interior designer steps in."</p>
+</div>
 </div>
 
 <div class="synthesis-container">
-  <div class="synthesis-card">
-    <h3>Low-Fidelity Structure</h3>
-    <div class="synthesis-description">
-      <p>Black, white, and gray elements that focus on layout and structure.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Low-Fidelity Structure</h3>
+<div class="synthesis-description">
+<p>Black, white, and gray elements that focus on layout and structure.</p>
+</div>
+</div>
 
-  <div class="synthesis-card">
-    <h3>Content Hierarchy</h3>
-    <div class="synthesis-description">
-      <p>Shows what information is most important and how elements relate.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Content Hierarchy</h3>
+<div class="synthesis-description">
+<p>Shows what information is most important and how elements relate.</p>
+</div>
+</div>
 
-  <div class="synthesis-card">
-    <h3>Interaction Framework</h3>
-    <div class="synthesis-description">
-      <p>Indicates basic functionality and user pathways without detailed design.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Interaction Framework</h3>
+<div class="synthesis-description">
+<p>Indicates basic functionality and user pathways without detailed design.</p>
+</div>
+</div>
 
-  <div class="synthesis-card">
-    <h3>Design Placeholder</h3>
-    <div class="synthesis-description">
-      <p>Acts as a canvas for eventual high-fidelity design assets and elements.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Design Placeholder</h3>
+<div class="synthesis-description">
+<p>Acts as a canvas for eventual high-fidelity design assets and elements.</p>
+</div>
+</div>
 </div>
 
 <div class="key-point">
-  <p>"Wireframes strip away visual distractions to focus on what truly matters: structure, hierarchy, and user flow. They help us think structurally before we think visually."</p>
+<p>"Wireframes strip away visual distractions to focus on what truly matters: structure, hierarchy, and user flow. They help us think structurally before we think visually."</p>
 </div>
 
 <div class="line"></div>
 
 <!-- SECTION 2: Why Wireframe -->
 <div class="section-title">
-  <h2>🧭 Why Wireframe?</h2>
-  <p>(The Critical Bridge in UX Design)</p>
+<h2>🧭 Why Wireframe?</h2>
+<p>(The Critical Bridge in UX Design)</p>
 </div>
 
 <div class="about">
-  <div class="left">
-    <p>Wireframing is one of the most critical early steps in the UX design process. It sits between ideation and visual design, acting as a bridge between strategy and execution.</p>
-  </div>
+<div class="left">
+<p>Wireframing is one of the most critical early steps in the UX design process. It sits between ideation and visual design, acting as a bridge between strategy and execution.</p>
+</div>
 </div>
 
 <div class="synthesis-container">
-  <div class="synthesis-card">
-    <h3>Clarity in Structure</h3>
-    <div class="synthesis-description">
-      <p>Defines information hierarchy, navigation flow, and content prioritization.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Clarity in Structure</h3>
+<div class="synthesis-description">
+<p>Defines information hierarchy, navigation flow, and content prioritization.</p>
+</div>
+</div>
 
-  <div class="synthesis-card">
-    <h3>Fast & Low-Cost Iteration</h3>
-    <div class="synthesis-description">
-      <p>Allows rapid changes without the emotional attachment to polished designs.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Fast & Low-Cost Iteration</h3>
+<div class="synthesis-description">
+<p>Allows rapid changes without the emotional attachment to polished designs.</p>
+</div>
+</div>
 
-  <div class="synthesis-card">
-    <h3>Shared Understanding</h3>
-    <div class="synthesis-description">
-      <p>Creates alignment between designers, developers, and non-technical stakeholders.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Shared Understanding</h3>
+<div class="synthesis-description">
+<p>Creates alignment between designers, developers, and non-technical stakeholders.</p>
+</div>
+</div>
 
-  <div class="synthesis-card">
-    <h3>Focus on Functionality</h3>
-    <div class="synthesis-description">
-      <p>Keeps discussions centered on user goals rather than visual aesthetics.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Focus on Functionality</h3>
+<div class="synthesis-description">
+<p>Keeps discussions centered on user goals rather than visual aesthetics.</p>
+</div>
+</div>
 
-  <div class="synthesis-card">
-    <h3>Better Decision-Making</h3>
-    <div class="synthesis-description">
-      <p>Validates concepts and catches usability issues before visual design begins.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Better Decision-Making</h3>
+<div class="synthesis-description">
+<p>Validates concepts and catches usability issues before visual design begins.</p>
+</div>
+</div>
 
-  <div class="synthesis-card">
-    <h3>Foundation for Design</h3>
-    <div class="synthesis-description">
-      <p>Provides a strong structural base that UI and development teams can build upon.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Foundation for Design</h3>
+<div class="synthesis-description">
+<p>Provides a strong structural base that UI and development teams can build upon.</p>
+</div>
+</div>
 </div>
 
 <div class="key-point">
-  <h4>Before Beauty Comes Structure</h4>
-  <p>"Wireframes make sure you're solving the right problem before designing the solution beautifully. They prevent getting distracted by colors and fonts before the foundation is solid."</p>
+<h4>Before Beauty Comes Structure</h4>
+<p>"Wireframes make sure you're solving the right problem before designing the solution beautifully. They prevent getting distracted by colors and fonts before the foundation is solid."</p>
 </div>
 
 <div class="line"></div>
 
 <!-- SECTION 3: Types of Wireframes -->
 <div class="section-title">
-  <h2>📊 Types of Wireframes</h2>
-  <p>(Choosing the Right Fidelity Level)</p>
+<h2>📊 Types of Wireframes</h2>
+<p>(Choosing the Right Fidelity Level)</p>
 </div>
 
 <div class="about">
-  <div class="left">
-    <p>Wireframes exist on a spectrum of fidelity. The right level depends on your project phase, audience, and goals. Understanding when to use each type is key to effective wireframing.</p>
-  </div>
+<div class="left">
+<p>Wireframes exist on a spectrum of fidelity. The right level depends on your project phase, audience, and goals. Understanding when to use each type is key to effective wireframing.</p>
+</div>
 </div>
 
 <div class="fidelity-comparison">
-  <div class="fidelity-item">
-    <h4>Low-Fidelity Wireframes</h4>
-    <div class="image-placeholder">Rough Sketch Wireframe</div>
-    <ul>
-      <li>Hand-drawn sketches or simple digital shapes</li>
-      <li>Quick to create (minutes, not hours)</li>
-      <li>Perfect for early ideation and exploration</li>
-      <li>Used primarily by the design team</li>
-      <li>Clearly communicates "this is a draft"</li>
-    </ul>
-  </div>
-  
-  <div class="fidelity-item">
-    <h4>Mid-Fidelity Wireframes</h4>
-    <div class="image-placeholder">Digital Grayscale Wireframe</div>
-    <ul>
-      <li>Digital, with clearer structure and annotations</li>
-      <li>More detailed content placeholders</li>
-      <li>Used for team feedback and design direction</li>
-      <li>Can include basic interactive elements</li>
-      <li>Balances speed with clarity</li>
-    </ul>
-  </div>
-  
-  <div class="fidelity-item">
-    <h4>High-Fidelity Wireframes</h4>
-    <div class="image-placeholder">Detailed Interactive Wireframe</div>
-    <ul>
-      <li>More refined with accurate spacing</li>
-      <li>May include some typographic hierarchy</li>
-      <li>Often interactive or clickable</li>
-      <li>Used for stakeholder presentations</li>
-      <li>Borders on low-fidelity mockups</li>
-    </ul>
-  </div>
+<div class="fidelity-item">
+<h4>Low-Fidelity Wireframes</h4>
+<div class="image-placeholder">Rough Sketch Wireframe</div>
+<ul>
+<li>Hand-drawn sketches or simple digital shapes</li>
+<li>Quick to create (minutes, not hours)</li>
+<li>Perfect for early ideation and exploration</li>
+<li>Used primarily by the design team</li>
+<li>Clearly communicates "this is a draft"</li>
+</ul>
+</div>
+
+<div class="fidelity-item">
+<h4>Mid-Fidelity Wireframes</h4>
+<div class="image-placeholder">Digital Grayscale Wireframe</div>
+<ul>
+<li>Digital, with clearer structure and annotations</li>
+<li>More detailed content placeholders</li>
+<li>Used for team feedback and design direction</li>
+<li>Can include basic interactive elements</li>
+<li>Balances speed with clarity</li>
+</ul>
+</div>
+
+<div class="fidelity-item">
+<h4>High-Fidelity Wireframes</h4>
+<div class="image-placeholder">Detailed Interactive Wireframe</div>
+<ul>
+<li>More refined with accurate spacing</li>
+<li>May include some typographic hierarchy</li>
+<li>Often interactive or clickable</li>
+<li>Used for stakeholder presentations</li>
+<li>Borders on low-fidelity mockups</li>
+</ul>
+</div>
 </div>
 
 <div class="key-point">
-  <p>"The fidelity of your wireframe should match its purpose. Early exploration? Go low-fi. Stakeholder presentation? Consider mid to high-fi. Never invest more time than necessary for the goal at hand."</p>
+<p>"The fidelity of your wireframe should match its purpose. Early exploration? Go low-fi. Stakeholder presentation? Consider mid to high-fi. Never invest more time than necessary for the goal at hand."</p>
 </div>
 
 <div class="line"></div>
 
 <!-- SECTION 4: Wireframing Best Practices -->
 <div class="section-title">
-  <h2>✅ Wireframing Best Practices</h2>
-  <p>(Do's and Don'ts for Effective Wireframing)</p>
+<h2>✅ Wireframing Best Practices</h2>
+<p>(Do's and Don'ts for Effective Wireframing)</p>
 </div>
 
 <div class="do-dont-container">
-  <div class="do-dont do">
-    <h4>DO</h4>
-    <ul>
-      <li>Keep it simple and focus on layout and hierarchy</li>
-      <li>Use real content when possible (especially for headlines)</li>
-      <li>Consider device constraints early</li>
-      <li>Include annotations for complex interactions</li>
-      <li>Create multiple versions to explore options</li>
-      <li>Get feedback before moving to visual design</li>
-    </ul>
-  </div>
-  
-  <div class="do-dont dont">
-    <h4>DON'T</h4>
-    <ul>
-      <li>Include detailed visual design elements</li>
-      <li>Get too attached to your first wireframe solution</li>
-      <li>Create wireframes in isolation from research insights</li>
-      <li>Skip wireframing for "simple" screens</li>
-      <li>Try to address every edge case in early wireframes</li>
-      <li>Present wireframes as final designs to clients</li>
-    </ul>
-  </div>
+<div class="do-dont do">
+<h4>DO</h4>
+<ul>
+<li>Keep it simple and focus on layout and hierarchy</li>
+<li>Use real content when possible (especially for headlines)</li>
+<li>Consider device constraints early</li>
+<li>Include annotations for complex interactions</li>
+<li>Create multiple versions to explore options</li>
+<li>Get feedback before moving to visual design</li>
+</ul>
+</div>
+
+<div class="do-dont dont">
+<h4>DON'T</h4>
+<ul>
+<li>Include detailed visual design elements</li>
+<li>Get too attached to your first wireframe solution</li>
+<li>Create wireframes in isolation from research insights</li>
+<li>Skip wireframing for "simple" screens</li>
+<li>Try to address every edge case in early wireframes</li>
+<li>Present wireframes as final designs to clients</li>
+</ul>
+</div>
 </div>
 
 <div class="activity">
-  <h2>Activity 1: Basic Wireframing Exercise</h2>
-  <div class="activity-content">
-    <div class="left">
-      <p><strong>Brief:</strong></p>
-      <p>Create a simple wireframe for a mobile coffee ordering app home screen.</p>
-      
-      <p><strong>Task:</strong></p>
-      <ol>
-        <li>Identify key elements that should appear on the home screen</li>
-        <li>Sketch a low-fidelity wireframe showing layout and hierarchy</li>
-        <li>Include at least: navigation, search, featured items, and personalized recommendations</li>
-        <li>Present your wireframe to the group and explain your choices</li>
-      </ol>
-    </div>
-    <div class="right">
-      <p class="highlight">Time: 15 minutes</p>
-      <p class="highlight">Deliverable: Paper sketch or digital wireframe</p>
-    </div>
-  </div>
+<h2>Activity 1: Basic Wireframing Exercise</h2>
+<div class="activity-content">
+<div class="left">
+<p><strong>Brief:</strong></p>
+<p>Create a simple wireframe for a mobile coffee ordering app home screen.</p>
+
+<p><strong>Task:</strong></p>
+<ol>
+<li>Identify key elements that should appear on the home screen</li>
+<li>Sketch a low-fidelity wireframe showing layout and hierarchy</li>
+<li>Include at least: navigation, search, featured items, and personalized recommendations</li>
+<li>Present your wireframe to the group and explain your choices</li>
+</ol>
+</div>
+<div class="right">
+<p class="highlight">Time: 15 minutes</p>
+<p class="highlight">Deliverable: Paper sketch or digital wireframe</p>
+</div>
+</div>
 </div>
 
 <div class="line"></div>
 
 <!-- SECTION 6: Wireframing Tools -->
 <div class="section-title">
-  <h2>🛠️ Wireframing Tools</h2>
-  <p>(From Paper to Digital)</p>
+<h2>🛠️ Wireframing Tools</h2>
+<p>(From Paper to Digital)</p>
 </div>
 
 <div class="synthesis-container">
-  <div class="synthesis-card">
-    <h3>Paper & Pencil</h3>
-    <div class="synthesis-description">
-      <p>Fast, accessible, and perfect for early ideation. Best for individual exploration.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Paper & Pencil</h3>
+<div class="synthesis-description">
+<p>Fast, accessible, and perfect for early ideation. Best for individual exploration.</p>
+</div>
+</div>
 
-  <div class="synthesis-card">
-    <h3>Figma/FigJam</h3>
-    <div class="synthesis-description">
-      <p>Collaborative, with wireframing kits available. Transition easily to higher fidelity.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Figma/FigJam</h3>
+<div class="synthesis-description">
+<p>Collaborative, with wireframing kits available. Transition easily to higher fidelity.</p>
+</div>
+</div>
 
-  <div class="synthesis-card">
-    <h3>Balsamiq</h3>
-    <div class="synthesis-description">
-      <p>Purpose-built for wireframing with a sketch-like quality. Great for keeping focus on structure.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Balsamiq</h3>
+<div class="synthesis-description">
+<p>Purpose-built for wireframing with a sketch-like quality. Great for keeping focus on structure.</p>
+</div>
+</div>
 
-  <div class="synthesis-card">
-    <h3>Miro/Mural</h3>
-    <div class="synthesis-description">
-      <p>Excellent for collaborative workshops and connecting wireframes to research.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Miro/Mural</h3>
+<div class="synthesis-description">
+<p>Excellent for collaborative workshops and connecting wireframes to research.</p>
+</div>
+</div>
 
-  <div class="synthesis-card">
-    <h3>Adobe XD</h3>
-    <div class="synthesis-description">
-      <p>Good for creating interactive wireframe prototypes with simple transitions.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Adobe XD</h3>
+<div class="synthesis-description">
+<p>Good for creating interactive wireframe prototypes with simple transitions.</p>
+</div>
+</div>
 
-  <div class="synthesis-card">
-    <h3>Sketch</h3>
-    <div class="synthesis-description">
-      <p>Popular for Mac users with extensive wireframing symbol libraries available.</p>
-    </div>
-  </div>
+<div class="synthesis-card">
+<h3>Sketch</h3>
+<div class="synthesis-description">
+<p>Popular for Mac users with extensive wireframing symbol libraries available.</p>
+</div>
+</div>
 </div>
 
 <div class="key-point">
-  <p>"The best wireframing tool is the one that fits your process and doesn't get in the way. Start with the simplest tool for the job—often paper—before moving to more complex digital tools."</p>
+<p>"The best wireframing tool is the one that fits your process and doesn't get in the way. Start with the simplest tool for the job—often paper—before moving to more complex digital tools."</p>
 </div>
 
 <div class="line"></div>
 
 <!-- SECTION 7: Preparing for Next Week -->
 <div class="section-title">
-  <h2>⏭️ Next Steps & Preparation</h2>
-  <p>(From Wireframes to Presentation)</p>
+<h2>⏭️ Next Steps & Preparation</h2>
+<p>(From Wireframes to Presentation)</p>
 </div>
 
 <div class="activity">
-  <h2>Project Status Check</h2>
-  <div class="activity-content">
-    <div class="left">
-      <p><strong>Brief:</strong></p>
-      <p>Ensure your project is on track for next week's stakeholder presentations by completing your synthesis work.</p>
-      
-      <p><strong>Task:</strong></p>
-      <ol>
-        <li>Finalize your research synthesis (affinity mapping, empathy maps, personas)</li>
-        <li>Create wireframes based on your key insights</li>
-        <li>Prepare to present both your insights and wireframes to stakeholders</li>
-      </ol>
-    </div>
-    <div class="right">
-      <p class="highlight">Deadline: Next Session</p>
-      <p class="highlight">Deliverable: Synthesis + Wireframes</p>
-    </div>
-  </div>
+<h2>Project Status Check</h2>
+<div class="activity-content">
+<div class="left">
+<p><strong>Brief:</strong></p>
+<p>Ensure your project is on track for next week's stakeholder presentations by completing your synthesis work.</p>
+
+<p><strong>Task:</strong></p>
+<ol>
+<li>Finalize your research synthesis (affinity mapping, empathy maps, personas)</li>
+<li>Create wireframes based on your key insights</li>
+<li>Prepare to present both your insights and wireframes to stakeholders</li>
+</ol>
+</div>
+<div class="right">
+<p class="highlight">Deadline: Next Session</p>
+<p class="highlight">Deliverable: Synthesis + Wireframes</p>
+</div>
+</div>
 </div>
 
 <div class="section-title">
-  <h3>Is Your Project Ready for Presentations?</h3>
+<h3>Is Your Project Ready for Presentations?</h3>
 </div>
 
 <ul class="checklist">
-  <li>Research synthesis is complete and documented</li>
-  <li>Key insights are identified and prioritized</li>
-  <li>You can explain how research connects to design decisions</li>
-  <li>Presentation structure is planned</li>
+<li>Research synthesis is complete and documented</li>
+<li>Key insights are identified and prioritized</li>
+<li>You can explain how research connects to design decisions</li>
+<li>Presentation structure is planned</li>
 </ul>
 
 <div class="section-title">
-  <h3>🗓️ Next Week: How to present to stakeholders?</h3>
+<h3>🗓️ Next Week: How to present to stakeholders?</h3>
 </div>
 <div class="line"></div>
 
 <div class="conclusion">
-  <div class="left">
-    <h2>Key Takeaways</h2>
-    <ul>
-      <li>Wireframes are structural blueprints that focus on layout and function before visual design</li>
-      <li>They serve as a critical bridge between research insights and visual UI design</li>
-      <li>The fidelity level should match your specific purpose and audience</li>
-      <li>Every element in your wireframe should solve a user need identified in research</li>
-      <li>Start simple and iterate—wireframing is about exploration and validation</li>
-      <li>Prepare to connect your wireframes to research insights in next week's presentations</li>
-    </ul>
-  </div>
+<div class="left">
+<h2>Key Takeaways</h2>
+<ul>
+<li>Wireframes are structural blueprints that focus on layout and function before visual design</li>
+<li>They serve as a critical bridge between research insights and visual UI design</li>
+<li>The fidelity level should match your specific purpose and audience</li>
+<li>Every element in your wireframe should solve a user need identified in research</li>
+<li>Start simple and iterate—wireframing is about exploration and validation</li>
+<li>Prepare to connect your wireframes to research insights in next week's presentations</li>
+</ul>
+</div>
 </div>
 
 </body>
