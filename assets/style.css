@@ -1,7 +1,7 @@
 :root 
 {
---body-copy: 18px;
---title: 56px;
+--body-copy: 16px;
+--title: 36px;
 --subtitle: 32px;
 }
 
@@ -108,9 +108,9 @@ letter-spacing: 1.1px;
 {
 :root 
 {
---body-copy: 20px;
+--body-copy: 18px;
 --title: 72px;
---subtitle: 40px;
+--subtitle: 36px;
 }
 
 body
