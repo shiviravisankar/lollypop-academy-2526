@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="assets/reset.css" rel="stylesheet">
+<link href="assets/style.css" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap" rel="stylesheet">
+<title>Presenting to Stakeholders</title>
+<style>
+li 
+{
+list-style-type: disc;
+margin-left: 5%;
+}
+
+.section-title 
+{
+margin-bottom: 4vh;
+}
+
+.section-title p 
+{ 
+font-weight: 300;
+margin-top: 1vh;
+}
+
+.quote-desktop 
+{
+display: none;
+}
+
+.quote-mobile 
+{
+margin: 4vh 0;
+font-size: 20px;
+line-height: 1.3;
+color: blue;
+}
+
+.synthesis-container 
+{
+display: grid;
+grid-template-columns: 1fr;
+gap: 2vh;
+margin-bottom: 6vh;
+}
+
+.synthesis-card 
+{
+border: 0.5px solid #000;
+padding: 2vh;
+transition: all 0.3s ease;
+}
+
+.synthesis-card h3 
+{
+margin-bottom: 1vh;
+font-weight: normal;
+}
+
+.synthesis-description 
+{
+font-weight: 300;
+}
+
+.activity 
+{
+margin: 6vh 0;
+}
+
+.activity h2 
+{
+margin-bottom: 3vh;
+}
+
+.activity-content 
+{
+display: flex;
+flex-direction: column;
+}
+
+.activity-content .left 
+{
+margin-bottom: 3vh;
+}
+
+.activity-content ol 
+{
+margin-top: 2vh;
+margin-left: 2vh;
+}
+
+.activity-content ol li 
+{
+margin-bottom: 1vh;
+}
+
+.highlight 
+{
+color: blue;
+margin-bottom: 1vh;
+}
+
+.quadrant-container 
+{
+margin: 4vh 0;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: auto auto;
+gap: 2vh;
+}
+
+.quadrant 
+{
+border: 1px solid #000;
+padding: 2vh;
+margin-bottom: 2vh;
+}
+
+.quadrant h4 
+{
+font-weight: bold;
+margin-bottom: 1vh;
+}
+
+.persona 
+{
+margin: 4vh 0;
+border: 1px solid #000;
+padding: 2vh;
+}
+
+.persona h3 
+{
+margin-bottom: 1vh;
+}
+
+.persona .details 
+{
+display: flex;
+flex-direction: column;
+gap: 1vh;
+margin-bottom: 2vh;
+}
+
+.persona .details p 
+{
+margin: 0;
+}
+
+.hmw-list 
+{
+margin-top: 2vh;
+}
+
+.hmw-list li 
+{
+margin-bottom: 1vh;
+}
+
+.image-placeholder {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 20vh;
+  margin-bottom: 2vh;
+}
+
+h2 
+{
+line-height: 1.1;
+}
+
+.key-point 
+{
+background-color: #f8f8f8;
+padding: 2vh;
+margin: 3vh 0;
+border-left: 4px solid blue;
+}
+
+.checklist li 
+{
+margin-bottom: 1vh;
+list-style-type: none;
+position: relative;
+padding-left: 2vh;
+}
+
+.checklist li:before 
+{
+content: "✓";
+position: absolute;
+left: 0;
+color: green;
+}
+
+strong 
+{
+font-weight: bold;
+display: block;
+margin-bottom: 1.5vh;
+}
+
+.activity-content .left p strong 
+{
+margin-top: 2vh;
+}
+
+.activity-content .left p:first-child strong 
+{
+margin-top: 0;
+}
+
+.activity-content .left p 
+{
+margin-bottom: 2vh;
+}
+
+.wireframe-example 
+{
+border: 1px solid #ccc;
+padding: 2vh;
+margin-bottom: 3vh;
+}
+
+.fidelity-comparison 
+{
+display: grid;
+grid-template-columns: 1fr;
+gap: 2vh;
+margin-bottom: 4vh;
+}
+
+.fidelity-item 
+{
+border: 1px solid #000;
+padding: 2vh;
+}
+
+.fidelity-item h4 
+{
+margin-bottom: 1vh;
+font-weight: bold;
+}
+
+.do-dont-container 
+{
+display: grid;
+grid-template-columns: 1fr;
+gap: 3vh;
+margin: 4vh 0;
+}
+
+.do-dont 
+{
+padding: 2vh;
+}
+
+.do 
+{
+border: 1px solid green;
+}
+
+.dont 
+{
+border: 1px solid red;
+}
+
+.do h4 
+{
+color: green;
+}
+
+.dont h4 
+{
+color: red;
+}
+
+.journey-map {
+border: 1px solid #000;
+padding: 2vh;
+margin: 3vh 0;
+}
+
+.journey-map h4 {
+margin-bottom: 1vh;
+font-weight: bold;
+}
+
+.journey-phases {
+display: flex;
+flex-direction: column;
+margin-top: 2vh;
+}
+
+.journey-phase {
+border-bottom: 1px solid #ccc;
+padding: 1vh 0;
+}
+
+.journey-phase:last-child {
+border-bottom: none;
+}
+
+.journey-phase h5 {
+font-weight: bold;
+margin-bottom: 1vh;
+}
+
+.emotions {
+display: flex;
+margin: 1vh 0;
+}
+
+.emotion {
+padding: 0.5vh 1vh;
+margin-right: 1vh;
+border-radius: 12px;
+font-size: 14px;
+}
+
+.emotion.positive {
+background-color: #e6f7e6;
+color: green;
+}
+
+.emotion.negative {
+background-color: #ffe6e6;
+color: red;
+}
+
+.emotion.neutral {
+background-color: #f0f0f0;
+color: #666;
+}
+
+@media screen and (min-width: 768px) 
+{
+.quote-mobile 
+{
+display: none;
+}
+
+.quote-desktop 
+{
+display: block;
+font-size: 22px;
+line-height: 1.3;
+color: blue;
+}
+
+.left {
+flex: 70%;
+}
+
+.synthesis-container {
+grid-template-columns: repeat(2, 1fr);
+gap: 3vh 3vh;
+}
+
+.image-placeholder {
+  height: 65vh;
+}
+
+.synthesis-card:hover {
+background-color: #f0f0f0;
+}
+
+.activity-content {
+flex-direction: row;
+justify-content: space-between;
+}
+
+.activity-content .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.activity-content .right {
+width: 35%;
+align-self: flex-start;
+}
+
+.quadrant-container {
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 1fr);
+}
+
+.fidelity-comparison {
+grid-template-columns: repeat(3, 1fr);
+}
+
+.do-dont-container {
+grid-template-columns: repeat(2, 1fr);
+}
+
+.journey-phases {
+flex-direction: row;
+}
+
+.journey-phase {
+flex: 1;
+border-bottom: none;
+border-right: 1px solid #ccc;
+padding: 0 1vh;
+}
+
+.journey-phase:last-child {
+border-right: none;
+}
+
+@media screen and (min-width: 1024px) {
+.synthesis-container {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="left">
+<h1>Presenting to Stakeholders</h1>
+<p>Week 8, UI/UX Design - From Insights to Impact</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- Quote for mobile view -->
+<div class="quote-mobile">
+"Great research left unshared has zero impact. Your presentation is the bridge between insights and action."
+</div>
+
+<!-- SECTION 1: Presentation Principles -->
+<div class="section-title">
+<h2>🎯 Presenting to Stakeholders: Key Principles</h2>
+<p>(Transforming Insights into Action)</p>
+</div>
+
+<div class="about">
+<div class="left">
+<h3>🔍 <span style="color: gray;">Overview</span></h3>
+<p>Effective stakeholder presentations transform your research and design work into actionable insights that drive business decisions. Success depends not just on what you found, but how you communicate it.</p>
+</div>
+<div class="right">
+<!-- Quote for desktop view -->
+<p class="quote-desktop">"Great research left unshared has zero impact. Your presentation is the bridge between insights and action."</p>
+</div>
+</div>
+
+<div class="synthesis-container">
+<div class="synthesis-card">
+<h3>1. Understand & Align with Stakeholder Priorities</h3>
+<div class="synthesis-description">
+<p>Tailor your presentation to stakeholders' interests and knowledge levels. Focus on insights that directly impact their concerns and decision-making.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>2. Make it Actionable</h3>
+<div class="synthesis-description">
+<p>Highlight 1–3 key recommendations early. Support each with concise data, user quotes, and context that connects to business objectives.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>3. Enhance Comprehension Through Storytelling</h3>
+<div class="synthesis-description">
+<p>Transform research data into a narrative to make findings relatable and memorable. Help stakeholders connect emotionally with users.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>4. Visualize the Story</h3>
+<div class="synthesis-description">
+<p>Use visual aids like journey maps, charts, and infographics to simplify complex information. Ensure visuals are clear and purposeful.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>5. Keep It Concise and Engaging</h3>
+<div class="synthesis-description">
+<p>Use clear, jargon-free language throughout. Allow time for stakeholder questions and discussions to facilitate engagement and feedback.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>6. Drive Actionable Outcomes</h3>
+<div class="synthesis-description">
+<p>Structure the presentation to bridge the gap between user research and business decision-making. The goal is informed action, not just information.</p>
+</div>
+</div>
+</div>
+
+<div class="key-point">
+<p>"Stakeholders don't need to know everything you did—they need to know what it means for them, the users, and the business. Focus on outcomes, not process."</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 2: Journey Mapping -->
+<div class="section-title">
+<h2>🗺️ User Journey Mapping</h2>
+<p>(A Tool for Stakeholder Engagement)</p>
+</div>
+
+<div class="about">
+<div class="left">
+<p>A <strong style="display: inline;">user journey map</strong> is a visual representation of the steps a user takes to achieve a goal, capturing their actions, thoughts, and emotions throughout the process. It's one of the most effective ways to communicate user research to stakeholders.</p>
+</div>
+</div>
+
+<div class="fidelity-comparison">
+<div class="fidelity-item">
+<h4>Key Components</h4>
+<ul>
+<li><strong style="display: inline;">Persona:</strong> User profile (demographics, behaviors)</li>
+<li><strong style="display: inline;">Scenario:</strong> Specific task or situation</li>
+<li><strong style="display: inline;">Phases:</strong> Stages of the journey</li>
+<li><strong style="display: inline;">Actions & Emotions:</strong> What users do and feel</li>
+<li><strong style="display: inline;">Pain Points:</strong> Challenges users face</li>
+<li><strong style="display: inline;">Opportunities:</strong> Areas for improvement</li>
+</ul>
+</div>
+
+<div class="fidelity-item">
+<h4>Why It's Effective</h4>
+<ul>
+<li>Visualizes the entire user experience</li>
+<li>Aligns cross-functional teams around user needs</li>
+<li>Highlights opportunities for improvement</li>
+<li>Facilitates empathy and user-centric thinking</li>
+<li>Drives strategic decision-making</li>
+<li>Connects research insights to business outcomes</li>
+</ul>
+</div>
+
+<div class="fidelity-item">
+<h4>Best Practices</h4>
+<ul>
+<li>Base it on real research, not assumptions</li>
+<li>Keep it visually simple but informative</li>
+<li>Highlight emotions throughout the journey</li>
+<li>Make pain points and opportunities clear</li>
+<li>Customize for your stakeholder audience</li>
+<li>Use it as a discussion tool, not just a deliverable</li>
+</ul>
+</div>
+</div>
+
+<div class="journey-map">
+<h4>Sample Journey Map: Mobile Banking App</h4>
+<div class="image-placeholder"><img src="assets/image/journey-map-visualization.svg" alt="Journey map"></div>
+<div class="journey-phases">
+<div class="journey-phase">
+<h5>Discovery</h5>
+<p>User searches for banking solutions</p>
+<div class="emotions">
+<span class="emotion neutral">Curious</span>
+<span class="emotion neutral">Cautious</span>
+</div>
+<p><strong style="display: inline;">Pain Point:</strong> Too many options, unclear differences</p>
+</div>
+<div class="journey-phase">
+<h5>Onboarding</h5>
+<p>User downloads app and creates account</p>
+<div class="emotions">
+<span class="emotion negative">Frustrated</span>
+<span class="emotion negative">Confused</span>
+</div>
+<p><strong style="display: inline;">Pain Point:</strong> Complex identity verification process</p>
+</div>
+<div class="journey-phase">
+<h5>First Use</h5>
+<p>User explores app features and functions</p>
+<div class="emotions">
+<span class="emotion neutral">Overwhelmed</span>
+<span class="emotion positive">Relieved</span>
+</div>
+<p><strong style="display: inline;">Pain Point:</strong> Feature overload, unclear navigation</p>
+</div>
+<div class="journey-phase">
+<h5>Regular Usage</h5>
+<p>User performs common banking tasks</p>
+<div class="emotions">
+<span class="emotion positive">Confident</span>
+<span class="emotion positive">Satisfied</span>
+</div>
+<p><strong style="display: inline;">Pain Point:</strong> Some advanced features difficult to find</p>
+</div>
+</div>
+</div>
+
+<div class="key-point">
+<p>"Journey maps translate complex user experiences into a format stakeholders can quickly understand and act upon. They help everyone see where the greatest opportunities for improvement lie."</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 3: Preparing Your Presentation -->
+<div class="section-title">
+<h2>📊 Structuring Your Stakeholder Presentation</h2>
+<p>(From Research to Recommendations)</p>
+</div>
+
+<div class="about">
+<div class="left">
+<p>A well-structured presentation guides stakeholders from understanding the problem to embracing your solutions. Here's a framework that works well for most UX research and design presentations.</p>
+</div>
+</div>
+
+<div class="synthesis-container">
+<div class="synthesis-card">
+<h3>1. Executive Summary</h3>
+<div class="synthesis-description">
+<p>Start with 1-3 key findings and recommendations. This is for stakeholders who may only stay for the beginning.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>2. Research Context</h3>
+<div class="synthesis-description">
+<p>Briefly explain what you researched, why, and how. Keep methodology brief unless specifically asked.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>3. Key Insights</h3>
+<div class="synthesis-description">
+<p>Present 3-5 major insights from research. Support each with evidence: quotes, statistics, observations.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>4. User Journey Map</h3>
+<div class="synthesis-description">
+<p>Visualize the current user experience, highlighting pain points and emotional highs/lows.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>5. Design Solutions</h3>
+<div class="synthesis-description">
+<p>Show how your wireframes address specific pain points identified in research and journey mapping.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>6. Business Impact</h3>
+<div class="synthesis-description">
+<p>Connect your recommendations to business metrics: conversion, retention, satisfaction, or efficiency gains.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>7. Next Steps & Timeline</h3>
+<div class="synthesis-description">
+<p>Propose concrete actions, ownership, and timeline. Be specific about what you need from stakeholders.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>8. Q&A Discussion</h3>
+<div class="synthesis-description">
+<p>Allow ample time for questions and discussion. This is often where the most valuable conversations happen.</p>
+</div>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 4: Best Practices -->
+<div class="section-title">
+<h2>✅ Presentation Best Practices</h2>
+<p>(Do's and Don'ts for Stakeholder Engagement)</p>
+</div>
+
+<div class="do-dont-container">
+<div class="do-dont do">
+<h4>DO</h4>
+<ul>
+<li>Know your audience and their priorities</li>
+<li>Lead with recommendations, not just findings</li>
+<li>Use real user quotes and specific examples</li>
+<li>Connect insights to business metrics</li>
+<li>Use visuals to simplify complex information</li>
+<li>Practice your delivery multiple times</li>
+<li>Anticipate questions and prepare answers</li>
+</ul>
+</div>
+
+<div class="do-dont dont">
+<h4>DON'T</h4>
+<ul>
+<li>Overwhelm with research methodology details</li>
+<li>Present findings without recommendations</li>
+<li>Use technical UX jargon unnecessarily</li>
+<li>Show every piece of data you collected</li>
+<li>Criticize current solutions without alternatives</li>
+<li>Leave next steps ambiguous</li>
+<li>Run over your allocated time</li>
+</ul>
+</div>
+</div>
+
+<div class="key-point">
+<p>"The goal isn't to show how much work you did—it's to drive decisions and actions that improve the user experience and business outcomes."</p>
+</div>
+
+<div class="line"></div>
+
+<div class="conclusion">
+<div class="left">
+<h2>Key Takeaways</h2>
+<ul>
+<li>Effective stakeholder presentations bridge the gap between research insights and business decisions</li>
+<li>Focus on the "so what" of your findings, not just the "what"</li>
+<li>User journey maps are powerful tools for communicating the user experience</li>
+<li>Structure your presentation to guide stakeholders from problems to solutions</li>
+<li>Connect your recommendations to business metrics and outcomes</li>
+<li>Practice is essential—refine your presentation based on today's feedback</li>
+<li>Your ability to communicate insights is as important as the quality of your research and design work</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>
