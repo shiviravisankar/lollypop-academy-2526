@@ -13,14 +13,14 @@ font-weight: 400;
 line-height: 1.5;
 width: 80%;
 margin: auto;
-padding: 20vh 0;
+margin-bottom: 20vh;
 }
 
 h1 
 {
 font-size: var(--title);
 font-weight: 600;
-line-height: 0.9;
+line-height: 1;
 letter-spacing: 1.2px;
 }
 
@@ -30,6 +30,24 @@ font-size: var(--subtitle);
 font-weight: 500;
 margin-bottom: 2vh;
 letter-spacing: 1px;
+}
+
+/* Navbar styles */
+.navbar {
+position: sticky;
+top: 0;
+left: 0;
+width: 100%;
+background-color: white;
+display: flex;
+align-items: center;
+z-index: 1000;
+padding: 5vh 0 1vh 0;
+margin-bottom: 5vh;
+}
+
+.navbar .logo {
+height: 8vh;
 }
 
 /* Section spacing */
@@ -91,7 +109,7 @@ letter-spacing: 1.1px;
 :root 
 {
 --body-copy: 20px;
---title: 84px;
+--title: 72px;
 --subtitle: 40px;
 }
 
@@ -99,6 +117,11 @@ body
 {
     width: 70%;
     letter-spacing: 1.2px;
+}
+
+/* Navbar styles */
+.navbar {
+margin-bottom: 10vh;
 }
 
 .hero, .about, .sessions 
