@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="assets/reset.css" rel="stylesheet">
+<link href="assets/style.css" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap" rel="stylesheet">
+<title>UX Writing</title>
+<style>
+li {
+list-style-type: disc;
+margin-left: 5%;
+padding-bottom: 10px;
+}
+
+.section-title {
+margin-bottom: 4vh;
+}
+
+.section-title p {
+font-weight: normal;
+margin-top: 1vh;
+}
+
+.quote-desktop {
+display: none;
+}
+
+.quote-mobile {
+margin: 4vh 0;
+font-size: 20px;
+line-height: 1.3;
+color: blue;
+}
+
+.synthesis-container {
+display: grid;
+grid-template-columns: 1fr;
+gap: 2vh;
+margin-bottom: 6vh;
+}
+
+.synthesis-card {
+border: 0.5px solid #000;
+padding: 2vh;
+transition: all 0.3s ease;
+}
+
+.synthesis-card h3 {
+margin-bottom: 1vh;
+font-weight: normal;
+}
+
+.synthesis-description {
+font-weight: normal;
+}
+
+.activity {
+margin: 6vh 0;
+}
+
+.activity h2 {
+margin-bottom: 3vh;
+}
+
+.activity-content {
+display: flex;
+flex-direction: column;
+}
+
+.activity-content .left {
+margin-bottom: 3vh;
+}
+
+.activity-content ol {
+margin-top: 2vh;
+margin-left: 2vh;
+}
+
+.activity-content ol li {
+margin-bottom: 1vh;
+}
+
+.highlight {
+color: blue;
+margin-bottom: 1vh;
+}
+
+.quadrant-container {
+margin: 4vh 0;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: auto auto;
+gap: 2vh;
+}
+
+.quadrant {
+border: 1px solid #000;
+padding: 2vh;
+margin-bottom: 2vh;
+}
+
+.quadrant h4 {
+font-weight: 600;
+margin-bottom: 1vh;
+}
+
+.persona {
+margin: 4vh 0;
+border: 1px solid #000;
+padding: 2vh;
+}
+
+.persona h3 {
+margin-bottom: 1vh;
+}
+
+.persona .details {
+display: flex;
+flex-direction: column;
+gap: 1vh;
+margin-bottom: 2vh;
+}
+
+.persona .details p {
+margin: 0;
+}
+
+.hmw-list {
+margin-top: 2vh;
+}
+
+.hmw-list li {
+margin-bottom: 1vh;
+}
+
+.image-placeholder {
+background-color: #f0f0f0;
+height: 150px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 2vh;
+object-fit: cover;
+}
+
+h2 {
+line-height: 1.1;
+}
+
+.key-point {
+background-color: #f8f8f8;
+padding: 2vh;
+margin: 3vh 0;
+border-left: 4px solid blue;
+}
+
+.checklist li {
+margin-bottom: 1vh;
+list-style-type: none;
+position: relative;
+padding-left: 2vh;
+}
+
+.checklist li:before {
+content: "✓";
+position: absolute;
+left: 0;
+color: green;
+}
+
+/* Added style for better spacing of brief/task titles */
+strong {
+font-weight: 600;
+display: block;
+margin-bottom: 1.5vh;
+}
+
+.activity-content .left p strong {
+margin-top: 2vh;
+}
+
+.activity-content .left p:first-child strong {
+margin-top: 0;
+}
+
+/* Ensure proper spacing after brief/task sections */
+.activity-content .left p {
+margin-bottom: 2vh;
+}
+
+/* Table styles for UX Writing section */
+.ux-table {
+width: 100%;
+border-collapse: collapse;
+margin: 3vh 0;
+}
+
+.ux-table th, .ux-table td {
+border: 1px solid #ddd;
+padding: 1.5vh;
+text-align: left;
+}
+
+.ux-table th {
+background-color: #f8f8f8;
+font-weight: 600;
+}
+
+.ux-table tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+
+.principle-row {
+margin: 2vh 0;
+padding-bottom: 2vh;
+border-bottom: 1px solid #eee;
+}
+
+.principle-row h4 {
+font-weight: 600;
+margin-bottom: 1vh;
+}
+
+.emoji-marker {
+display: inline-block;
+margin-right: 1vh;
+}
+
+.example-box {
+background-color: #f0f0f0;
+padding: 2vh;
+margin: 2vh 0;
+border-radius: 4px;
+}
+
+.example-box p {
+margin-bottom: 1vh;
+}
+
+.good-example {
+color: green;
+}
+
+.bad-example {
+color: red;
+text-decoration: line-through;
+}
+
+@media screen and (min-width: 768px) {
+/* Quote */
+.quote-mobile {
+display: none;
+}
+
+.quote-desktop {
+display: block;
+font-size: 22px;
+line-height: 1.3;
+color: blue;
+}
+
+.left {
+flex: 70%;
+}
+
+/* Synthesis grid */
+.synthesis-container {
+grid-template-columns: repeat(2, 1fr);
+gap: 3vh 3vh;
+}
+
+/* Card hover effect */
+.synthesis-card:hover {
+background-color: #f0f0f0;
+}
+
+/* Activity layout */
+.activity-content {
+flex-direction: row;
+justify-content: space-between;
+}
+
+.activity-content .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.activity-content .right {
+width: 35%;
+align-self: flex-start;
+}
+
+/* Quadrant layout */
+.quadrant-container {
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 1fr);
+}
+
+/* Examples layout */
+.example {
+display: flex;
+justify-content: space-between;
+}
+
+.example .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.example .right {
+width: 35%;
+}
+
+/* Larger synthesis cards grid for larger screens */
+@media screen and (min-width: 1024px) {
+.synthesis-container {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+}
+</style>
+</head>
+<body>
+<!-- Sticky Navigation Bar -->
+<nav class="navbar">
+<a href="index.html">
+<img src="assets/image/Logo Red BG.svg" alt="Lollypop Logo" class="logo">
+</a>
+</nav>
+<div class="hero">
+<div class="left">
+<h1>UX Writing</h1>
+<p>Week 9, UI/UX Design - Doing the heavy lifting where pixels fall short</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- Quote for mobile view -->
+<div class="quote-mobile">
+"Good UX writing doesn't just inform—it delights, guides, and builds trust."
+</div>
+
+<!-- SECTION 1: What is UX Writing -->
+<div class="section-title">
+<h2>📝 What is UX Writing?</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p>UX writing is the practice of crafting the words a user encounters when interacting with digital products. It's about clarity, usability, and empathy — not marketing fluff.</p>
+</div>
+<div class="right">
+<!-- Quote for desktop view -->
+<p class="quote-desktop">"Good UX writing doesn't just inform—it delights, guides, and builds trust."</p>
+</div>
+</div>
+
+<div class="key-point">
+<h4>🔹 Examples:</h4>
+<ul>
+<li>Button labels (e.g., "Continue" vs. "Next" vs. "Let's go")</li>
+<li>Form error messages</li>
+<li>Onboarding flows</li>
+<li>Empty states and confirmations</li>
+<li>404 pages</li>
+</ul>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 2: Why UX Writing Matters -->
+<div class="section-title">
+<h2>💡 Why Does UX Writing Matter?</h2>
+<p>(Understanding the Impact of Words)</p>
+</div>
+
+<div class="about">
+<div class="left">
+<p>Good UX writing makes the difference between a frustrating and delightful experience. It's the human voice of your product.</p>
+</div>
+</div>
+
+<div class="synthesis-container">
+<div class="synthesis-card">
+<h3>Reduces Confusion</h3>
+<div class="synthesis-description">
+<p>Clear instructions prevent user errors and frustration.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>Builds Trust</h3>
+<div class="synthesis-description">
+<p>Transparent communication establishes credibility with users.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>Strengthens Brand Voice</h3>
+<div class="synthesis-description">
+<p>Consistent tone creates memorable product experiences.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>Influences Decisions</h3>
+<div class="synthesis-description">
+<p>The right words can guide users toward intended actions.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>Impacts Accessibility</h3>
+<div class="synthesis-description">
+<p>Inclusive language makes products usable for everyone.</p>
+</div>
+</div>
+</div>
+
+<div class="section-title">
+<h3>Real-World Examples of Great UX Writing</h3>
+</div>
+
+<div class="persona">
+<h3>🟢 Duolingo</h3>
+<ul>
+<li>Energetic, gamified, and motivating tone</li>
+<li>Known for: Nudges, reminders, and "shaming" failure messages</li>
+<li>Keeps users engaged with fun, casual copy</li>
+</ul>
+</div>
+
+<div class="persona">
+<h3>🟢 Headspace</h3>
+<ul>
+<li>Calm, compassionate, and encouraging</li>
+<li>Known for: Handling sensitive topics mindfully</li>
+<li>Uses tone to emotionally support users</li>
+</ul>
+</div>
+
+<div class="persona">
+<h3>🟢 Zomato</h3>
+<ul>
+<li>Witty, cultural, and full of personality</li>
+<li>Known for: Fun empty states, snacky CTAs, local-language references</li>
+<li>Example: <em>"Nothing here yet… except your cravings."</em></li>
+</ul>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 3: Core Principles -->
+<div class="section-title">
+<h2>🧠 Core Principles of UX Writing</h2>
+<p>(The Foundation of Effective Communication)</p>
+</div>
+
+<div class="principle-row">
+<h4>Clarity</h4>
+<p><strong>Description:</strong> Use plain language; avoid jargon</p>
+<div class="example-box">
+<p class="bad-example">❌ "Authentication failed"</p>
+<p class="good-example">✅ "Wrong password. Try again."</p>
+</div>
+</div>
+
+<div class="principle-row">
+<h4>Brevity</h4>
+<p><strong>Description:</strong> Be concise without losing meaning</p>
+<div class="example-box">
+<p class="bad-example">❌ "You have successfully completed your purchase"</p>
+<p class="good-example">✅ "Purchase confirmed"</p>
+</div>
+</div>
+
+<div class="principle-row">
+<h4>Usefulness</h4>
+<p><strong>Description:</strong> Help users accomplish tasks</p>
+<div class="example-box">
+<p class="bad-example">❌ "Invalid input"</p>
+<p class="good-example">✅ "Enter a valid email address"</p>
+</div>
+</div>
+
+<div class="principle-row">
+<h4>Consistency</h4>
+<p><strong>Description:</strong> Stick to the same language across the product</p>
+<div class="example-box">
+<p>E.g., Don't switch between "Log in" and "Sign in"</p>
+</div>
+</div>
+
+<div class="principle-row">
+<h4>Empathy</h4>
+<p><strong>Description:</strong> Consider the user's emotion and context</p>
+<div class="example-box">
+<p>Especially in error pages, cancellations, and delays</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 4: Brand Voice & Tone -->
+<div class="section-title">
+<h2>🎙️ Why Brand Voice & Tone Matter in UX Writing</h2>
+<p>(Creating Personality and Connection)</p>
+</div>
+
+<div class="about">
+<div class="left">
+<p><span style="font-weight: 600;">✨ Voice</span> = Your brand's personality</p>
+<p><span style="font-weight: 600;">✨ Tone</span> = The mood based on context</p>
+</div>
+</div>
+
+<div class="synthesis-container">
+<div class="synthesis-card">
+<h3>🌟 They Bring the Brand to Life</h3>
+<div class="synthesis-description">
+<p>Voice stays constant; tone adapts to context</p>
+<p>Without them, products sound robotic</p>
+<p><em>Example: Mailchimp uses a witty voice but switches to empathetic tone during errors.</em></p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>🤝 They Build Trust and Connection</h3>
+<div class="synthesis-description">
+<p>People feel something while using apps</p>
+<p>Tone humanizes stressful moments</p>
+<p><em>Example: Headspace uses a gentle tone when reminding users to meditate.</em></p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>🧭 They Guide Users Naturally</h3>
+<div class="synthesis-description">
+<p>Makes instructions easier to digest</p>
+<p>Turns commands into conversations</p>
+<p><em>Example: Duolingo turns tasks into a game through its tone.</em></p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>🧱 They Differentiate the Brand</h3>
+<div class="synthesis-description">
+<p>A unique voice stands out in a crowded market</p>
+<p><em>Example: Zomato's quirky, cultural tone sets it apart from Swiggy.</em></p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>🔁 They Ensure Consistency</h3>
+<div class="synthesis-description">
+<p>A shared style guide keeps everyone aligned</p>
+<p>Helpful for collaboration and scaling</p>
+<p><em>Pro tip: Google and Shopify use internal voice & tone guidelines.</em></p>
+</div>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 5: Microcopy Types -->
+<div class="section-title">
+<h2>📱 Microcopy Types & Best Practices</h2>
+<p>(The Building Blocks of User Experience)</p>
+</div>
+
+<div class="principle-row">
+<h4>Buttons</h4>
+<p><strong>Purpose:</strong> Prompt action with clarity and urgency</p>
+<p><strong>Best Practices:</strong> Use verbs, be specific, avoid jargon</p>
+<div class="example-box">
+<p class="good-example">✅ "Upload resume"</p>
+<p class="bad-example">❌ "Click here"</p>
+</div>
+</div>
+
+<div class="principle-row">
+<h4>Call-to-Actions</h4>
+<p><strong>Purpose:</strong> Drive key tasks or conversions</p>
+<p><strong>Best Practices:</strong> Benefit-driven, short, consistent</p>
+<div class="example-box">
+<p class="good-example">✅ "Start free trial"</p>
+<p class="good-example">✅ "Find your ride"</p>
+</div>
+</div>
+
+<div class="principle-row">
+<h4>Error Messages</h4>
+<p><strong>Purpose:</strong> Inform and guide users through errors</p>
+<p><strong>Best Practices:</strong> Be clear, non-blaming, solution-oriented</p>
+<div class="example-box">
+<p class="good-example">✅ "Your password must be at least 8 characters"</p>
+</div>
+</div>
+
+<div class="principle-row">
+<h4>Empty States</h4>
+<p><strong>Purpose:</strong> Clarify what's missing and suggest next steps</p>
+<p><strong>Best Practices:</strong> Comforting tone, helpful CTA</p>
+<div class="example-box">
+<p class="good-example">✅ "You haven't added any items yet. Start browsing."</p>
+</div>
+</div>
+
+<div class="principle-row">
+<h4>Tooltips</h4>
+<p><strong>Purpose:</strong> Explain UI elements or functionality</p>
+<p><strong>Best Practices:</strong> Short, contextual, visible only when needed</p>
+<div class="example-box">
+<p class="good-example">✅ "Add tags to help organize your notes"</p>
+</div>
+</div>
+
+<div class="principle-row">
+<h4>Toasts / Confirmations</h4>
+<p><strong>Purpose:</strong> Confirm user actions briefly</p>
+<p><strong>Best Practices:</strong> Friendly tone, temporary messages</p>
+<div class="example-box">
+<p class="good-example">✅ "Saved successfully"</p>
+<p class="good-example">✅ "Payment received"</p>
+</div>
+</div>
+
+<div class="principle-row">
+<h4>Onboarding Steps</h4>
+<p><strong>Purpose:</strong> Guide first-time users, reduce drop-off</p>
+<p><strong>Best Practices:</strong> Clear steps, visual cues, concise microcopy</p>
+<div class="example-box">
+<p class="good-example">✅ "Step 1 of 3: Add your profile photo"</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 6: Looking Ahead -->
+<div class="section-title">
+<h2>📅 Looking Ahead: Next Session</h2>
+<p>(Preparation for Next Steps)</p>
+</div>
+
+<div class="key-point">
+<p>I'll see you next on <strong>18th May 2025</strong>. <strong>Please have your wireframes ready by then!</strong> We'll review your work, share feedback, and move to the next stage.</p>
+</div>
+
+<div class="line"></div>
+
+<div class="conclusion">
+<div class="left">
+<h2>Key Takeaways</h2>
+<ul>
+<li>UX writing is about clarity, usability, and empathy—not marketing copy</li>
+<li>Good UX content reduces friction and builds trust with users</li>
+<li>Voice remains consistent, while tone adapts to different contexts</li>
+<li>Clear, concise, and useful writing improves overall user experience</li>
+<li>Different UI elements require specific writing approaches</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>
