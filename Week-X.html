@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="assets/reset.css" rel="stylesheet">
+<link href="assets/style.css" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap" rel="stylesheet">
+<title>Surviving the UX Handoff</title>
+<style>
+li {
+list-style-type: disc;
+margin-left: 5%;
+padding-bottom: 10px;
+}
+
+.section-title {
+margin-bottom: 4vh;
+}
+
+.section-title p {
+font-weight: normal;
+margin-top: 1vh;
+}
+
+.quote-desktop {
+display: none;
+}
+
+.quote-mobile {
+margin: 4vh 0;
+font-size: 20px;
+line-height: 1.3;
+color: blue;
+}
+
+.synthesis-container {
+display: grid;
+grid-template-columns: 1fr;
+gap: 2vh;
+margin-bottom: 6vh;
+}
+
+.synthesis-card {
+border: 0.5px solid #000;
+padding: 2vh;
+transition: all 0.3s ease;
+}
+
+.synthesis-card h3 {
+margin-bottom: 1vh;
+font-weight: normal;
+}
+
+.synthesis-description {
+font-weight: normal;
+}
+
+.activity {
+margin: 6vh 0;
+}
+
+.activity h2 {
+margin-bottom: 3vh;
+}
+
+.activity-content {
+display: flex;
+flex-direction: column;
+}
+
+.activity-content .left {
+margin-bottom: 3vh;
+}
+
+.activity-content ol {
+margin-top: 2vh;
+margin-left: 2vh;
+}
+
+.activity-content ol li {
+margin-bottom: 1vh;
+}
+
+.highlight {
+color: blue;
+margin-bottom: 1vh;
+}
+
+.quadrant-container {
+margin: 4vh 0;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: auto auto;
+gap: 2vh;
+}
+
+.quadrant {
+border: 1px solid #000;
+padding: 2vh;
+margin-bottom: 2vh;
+}
+
+.quadrant h4 {
+font-weight: 600;
+margin-bottom: 1vh;
+}
+
+.persona {
+margin: 4vh 0;
+border: 1px solid #000;
+padding: 2vh;
+}
+
+.persona h3 {
+margin-bottom: 1vh;
+}
+
+.persona .details {
+display: flex;
+flex-direction: column;
+gap: 1vh;
+margin-bottom: 2vh;
+}
+
+.persona .details p {
+margin: 0;
+}
+
+.hmw-list {
+margin-top: 2vh;
+}
+
+.hmw-list li {
+margin-bottom: 1vh;
+}
+
+.image-placeholder {
+background-color: #f0f0f0;
+height: 150px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 2vh;
+object-fit: cover;
+}
+
+h2 {
+line-height: 1.1;
+}
+
+.key-point {
+background-color: #f8f8f8;
+padding: 2vh;
+margin: 3vh 0;
+border-left: 4px solid blue;
+}
+
+.checklist li {
+margin-bottom: 1vh;
+list-style-type: none;
+position: relative;
+padding-left: 2vh;
+}
+
+.checklist li:before {
+content: "✓";
+position: absolute;
+left: 0;
+color: green;
+}
+
+/* Added style for better spacing of brief/task titles */
+strong {
+font-weight: 600;
+display: block;
+margin-bottom: 1.5vh;
+}
+
+.activity-content .left p strong {
+margin-top: 2vh;
+}
+
+.activity-content .left p:first-child strong {
+margin-top: 0;
+}
+
+/* Ensure proper spacing after brief/task sections */
+.activity-content .left p {
+margin-bottom: 2vh;
+}
+
+/* Table styles for UX Writing section */
+.ux-table {
+width: 100%;
+border-collapse: collapse;
+margin: 3vh 0;
+}
+
+.ux-table th, .ux-table td {
+border: 1px solid #ddd;
+padding: 1.5vh;
+text-align: left;
+}
+
+.ux-table th {
+background-color: #f8f8f8;
+font-weight: 600;
+}
+
+.ux-table tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+
+.principle-row {
+margin: 2vh 0;
+padding-bottom: 2vh;
+border-bottom: 1px solid #eee;
+}
+
+.principle-row h4 {
+font-weight: 600;
+margin-bottom: 1vh;
+}
+
+.emoji-marker {
+display: inline-block;
+margin-right: 1vh;
+}
+
+.example-box {
+background-color: #f0f0f0;
+padding: 2vh;
+margin: 2vh 0;
+border-radius: 4px;
+}
+
+.example-box p {
+margin-bottom: 1vh;
+}
+
+.good-example {
+color: green;
+}
+
+.bad-example {
+color: red;
+text-decoration: line-through;
+}
+
+@media screen and (min-width: 768px) {
+/* Quote */
+.quote-mobile {
+display: none;
+}
+
+.quote-desktop {
+display: block;
+font-size: 22px;
+line-height: 1.3;
+color: blue;
+}
+
+.left {
+flex: 70%;
+}
+
+/* Synthesis grid */
+.synthesis-container {
+grid-template-columns: repeat(2, 1fr);
+gap: 3vh 3vh;
+}
+
+/* Card hover effect */
+.synthesis-card:hover {
+background-color: #f0f0f0;
+}
+
+/* Activity layout */
+.activity-content {
+flex-direction: row;
+justify-content: space-between;
+}
+
+.activity-content .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.activity-content .right {
+width: 35%;
+align-self: flex-start;
+}
+
+/* Quadrant layout */
+.quadrant-container {
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 1fr);
+}
+
+/* Examples layout */
+.example {
+display: flex;
+justify-content: space-between;
+}
+
+.example .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.example .right {
+width: 35%;
+}
+
+/* Larger synthesis cards grid for larger screens */
+@media screen and (min-width: 1024px) {
+.synthesis-container {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+}
+</style>
+</head>
+<body>
+<!-- Sticky Navigation Bar -->
+<nav class="navbar">
+<a href="index.html">
+<img src="assets/image/Logo Red BG.svg" alt="Lollypop Logo" class="logo">
+</a>
+</nav>
+<div class="hero">
+<div class="left">
+<h1>Surviving the UX Handoff</h1>
+<p>Week 10, Annotating Wireframes & Collaborating Across Teams</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- Quote for mobile view -->
+<div class="quote-mobile">
+"Think like a communicator—because good UX isn't just about solving problems, it's about making your thinking transparent to others who help build it."
+</div>
+
+<!-- SECTION 1: Why Collaboration Matters in UX -->
+<div class="section-title">
+<h2>👥 Why Collaboration Matters in UX</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p>As a UX designer, you are not working in a vacuum. You'll collaborate with multiple people across various domains:</p>
+</div>
+<div class="right">
+<!-- Quote for desktop view -->
+<p class="quote-desktop">"Think like a communicator—because good UX isn't just about solving problems, it's about making your thinking transparent to others who help build it."</p>
+</div>
+</div>
+
+<div class="key-point">
+<h4>🔹 Your Collaboration Partners:</h4>
+<ul>
+<li>Clients & Stakeholders – who bring business goals and user expectations</li>
+<li>Product Managers & Project Managers – who define priorities and timelines</li>
+<li>Visual Designers & UI Designers – who depend on your structure and logic</li>
+<li>Developers – who build based on the user flows and functionalities you define</li>
+<li>Researchers – who investigate based on the problem framing and hypotheses you outline</li>
+<li>Animators, QA, and Marketing Teams – who execute based on the overall experience design</li>
+</ul>
+</div>
+
+<div class="about">
+<div class="left">
+<p>This broad spectrum of collaboration makes UX a double-edged sword. You're in a central role, driving the product vision.</p>
+
+<p>Here's why your clarity as a UX designer is critical:</p>
+<ul>
+<li>UI design can't begin until UX defines the structure and flow.</li>
+<li>PMs can manage delivery, but not invent the core product logic.</li>
+<li>Developers rely on UX to define how the product behaves, what connects to what.</li>
+<li>Researchers need a focused problem space defined by UX to gather useful insights.</li>
+</ul>
+
+<p>If your logic is unclear or not communicated well, misunderstandings multiply. Projects stall or misfire. In this sense, UX is the essence of the product cycle.</p>
+
+<p>So — feeling important, or a bit scared? Good. That sense of responsibility is the start of great design leadership.</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 2: What Are UX Annotations? -->
+<div class="section-title">
+<h2>📝 What Are UX Annotations?</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p><strong>Definition:</strong> UX annotations are explanatory notes or labels added to wireframes, user flows, or design specs to communicate design intent clearly.</p>
+
+<p><strong>Purpose:</strong></p>
+<ul>
+<li>Clarify functionality and behavior</li>
+<li>Bridge gaps between teams</li>
+<li>Reduce ambiguity in handoff</li>
+<li>Ensure consistency in implementation</li>
+</ul>
+
+<p><strong>Where you'll use them:</strong></p>
+<ul>
+<li>Wireframes (lo-fi or hi-fi)</li>
+<li>User flows and journey maps</li>
+<li>Prototypes</li>
+<li>Design specifications shared with dev/QA teams</li>
+</ul>
+
+<p><strong>Who needs them:</strong></p>
+<ul>
+<li>Developers</li>
+<li>Project Managers / Product Managers</li>
+<li>QA teams</li>
+<li>UI designers</li>
+<li>Clients / Business stakeholders</li>
+</ul>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 3: Tailoring Annotations for Different Audiences -->
+<div class="section-title">
+<h2>🎯 Tailoring Annotations for Different Audiences</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p>Each stakeholder reads annotations differently. Here's how to tailor:</p>
+</div>
+</div>
+
+<div class="synthesis-container">
+<div class="synthesis-card">
+<h3>Developers</h3>
+<div class="synthesis-description">
+<ul>
+<li>Detail interactivity, screen transitions, input validation, error/success cases</li>
+<li>Use technical clarity; avoid vague terms like "smooth animation"</li>
+</ul>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>PMs / Product Owners</h3>
+<div class="synthesis-description">
+<ul>
+<li>Focus on intent and purpose of the feature</li>
+<li>Tie functionality to user goals or business outcomes</li>
+</ul>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>UI Designers / Visual Designers</h3>
+<div class="synthesis-description">
+<ul>
+<li>Indicate layout intent, component logic, content prioritization</li>
+<li>Include placeholder logic, image/text rules</li>
+</ul>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>Clients / Stakeholders</h3>
+<div class="synthesis-description">
+<ul>
+<li>High-level explanation of what's happening and why</li>
+<li>Focus on value to the user, less on mechanics</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 4: Types of UX Annotations -->
+<div class="section-title">
+<h2>📋 Types of UX Annotations</h2>
+</div>
+
+<div class="principle-row">
+<h4>Functional Annotations</h4>
+<p>Describe actions and interactions (e.g., "Clicking this button opens a modal")</p>
+</div>
+
+<div class="principle-row">
+<h4>Behavioral Annotations</h4>
+<p>Define how the system reacts (e.g., "Auto-saves when the user stops typing for 3 seconds")</p>
+</div>
+
+<div class="principle-row">
+<h4>Content Annotations</h4>
+<p>Provide rules for copy, tone, or hierarchy (e.g., "Use first name if available, else show 'Guest'")</p>
+</div>
+
+<div class="principle-row">
+<h4>Responsive Annotations</h4>
+<p>Clarify layout behavior across devices (e.g., "Cards stack vertically on mobile")</p>
+</div>
+
+<div class="principle-row">
+<h4>Accessibility Annotations</h4>
+<p>Specify tab order, ARIA roles, keyboard navigation, and screen reader notes</p>
+</div>
+
+<div class="principle-row">
+<h4>Edge Cases / Errors / Success States</h4>
+<p>Define what happens when things go wrong or right (e.g., "If payment fails, show retry option")</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 5: Why UX Annotations Matter in Real Projects -->
+<div class="section-title">
+<h2>⚡ Why UX Annotations Matter in Real Projects</h2>
+</div>
+
+<ul>
+<li>Prevent misinterpretation in development</li>
+<li>Provide a source of truth for QA testing</li>
+<li>Reduce back-and-forth in implementation</li>
+<li>Communicate design decisions to stakeholders</li>
+<li>Help teams understand design beyond what's visible on screen</li>
+</ul>
+
+<div class="key-point">
+<p>Annotations reduce assumptions. That means fewer surprises in development—and ultimately, a smoother launch.</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 6: Best Practices for Annotating Wireframes -->
+<div class="section-title">
+<h2>✅ Best Practices for Annotating Wireframes</h2>
+</div>
+
+<ul>
+<li><strong>Be clear, not wordy</strong> – Keep annotations concise and actionable</li>
+<li><strong>Be consistent</strong> – Use similar phrasing and tone throughout</li>
+<li><strong>Prioritize info</strong> – Not every element needs annotation. Focus on functionality, ambiguity, and risk areas</li>
+<li><strong>Use callouts or legends</strong> – Don't clutter the wireframe; number notes or use overlays</li>
+<li><strong>Keep annotations updated</strong> – Update them when the design evolves</li>
+</ul>
+
+<div class="line"></div>
+
+<!-- SECTION 7: When & How to Use UX Annotations in the Design Process -->
+<div class="section-title">
+<h2>🔄 When & How to Use UX Annotations in the Design Process</h2>
+</div>
+
+<ul>
+<li><strong>Lo-fi stage:</strong> Use annotations to explain what's missing visually (e.g., placeholder logic, data handling)</li>
+<li><strong>Hi-fi stage:</strong> Add annotations to prototypes, walkthroughs, and design systems for detailed guidance</li>
+<li><strong>Dev handoff:</strong> Include a finalized annotation layer or PDF version with specs</li>
+<li><strong>Agile/lean cycles:</strong> Annotate just-in-time for each sprint instead of front-loading everything</li>
+</ul>
+
+<div class="key-point">
+<p>Annotations are living documentation—update them with each iteration.</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 8: Next Steps / Activity -->
+<div class="section-title">
+<h2>🚀 Next Steps / Activity</h2>
+</div>
+
+<div class="key-point">
+<h4>Exercise: Annotate your wireframes</h4>
+<p>Pick one screen from your wireframe set</p>
+<p>Add clear, purposeful annotations for:</p>
+<ul>
+<li>Interaction</li>
+<li>Logic</li>
+<li>Errors</li>
+<li>Content rules</li>
+<li>Responsive behavior (if relevant)</li>
+</ul>
+<p>Then: Pair up with someone who hasn't seen your project. Ask them to review it and describe:</p>
+<ul>
+<li>What they understand from the annotations</li>
+<li>What functionality they'd expect to build (if they were devs)</li>
+</ul>
+<p>This simulates real-world handoff situations where devs or PMs see your work with fresh eyes.</p>
+</div>
+
+<div class="line"></div>
+
+<div class="conclusion">
+<div class="left">
+<h2>Key Takeaways</h2>
+<ul>
+<li>UX designers are central collaborators in product development</li>
+<li>Clear annotations prevent misunderstandings and save time</li>
+<li>Different team members need different types of information</li>
+<li>Good UX annotations clarify functionality, behavior, and intent</li>
+<li>Annotations should evolve with your design iterations</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>
