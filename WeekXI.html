@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="assets/reset.css" rel="stylesheet">
+<link href="assets/style.css" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap" rel="stylesheet">
+<title>Resume & Portfolio — Your Shot at Getting Hired</title>
+<style>
+li {
+list-style-type: disc;
+margin-left: 5%;
+padding-bottom: 10px;
+}
+
+.section-title {
+margin-bottom: 4vh;
+}
+
+.section-title p {
+font-weight: normal;
+margin-top: 1vh;
+}
+
+.quote-desktop {
+display: none;
+}
+
+.quote-mobile {
+margin: 4vh 0;
+font-size: 20px;
+line-height: 1.3;
+color: blue;
+}
+
+.synthesis-container {
+display: grid;
+grid-template-columns: 1fr;
+gap: 2vh;
+margin-bottom: 6vh;
+}
+
+.synthesis-card {
+border: 0.5px solid #000;
+padding: 2vh;
+transition: all 0.3s ease;
+}
+
+.synthesis-card h3 {
+margin-bottom: 1vh;
+font-weight: normal;
+}
+
+.synthesis-description {
+font-weight: normal;
+}
+
+.activity {
+margin: 6vh 0;
+}
+
+.activity h2 {
+margin-bottom: 3vh;
+}
+
+.activity-content {
+display: flex;
+flex-direction: column;
+}
+
+.activity-content .left {
+margin-bottom: 3vh;
+}
+
+.activity-content ol {
+margin-top: 2vh;
+margin-left: 2vh;
+}
+
+.activity-content ol li {
+margin-bottom: 1vh;
+}
+
+.highlight {
+color: blue;
+margin-bottom: 1vh;
+}
+
+.quadrant-container {
+margin: 4vh 0;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: auto auto;
+gap: 2vh;
+}
+
+.quadrant {
+border: 1px solid #000;
+padding: 2vh;
+margin-bottom: 2vh;
+}
+
+.quadrant h4 {
+font-weight: 600;
+margin-bottom: 1vh;
+}
+
+.persona {
+margin: 4vh 0;
+border: 1px solid #000;
+padding: 2vh;
+}
+
+.persona h3 {
+margin-bottom: 1vh;
+}
+
+.persona .details {
+display: flex;
+flex-direction: column;
+gap: 1vh;
+margin-bottom: 2vh;
+}
+
+.persona .details p {
+margin: 0;
+}
+
+.hmw-list {
+margin-top: 2vh;
+}
+
+.hmw-list li {
+margin-bottom: 1vh;
+}
+
+.image-placeholder {
+background-color: #f0f0f0;
+height: 150px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 4vh;
+object-fit: cover;
+}
+
+h2 {
+line-height: 1.1;
+}
+
+.key-point {
+background-color: #f8f8f8;
+padding: 2vh;
+margin: 3vh 0;
+border-left: 4px solid blue;
+}
+
+.checklist li {
+margin-bottom: 1vh;
+list-style-type: none;
+position: relative;
+padding-left: 2vh;
+}
+
+.checklist li:before {
+content: "✓";
+position: absolute;
+left: 0;
+color: green;
+}
+
+/* Added style for better spacing of brief/task titles */
+strong {
+font-weight: 600;
+display: block;
+margin-bottom: 1.5vh;
+}
+
+.activity-content .left p strong {
+margin-top: 2vh;
+}
+
+.activity-content .left p:first-child strong {
+margin-top: 0;
+}
+
+/* Ensure proper spacing after brief/task sections */
+.activity-content .left p {
+margin-bottom: 2vh;
+}
+
+/* Journey Map Table */
+.journey-table {
+width: 100%;
+border-collapse: collapse;
+margin: 3vh 0;
+}
+
+.journey-table th, .journey-table td {
+border: 1px solid #ddd;
+padding: 1.5vh;
+text-align: left;
+}
+
+.journey-table th {
+background-color: #f8f8f8;
+font-weight: 600;
+}
+
+.journey-table tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+
+.principle-row {
+margin: 2vh 0;
+padding-bottom: 2vh;
+border-bottom: 1px solid #eee;
+}
+
+.principle-row h4 {
+font-weight: 600;
+margin-bottom: 1vh;
+}
+
+.emoji-marker {
+display: inline-block;
+margin-right: 1vh;
+}
+
+.example-box {
+background-color: #f0f0f0;
+padding: 2vh;
+margin: 2vh 0;
+border-radius: 4px;
+}
+
+.example-box p {
+margin-bottom: 1vh;
+}
+
+.good-example {
+color: green;
+}
+
+.bad-example {
+color: red;
+text-decoration: line-through;
+}
+
+.vs-section {
+background-color: #fff3cd;
+border: 1px solid #ffeaa7;
+padding: 2vh;
+margin: 3vh 0;
+border-radius: 4px;
+}
+
+.vs-section h4 {
+color: #856404;
+margin-bottom: 1vh;
+}
+
+.discussion-prompt {
+background-color: #e8f4fd;
+border: 1px solid #bee5eb;
+padding: 2vh;
+margin: 3vh 0;
+border-radius: 4px;
+}
+
+.discussion-prompt h4 {
+color: #0c5460;
+margin-bottom: 1vh;
+}
+
+@media screen and (min-width: 768px) {
+/* Hide mobile GIF on desktop */
+.image-placeholder {
+display: none;
+}
+
+/* Quote */
+.quote-mobile {
+display: none;
+}
+
+.quote-desktop {
+display: block;
+font-size: 22px;
+line-height: 1.3;
+color: blue;
+}
+
+.left {
+flex: 70%;
+}
+
+/* Synthesis grid */
+.synthesis-container {
+grid-template-columns: repeat(2, 1fr);
+gap: 3vh 3vh;
+}
+
+/* Card hover effect */
+.synthesis-card:hover {
+background-color: #f0f0f0;
+}
+
+/* Activity layout */
+.activity-content {
+flex-direction: row;
+justify-content: space-between;
+}
+
+.activity-content .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.activity-content .right {
+width: 35%;
+align-self: flex-start;
+}
+
+/* Quadrant layout */
+.quadrant-container {
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 1fr);
+}
+
+/* Examples layout */
+.example {
+display: flex;
+justify-content: space-between;
+}
+
+.example .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.example .right {
+width: 35%;
+}
+
+/* Larger synthesis cards grid for larger screens */
+@media screen and (min-width: 1024px) {
+.synthesis-container {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+}
+</style>
+</head>
+<body>
+<!-- Sticky Navigation Bar -->
+<nav class="navbar">
+<a href="index.html">
+<img src="assets/image/Logo Red BG.svg" alt="Lollypop Logo" class="logo">
+</a>
+</nav>
+<div class="hero">
+<div class="left">
+<h1>A Shot at Getting Hired</h1>
+<p>Week XI, Landing Your First Design Job</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- GIF placeholder -->
+<div class="image-placeholder">
+<img src="assets/image/michaelscott.gif" alt="The Office">
+</div>
+
+<!-- SECTION 1: Intro -->
+<div class="section-title">
+<h2>🎬 So You're Trying to Get Hired?</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p>Let's be real. Creating a resume and a portfolio can feel like shouting into the void and hoping a recruiter somewhere sees your potential.</p>
+<p>But it's also your first design challenge.</p>
+<p>You're designing for a real user: a recruiter, a design lead, or an HR person — and like any good design, you need to:</p>
+<ul>
+<li>Understand their context</li>
+<li>Communicate clearly</li>
+<li>Stand out without being annoying</li>
+</ul>
+</div>
+<div class="right">
+<!-- Quote for desktop view -->
+<div class="quote-desktop"><img src="assets/image/michaelscott.gif" alt="The Office"></div>
+</div>
+</div>
+
+<div class="key-point">
+<h4>👀 Why this matters:</h4>
+<p>The job market is full of talented people — your tools (resume/portfolio) are what get your foot in the door.</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 2: Why Portfolio is UX -->
+<div class="section-title">
+<h2>🧠 Why is Creating a Portfolio a Form of UX?</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p>Creating your portfolio is UX because:</p>
+<ul>
+<li>You're solving a problem: "Why should someone hire me?"</li>
+<li>You're thinking about user flows (what to show, in what order)</li>
+<li>You need to use information hierarchy, layout, clarity</li>
+<li>You do user research: Who will view this? A recruiter? A design lead?</li>
+<li>You iterate: portfolios are never "done"</li>
+</ul>
+</div>
+</div>
+
+<div class="key-point">
+<h4>📌 In short:</h4>
+<p>You are designing an experience to build trust.</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 3: Journey Map -->
+<div class="section-title">
+<h2>🗺️ Journey Map of Landing a Job</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p>Each step is about getting you to the next step. Not perfection, just progress.</p>
+</div>
+</div>
+
+<table class="journey-table">
+<thead>
+<tr>
+<th>Stage</th>
+<th>Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resume</td>
+<td>Get you into the "maybe" pile</td>
+</tr>
+<tr>
+<td>Portfolio</td>
+<td>Get them to say "Let's talk to this person"</td>
+</tr>
+<tr>
+<td>Case Study</td>
+<td>Show how you think, not just how you design</td>
+</tr>
+<tr>
+<td>Whiteboard Challenge</td>
+<td>Evaluate collaboration, problem-solving under pressure</td>
+</tr>
+<tr>
+<td>App Critique / Task</td>
+<td>Assess your product thinking and attention to detail</td>
+</tr>
+<tr>
+<td>HR Round</td>
+<td>Check for fit, clarity, communication, expectations</td>
+</tr>
+<tr>
+<td>Offer</td>
+<td>Business alignment & your value match</td>
+</tr>
+<tr>
+<td>Job</td>
+<td>The start — not the end — of the journey</td>
+</tr>
+</tbody>
+</table>
+
+<div class="line"></div>
+
+<!-- SECTION 4: Resume -->
+<div class="section-title">
+<h2>🧑‍💼 Resume – Your Invite to the Party</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p><strong>🎯 What's its goal?</strong><br>
+To get you that first call or interview. That's it.<br>
+No one is reading it to admire your choice of font. They're skimming for relevance.</p>
+</div>
+</div>
+
+<div class="vs-section">
+<h4>❌ What It Shouldn't Look Like:</h4>
+<ul>
+<li>Overdesigned, unreadable layouts</li>
+<li>A wall of text</li>
+<li>10-point font squeezed into 2 pages</li>
+<li>Buzzword soup: "Synergizing user-centric paradigms"</li>
+</ul>
+</div>
+
+<div class="key-point">
+<h4>✅ What It Should Look Like:</h4>
+<ul>
+<li>Clean, structured, and scannable in under 10 seconds</li>
+<li>Prioritized content (most relevant stuff on top)</li>
+<li>Short, clear bullet points using Action + What + Tool + Outcome<br>
+<em>E.g., "Created wireframes using Figma for food delivery app in 2-week sprint"</em></li>
+<li>Proof of potential, not proof of experience</li>
+</ul>
+</div>
+
+<div class="principle-row">
+<h4>📌 Best Practices for Entry-Level Designers:</h4>
+<ul>
+<li>Lead with projects: academic, freelance, bootcamp — all count</li>
+<li>Use clear role labels: UX Designer, UI Designer, etc.</li>
+<li>Highlight process: research, testing, iteration — even if informal</li>
+<li>Avoid fluff: Only include things that directly support your goal</li>
+</ul>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 5: Discussion Prompt -->
+<div class="discussion-prompt">
+<h4>🧩 Prompt for Group Discussion:</h4>
+<p><strong>Would you rather:</strong></p>
+<p>✅ Be a full-time designer at a medium-sized but growing company<br>
+🏢 Or an intern at a big-name company (Apple, Google, etc.)?</p>
+<p>Discuss tradeoffs: learning scope, mentorship, brand value, exposure.</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 6: Portfolio -->
+<div class="section-title">
+<h2>🧳 Portfolio – Your Digital First Impression</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p><strong>🎯 What's its goal?</strong><br>
+Make someone curious to talk to you.<br>
+It's not an art gallery. It's a storytelling tool.</p>
+</div>
+</div>
+
+<div class="synthesis-container">
+<div class="synthesis-card">
+<h3>👥 Who's Viewing It?</h3>
+<div class="synthesis-description">
+<p><strong>Sometimes a designer</strong> (looks for process, potential)</p>
+<p><strong>Sometimes non-designers</strong> (HR, product heads – look for clarity, polish)</p>
+<p>📌 Adapt your tone and visuals accordingly — don't just design for designers.</p>
+</div>
+</div>
+</div>
+
+<div class="principle-row">
+<h4>🌟 How to Stand Out (Without Gimmicks):</h4>
+<ul>
+<li>Strong storytelling: clear problem → process → solution</li>
+<li>Real evidence: sketches, wireframes, not just pretty UIs</li>
+<li>Reflections: show what you learned or would do differently</li>
+<li>2–3 deep case studies are enough. Quality > quantity</li>
+<li>Add personal/side projects: shows initiative</li>
+<li>Custom thumbnails / structure for different kinds of roles (UX-heavy, UI-heavy, etc.)</li>
+</ul>
+</div>
+
+<div class="key-point">
+<h4>📦 Bonus Tip:</h4>
+<p>Include a 1-slide PDF version of your top case study when applying. Makes it easy for recruiters to share internally.</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 7: Final Takeaways -->
+<div class="section-title">
+<h2>🧠 Final Takeaways</h2>
+</div>
+
+<div class="conclusion">
+<div class="left">
+<ul>
+<li>You are not your resume or your portfolio. But they are your first handshake.</li>
+<li>Think like a designer: Who's your user? What do they need to know quickly?</li>
+<li>Iterate. Your resume and portfolio will evolve with you.</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>
