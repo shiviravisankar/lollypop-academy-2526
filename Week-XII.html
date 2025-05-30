@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="assets/reset.css" rel="stylesheet">
+<link href="assets/style.css" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap" rel="stylesheet">
+<title>AI in UX</title>
+<style>
+li {
+list-style-type: disc;
+margin-left: 5%;
+padding-bottom: 10px;
+}
+
+.section-title {
+margin-bottom: 4vh;
+}
+
+.section-title p {
+font-weight: normal;
+margin-top: 1vh;
+}
+
+.quote-desktop {
+display: none;
+}
+
+.quote-mobile {
+margin: 4vh 0;
+font-size: 20px;
+line-height: 1.3;
+color: blue;
+}
+
+.synthesis-container {
+display: grid;
+grid-template-columns: 1fr;
+gap: 2vh;
+margin-bottom: 6vh;
+}
+
+.synthesis-card {
+border: 0.5px solid #000;
+padding: 2vh;
+transition: all 0.3s ease;
+}
+
+.synthesis-card h3 {
+margin-bottom: 1vh;
+font-weight: normal;
+}
+
+.synthesis-description {
+font-weight: normal;
+}
+
+.activity {
+margin: 6vh 0;
+}
+
+.activity h2 {
+margin-bottom: 3vh;
+}
+
+.activity-content {
+display: flex;
+flex-direction: column;
+}
+
+.activity-content .left {
+margin-bottom: 3vh;
+}
+
+.activity-content ol {
+margin-top: 2vh;
+margin-left: 2vh;
+}
+
+.activity-content ol li {
+margin-bottom: 1vh;
+}
+
+.highlight {
+color: blue;
+margin-bottom: 1vh;
+}
+
+.quadrant-container {
+margin: 4vh 0;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: auto auto;
+gap: 2vh;
+}
+
+.quadrant {
+border: 1px solid #000;
+padding: 2vh;
+margin-bottom: 2vh;
+}
+
+.quadrant h4 {
+font-weight: 600;
+margin-bottom: 1vh;
+}
+
+.persona {
+margin: 4vh 0;
+border: 1px solid #000;
+padding: 2vh;
+}
+
+.persona h3 {
+margin-bottom: 1vh;
+}
+
+.persona .details {
+display: flex;
+flex-direction: column;
+gap: 1vh;
+margin-bottom: 2vh;
+}
+
+.persona .details p {
+margin: 0;
+}
+
+.hmw-list {
+margin-top: 2vh;
+}
+
+.hmw-list li {
+margin-bottom: 1vh;
+}
+
+.image-placeholder {
+background-color: #f0f0f0;
+height: 150px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 2vh;
+object-fit: cover;
+}
+
+h2 {
+line-height: 1.1;
+}
+
+.key-point {
+background-color: #f8f8f8;
+padding: 2vh;
+margin: 3vh 0;
+border-left: 4px solid blue;
+}
+
+.checklist li {
+margin-bottom: 1vh;
+list-style-type: none;
+position: relative;
+padding-left: 2vh;
+}
+
+.checklist li:before {
+content: "✓";
+position: absolute;
+left: 0;
+color: green;
+}
+
+/* Added style for better spacing of brief/task titles */
+strong {
+font-weight: 600;
+display: block;
+margin-bottom: 1.5vh;
+}
+
+.activity-content .left p strong {
+margin-top: 2vh;
+}
+
+.activity-content .left p:first-child strong {
+margin-top: 0;
+}
+
+/* Ensure proper spacing after brief/task sections */
+.activity-content .left p {
+margin-bottom: 2vh;
+}
+
+/* Table styles for UX Writing section */
+.ux-table {
+width: 100%;
+border-collapse: collapse;
+margin: 3vh 0;
+}
+
+.ux-table th, .ux-table td {
+border: 1px solid #ddd;
+padding: 1.5vh;
+text-align: left;
+}
+
+.ux-table th {
+background-color: #f8f8f8;
+font-weight: 600;
+}
+
+.ux-table tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+
+.principle-row {
+margin: 2vh 0;
+padding-bottom: 2vh;
+border-bottom: 1px solid #eee;
+}
+
+.principle-row h4 {
+font-weight: 600;
+margin-bottom: 1vh;
+}
+
+.emoji-marker {
+display: inline-block;
+margin-right: 1vh;
+}
+
+.example-box {
+background-color: #f0f0f0;
+padding: 2vh;
+margin: 2vh 0;
+border-radius: 4px;
+}
+
+.example-box p {
+margin-bottom: 1vh;
+}
+
+.good-example {
+color: green;
+}
+
+.bad-example {
+color: red;
+text-decoration: line-through;
+}
+
+@media screen and (min-width: 768px) {
+/* Quote */
+.quote-mobile {
+display: none;
+}
+
+.quote-desktop {
+display: block;
+font-size: 22px;
+line-height: 1.3;
+color: blue;
+}
+
+.left {
+flex: 70%;
+}
+
+/* Synthesis grid */
+.synthesis-container {
+grid-template-columns: repeat(2, 1fr);
+gap: 3vh 3vh;
+}
+
+/* Card hover effect */
+.synthesis-card:hover {
+background-color: #f0f0f0;
+}
+
+/* Activity layout */
+.activity-content {
+flex-direction: row;
+justify-content: space-between;
+}
+
+.activity-content .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.activity-content .right {
+width: 35%;
+align-self: flex-start;
+}
+
+/* Quadrant layout */
+.quadrant-container {
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 1fr);
+}
+
+/* Examples layout */
+.example {
+display: flex;
+justify-content: space-between;
+}
+
+.example .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.example .right {
+width: 35%;
+}
+
+/* Larger synthesis cards grid for larger screens */
+@media screen and (min-width: 1024px) {
+.synthesis-container {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+}
+</style>
+</head>
+<body>
+<!-- Sticky Navigation Bar -->
+<nav class="navbar">
+<a href="index.html">
+<img src="assets/image/Logo Red BG.svg" alt="Lollypop Logo" class="logo">
+</a>
+</nav>
+<div class="hero">
+<div class="left">
+<h1>AI in UX Design</h1>
+<p>Week 12, UX in the age of AI</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- Quote for mobile view -->
+<div class="quote-mobile">
+"AI can design faster, but only humans can design with heart, context, and conscience. Designers remain essential translators between machine logic and human emotion in the AI age."
+</div>
+
+<!-- SECTION 1: Quick Definitions -->
+<div class="section-title">
+<h2>🤖 Quick Definitions</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p><strong>AI (Artificial Intelligence):</strong> Machines performing tasks requiring human intelligence (learning, problem-solving, decision-making).</p>
+<p><em>Examples:</em> Chatbots, recommendation engines, self-driving cars.</p>
+
+<p><strong>Machine Learning (ML):</strong> A subset of AI where machines improve by learning from data without explicit programming.</p>
+<p><em>Example:</em> Predicting user preferences based on behavior.</p>
+
+<p><strong>Large Language Models (LLMs):</strong> AI models trained on vast text data to understand and generate human-like language.</p>
+<p><em>Example:</em> ChatGPT, Claude.</p>
+</div>
+<div class="right">
+<!-- Quote for desktop view -->
+<p class="quote-desktop">"AI can design faster, but only humans can design with heart, context, and conscience. Designers remain essential translators between machine logic and human emotion in the AI age."</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 2: Where AI Meets UX -->
+<div class="section-title">
+<h2>🎯 Where AI Meets UX: Real-world Use Cases</h2>
+</div>
+
+<div class="synthesis-container">
+<div class="synthesis-card">
+<h3>In Research</h3>
+<div class="synthesis-description">
+<ul>
+<li>Synthesizing qualitative data (e.g., AI summaries of interviews)</li>
+<li>Sentiment analysis</li>
+<li>Auto-transcription and clustering of interview data</li>
+<li>Heatmap prediction (e.g., Attention Insight)</li>
+</ul>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>In Design</h3>
+<div class="synthesis-description">
+<ul>
+<li>AI-driven image generation (e.g., Midjourney for moodboards)</li>
+<li>Generative UI mockups from prompts</li>
+<li>AI-supported design systems (e.g., Galileo AI, Uizard)</li>
+<li>Auto-layout and component suggestions</li>
+</ul>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>In Testing</h3>
+<div class="synthesis-description">
+<ul>
+<li>Predictive usability testing</li>
+<li>AI-generated survey insights</li>
+<li>Session replay auto-tagging</li>
+</ul>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>In Personalization</h3>
+<div class="synthesis-description">
+<ul>
+<li>AI-powered adaptive user journeys (dynamic content, layout shifts)</li>
+<li>Contextual UI with smart notifications and intent prediction</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 3: Generative AI vs Predictive AI -->
+<div class="section-title">
+<h2>⚡ Generative AI vs Predictive AI</h2>
+</div>
+
+<table class="ux-table">
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Generative AI</th>
+<th>Predictive AI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Function</strong></td>
+<td>Creates new content (text, images, designs)</td>
+<td>Forecasts or recommends based on data</td>
+</tr>
+<tr>
+<td><strong>Examples</strong></td>
+<td>ChatGPT writing copy, Midjourney making art</td>
+<td>Netflix recommendations, heatmap prediction</td>
+</tr>
+<tr>
+<td><strong>UX Use</strong></td>
+<td>Copywriting, ideation, wireframes, concept art</td>
+<td>Personalization, analytics, recommendations</td>
+</tr>
+</tbody>
+</table>
+
+<div class="line"></div>
+
+<!-- SECTION 4: AI Use in Popular UX Examples -->
+<div class="section-title">
+<h2>🌟 AI Use in Popular UX Examples</h2>
+</div>
+
+<div class="principle-row">
+<h4>Netflix</h4>
+<p>Personalized content recommendations, thumbnail personalization, skip intro feature.</p>
+</div>
+
+<div class="principle-row">
+<h4>Spotify</h4>
+<p>Personalized playlists, contextual music suggestions, AI DJ voice with commentary.</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 5: Key AI Tools for UX Designers -->
+<div class="section-title">
+<h2>🛠️ Key AI Tools for UX Designers</h2>
+</div>
+
+<table class="ux-table">
+<thead>
+<tr>
+<th>Tool</th>
+<th>Use Case</th>
+<th>Special Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ChatGPT</strong></td>
+<td>Research synthesis, writing, personas, brainstorming</td>
+<td>Use system prompts to control tone & format</td>
+</tr>
+<tr>
+<td><strong>Claude</strong></td>
+<td>Long-form document analysis, ethical UX decisions</td>
+<td>Strong reasoning and explanation</td>
+</tr>
+<tr>
+<td><strong>Perplexity AI</strong></td>
+<td>AI-powered search with citations</td>
+<td>Great for competitor analysis, domain research</td>
+</tr>
+<tr>
+<td><strong>Lovable AI</strong></td>
+<td>Rapid product strategy prototyping</td>
+<td>Generates personas, landing pages, features; use as inspiration, not replacement</td>
+</tr>
+<tr>
+<td><strong>Image Gen Tools (Midjourney, DALL·E)</strong></td>
+<td>Moodboards, hero banners, illustrations</td>
+<td>Useful for style exploration, accessibility variations</td>
+</tr>
+<tr>
+<td><strong>Runway / Sora</strong></td>
+<td>Motion UI storytelling, prototype promos</td>
+<td>Simulate flows visually without dev effort</td>
+</tr>
+</tbody>
+</table>
+
+<div class="key-point">
+<h4>Pro Tips:</h4>
+<ul>
+<li>Always verify and edit AI outputs.</li>
+<li>Avoid bias, especially with personas or research.</li>
+<li>Use your human UX lens to empathize and contextualize.</li>
+</ul>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 6: The Evolving Role of UX Designers with AI -->
+<div class="section-title">
+<h2>🔄 The Evolving Role of UX Designers with AI</h2>
+</div>
+
+<div class="principle-row">
+<h4>Designing Human-AI Interaction</h4>
+<p>Define when/how AI appears and its tone.</p>
+<p>Design user controls for AI outputs and graceful fallbacks for errors.</p>
+</div>
+
+<div class="principle-row">
+<h4>Making AI Understandable (Explainability)</h4>
+<p>Translate AI logic into simple mental models.</p>
+<p>Provide transparency ("Why did I get this result?").</p>
+</div>
+
+<div class="principle-row">
+<h4>Building with Responsibility</h4>
+<p>Design inclusively for edge cases.</p>
+<p>Identify and mitigate bias or harmful defaults.</p>
+<p>Serve as the ethical conscience in AI development.</p>
+</div>
+
+<div class="principle-row">
+<h4>Curating Data and Feedback Loops</h4>
+<p>Select meaningful user data for AI training.</p>
+<p>Design consentful data collection and human-in-the-loop corrections.</p>
+</div>
+
+<div class="principle-row">
+<h4>Using AI as a Design Tool</h4>
+<p>Leverage AI for faster wireframing, copywriting, and ideation.</p>
+<p>Always apply human judgment to refine AI-generated work.</p>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 7: Why AI Can't Replace UX Designers -->
+<div class="section-title">
+<h2>🚫 Why AI Can't Replace UX Designers</h2>
+</div>
+
+<table class="ux-table">
+<thead>
+<tr>
+<th>Reason</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lack of Human Empathy</strong></td>
+<td>AI can't feel frustration, cultural nuances, or emotion.</td>
+</tr>
+<tr>
+<td><strong>Need for Creativity with Context</strong></td>
+<td>Designers balance user needs, business goals, ethics, and constraints. AI lacks this nuanced judgment.</td>
+</tr>
+<tr>
+<td><strong>Design as a Collaborative Process</strong></td>
+<td>Iteration and feedback from stakeholders and users shape design, beyond AI prompts.</td>
+</tr>
+<tr>
+<td><strong>Ethics, Equity & Moral Judgment</strong></td>
+<td>Designers spot bias and advocate for marginalized users; AI follows patterns without judgment.</td>
+</tr>
+<tr>
+<td><strong>Evolving Role</strong></td>
+<td>AI automates repetitive tasks; designers focus on strategy, empathy, and experimentation.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="line"></div>
+
+<div class="conclusion">
+<div class="left">
+<h2>Final Takeaway</h2>
+<p>AI can design faster, but only humans can design with heart, context, and conscience. Designers remain essential translators between machine logic and human emotion in the AI age.</p>
+</div>
+</div>
+
+</body>
+</html>
