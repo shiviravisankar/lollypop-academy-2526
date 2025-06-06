@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="assets/reset.css" rel="stylesheet">
+<link href="assets/style.css" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap" rel="stylesheet">
+<title>Information Architecture</title>
+<style>
+li {
+list-style-type: disc;
+margin-left: 5%;
+padding-bottom: 10px;
+}
+
+.section-title {
+margin-bottom: 4vh;
+}
+
+.section-title p {
+font-weight: normal;
+margin-top: 1vh;
+}
+
+.quote-desktop {
+display: none;
+}
+
+.quote-mobile {
+margin: 4vh 0;
+font-size: 20px;
+line-height: 1.3;
+color: blue;
+}
+
+.synthesis-container {
+display: grid;
+grid-template-columns: 1fr;
+gap: 2vh;
+margin-bottom: 6vh;
+}
+
+.synthesis-card {
+border: 0.5px solid #000;
+padding: 2vh;
+transition: all 0.3s ease;
+}
+
+.synthesis-card h3 {
+margin-bottom: 1vh;
+font-weight: normal;
+}
+
+.synthesis-description {
+font-weight: normal;
+}
+
+.activity {
+margin: 6vh 0;
+}
+
+.activity h2 {
+margin-bottom: 3vh;
+}
+
+.activity-content {
+display: flex;
+flex-direction: column;
+}
+
+.activity-content .left {
+margin-bottom: 3vh;
+}
+
+.activity-content ol {
+margin-top: 2vh;
+margin-left: 2vh;
+}
+
+.activity-content ol li {
+margin-bottom: 1vh;
+}
+
+.highlight {
+color: blue;
+margin-bottom: 1vh;
+}
+
+.quadrant-container {
+margin: 4vh 0;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: auto auto;
+gap: 2vh;
+}
+
+.quadrant {
+border: 1px solid #000;
+padding: 2vh;
+margin-bottom: 2vh;
+}
+
+.quadrant h4 {
+font-weight: 600;
+margin-bottom: 1vh;
+}
+
+.persona {
+margin: 4vh 0;
+border: 1px solid #000;
+padding: 2vh;
+}
+
+.persona h3 {
+margin-bottom: 1vh;
+}
+
+.persona .details {
+display: flex;
+flex-direction: column;
+gap: 1vh;
+margin-bottom: 2vh;
+}
+
+.persona .details p {
+margin: 0;
+}
+
+.hmw-list {
+margin-top: 2vh;
+}
+
+.hmw-list li {
+margin-bottom: 1vh;
+}
+
+.image-placeholder {
+background-color: #f0f0f0;
+height: 150px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 2vh;
+object-fit: cover;
+}
+
+h2 {
+line-height: 1.1;
+}
+
+.key-point {
+background-color: #f8f8f8;
+padding: 2vh;
+margin: 3vh 0;
+border-left: 4px solid blue;
+}
+
+.checklist li {
+margin-bottom: 1vh;
+list-style-type: none;
+position: relative;
+padding-left: 2vh;
+}
+
+.checklist li:before {
+content: "✓";
+position: absolute;
+left: 0;
+color: green;
+}
+
+/* Added style for better spacing of brief/task titles */
+strong {
+font-weight: 600;
+display: block;
+margin-bottom: 1.5vh;
+}
+
+.activity-content .left p strong {
+margin-top: 2vh;
+}
+
+.activity-content .left p:first-child strong {
+margin-top: 0;
+}
+
+/* Ensure proper spacing after brief/task sections */
+.activity-content .left p {
+margin-bottom: 2vh;
+}
+
+/* Table styles for UX Writing section */
+.ux-table {
+width: 100%;
+border-collapse: collapse;
+margin: 3vh 0;
+}
+
+.ux-table th, .ux-table td {
+border: 1px solid #ddd;
+padding: 1.5vh;
+text-align: left;
+}
+
+.ux-table th {
+background-color: #f8f8f8;
+font-weight: 600;
+}
+
+.ux-table tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+
+.principle-row {
+margin: 2vh 0;
+padding-bottom: 2vh;
+border-bottom: 1px solid #eee;
+}
+
+.principle-row h4 {
+font-weight: 600;
+margin-bottom: 1vh;
+}
+
+.emoji-marker {
+display: inline-block;
+margin-right: 1vh;
+}
+
+.example-box {
+background-color: #f0f0f0;
+padding: 2vh;
+margin: 2vh 0;
+border-radius: 4px;
+}
+
+.example-box p {
+margin-bottom: 1vh;
+}
+
+.good-example {
+color: green;
+}
+
+.bad-example {
+color: red;
+text-decoration: line-through;
+}
+
+.comparison-container {
+display: grid;
+grid-template-columns: 1fr;
+gap: 2vh;
+margin: 3vh 0;
+}
+
+.comparison-card {
+border: 1px solid #ddd;
+padding: 2vh;
+}
+
+.comparison-card h4 {
+font-weight: 600;
+margin-bottom: 1vh;
+color: blue;
+}
+
+@media screen and (min-width: 768px) {
+/* Quote */
+.quote-mobile {
+display: none;
+}
+
+.quote-desktop {
+display: block;
+font-size: 22px;
+line-height: 1.3;
+color: blue;
+}
+
+.left {
+flex: 70%;
+}
+
+/* Synthesis grid */
+.synthesis-container {
+grid-template-columns: repeat(2, 1fr);
+gap: 3vh 3vh;
+}
+
+/* Card hover effect */
+.synthesis-card:hover {
+background-color: #f0f0f0;
+}
+
+/* Activity layout */
+.activity-content {
+flex-direction: row;
+justify-content: space-between;
+}
+
+.activity-content .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.activity-content .right {
+width: 35%;
+align-self: flex-start;
+}
+
+/* Quadrant layout */
+.quadrant-container {
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 1fr);
+}
+
+/* Examples layout */
+.example {
+display: flex;
+justify-content: space-between;
+}
+
+.example .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.example .right {
+width: 35%;
+}
+
+/* Comparison layout */
+.comparison-container {
+grid-template-columns: repeat(2, 1fr);
+gap: 3vh;
+}
+
+/* Larger synthesis cards grid for larger screens */
+@media screen and (min-width: 1024px) {
+.synthesis-container {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+}
+</style>
+</head>
+<body>
+<!-- Sticky Navigation Bar -->
+<nav class="navbar">
+<a href="index.html">
+<img src="assets/image/Logo Red BG.svg" alt="Lollypop Logo" class="logo">
+</a>
+</nav>
+<div class="hero">
+<div class="left">
+<h1>Making Sense of Structure</h1>
+<p>Week 13, Organizing and structuring content effectively</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- Quote for mobile view -->
+<div class="quote-mobile">
+"Great IA feels invisible; poor IA is immediately felt. Invest in IA early to save time, money, and frustration later."
+</div>
+
+<!-- SECTION 1: What is IA? -->
+<div class="section-title">
+<h2>🏗️ What is IA?</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p><strong>Definition:</strong> Information Architecture is the practice of organizing, structuring, and labeling content in an effective and sustainable way. The goal is to help users find information and complete tasks efficiently.</p>
+
+<p><strong>Core Idea:</strong> It acts as the blueprint of the product, ensuring users can navigate and understand the system easily.</p>
+
+<div class="key-point">
+<h4>IA vs Navigation vs Interaction Design:</h4>
+<ul>
+<li><strong>IA</strong> defines the structure of content — what exists, how it's organized.</li>
+<li><strong>Navigation Design</strong> is the interface that lets users move through the IA.</li>
+<li><strong>Interaction Design</strong> focuses on how users interact with elements within that structure (e.g. buttons, gestures).</li>
+</ul>
+</div>
+
+<div class="example-box">
+<p><strong>Example:</strong> In an e-commerce app:</p>
+<ul>
+<li>IA defines the categories: Men > Clothing > Shirts</li>
+<li>Navigation design is the top menu, bottom bar, breadcrumb, etc.</li>
+<li>Interaction design is how the menu opens, swipes work, etc.</li>
+</ul>
+</div>
+</div>
+<div class="right">
+<!-- Quote for desktop view -->
+<p class="quote-desktop">"Great IA feels invisible; poor IA is immediately felt. Invest in IA early to save time, money, and frustration later."</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 2: Why IA Matters -->
+<div class="section-title">
+<h2>🎯 Why IA Matters</h2>
+</div>
+
+<div class="synthesis-container">
+<div class="synthesis-card">
+<h3>Findability</h3>
+<div class="synthesis-description">
+<p>Users can locate content or features quickly without getting lost.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>Task Completion</h3>
+<div class="synthesis-description">
+<p>Clear paths lead to faster and more successful task completion.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>Cognitive Load Reduction</h3>
+<div class="synthesis-description">
+<p>Logical grouping and intuitive labeling help reduce mental effort.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>Scalability</h3>
+<div class="synthesis-description">
+<p>Well-structured IA supports future additions or changes without major restructuring.</p>
+</div>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 3: Core Components of IA -->
+<div class="section-title">
+<h2>🧩 Core Components of IA</h2>
+</div>
+
+<div class="principle-row">
+<h4>Organization Systems</h4>
+<p>How content is grouped:</p>
+<ul>
+<li><strong>Topical:</strong> Grouping by subject (e.g., News categories: Sports, Politics, Tech)</li>
+<li><strong>Task-Based:</strong> Grouping by actions (e.g., Apply for a loan, Track shipment)</li>
+<li><strong>Audience-Based:</strong> Grouping by user segments (e.g., For Students, For Businesses)</li>
+</ul>
+</div>
+
+<div class="principle-row">
+<h4>Labeling Systems</h4>
+<p>How content is represented:</p>
+<ul>
+<li>Must be concise, clear, and consistent.</li>
+<li>Avoid jargon; use terms your audience uses.</li>
+</ul>
+<div class="example-box">
+<p><strong>Examples:</strong></p>
+<ul>
+<li>"Get Started" vs "Sign Up"</li>
+<li>"My Cart" vs "Shopping Basket"</li>
+</ul>
+</div>
+</div>
+
+<div class="principle-row">
+<h4>Navigation Systems</h4>
+<p>How users move through content:</p>
+<ul>
+<li><strong>Global Navigation:</strong> Present across the product (e.g., top/bottom nav)</li>
+<li><strong>Local Navigation:</strong> Inside a specific section</li>
+<li><strong>Contextual Navigation:</strong> Related content links, breadcrumbs, in-line links</li>
+</ul>
+</div>
+
+<div class="principle-row">
+<h4>Search Systems</h4>
+<p>How users retrieve content:</p>
+<ul>
+<li>Site search with filters and autosuggestions</li>
+<li>Keyword tagging, metadata</li>
+<li>Search results relevance and IA alignment</li>
+</ul>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 4: Manifestations of IA in Digital Products -->
+<div class="section-title">
+<h2>💻 Manifestations of IA in Digital Products</h2>
+</div>
+
+<div class="key-point">
+<p>IA manifests across a wide range of interface components — not just the mega menu. While menus are the most visible representation of structure, a robust IA underpins the following elements as well:</p>
+<ul>
+<li><strong>Filters and Sorts:</strong> These allow users to refine or reorganize content, and rely on a clear content taxonomy and metadata system.</li>
+<li><strong>Footer Hierarchies:</strong> These often contain secondary navigation, contact info, legal links, and site maps — all of which reflect thoughtful IA.</li>
+<li><strong>Search Systems:</strong> IA defines how content is indexed and retrieved, what filters appear, and how results are displayed.</li>
+<li><strong>Content Groupings:</strong> From blog tags to featured collections, any grouping of information is a manifestation of IA.</li>
+<li><strong>Onboarding Flows:</strong> The order in which users encounter information reflects prioritized architecture.</li>
+</ul>
+</div>
+
+<div class="quadrant-container">
+<div class="quadrant">
+<h4>Websites</h4>
+<ul>
+<li><strong>Site Maps:</strong> Visual representation of site structure</li>
+<li><strong>Mega Menus:</strong> Show multiple levels of navigation in one expanded menu</li>
+<li><strong>Footer Hierarchies:</strong> Secondary IA touchpoint (Contact, Legal, Help, Sitemap)</li>
+</ul>
+</div>
+
+<div class="quadrant">
+<h4>Mobile Apps</h4>
+<ul>
+<li><strong>Tab Bars:</strong> Key feature categories</li>
+<li><strong>Deep Navigation Patterns:</strong> Drill-down content paths (Home > Category > Product > Checkout)</li>
+<li><strong>Onboarding Flows:</strong> How content and features are revealed to new users</li>
+</ul>
+</div>
+
+<div class="quadrant">
+<h4>E-commerce Platforms</h4>
+<ul>
+<li><strong>Product Taxonomy:</strong> Category > Sub-category > Product (e.g., Electronics > Phones > iPhone)</li>
+<li><strong>Filter Structures:</strong> Price, Brand, Ratings, Size — based on logical grouping</li>
+<li><strong>Sort/Search Relevance:</strong> How content surfaces when sorted or searched</li>
+</ul>
+</div>
+
+<div class="quadrant">
+<h4>Content-heavy Platforms</h4>
+<ul>
+<li><strong>News/Media Sites:</strong> Tag-based grouping, featured topics, related articles</li>
+<li><strong>Knowledge Bases:</strong> Articles grouped by topic or use-case</li>
+<li><strong>Learning Platforms:</strong> Course paths, module breakdowns, progress tracking</li>
+</ul>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 5: Real-World Examples -->
+<div class="section-title">
+<h2>🌟 Real-World Examples</h2>
+</div>
+
+<div class="comparison-container">
+<div class="comparison-card">
+<h4>Amazon vs IKEA</h4>
+<p><strong>Amazon:</strong> Functional taxonomy; deep but scalable structure — filters are critical</p>
+<p><strong>IKEA:</strong> Task and lifestyle-based grouping — "Create a bedroom," not "Beds"</p>
+</div>
+
+<div class="comparison-card">
+<h4>Netflix</h4>
+<p>IA supports discovery more than direct navigation</p>
+<p>Genres, algorithms, and user history help organize content</p>
+</div>
+</div>
+
+<div class="principle-row">
+<h4>Government Websites</h4>
+<ul>
+<li><strong>Task-Oriented IA:</strong> "Apply for Passport," "Pay Taxes"</li>
+<li><strong>Topic-Oriented IA:</strong> "Citizenship," "Finance," "Environment"</li>
+</ul>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 6: Common IA Pitfalls -->
+<div class="section-title">
+<h2>⚠️ Common IA Pitfalls</h2>
+</div>
+
+<table class="ux-table">
+<thead>
+<tr>
+<th>Pitfall</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Too Many Categories</strong></td>
+<td>Leads to user confusion and content overlap</td>
+</tr>
+<tr>
+<td><strong>Unclear Labels</strong></td>
+<td>Users don't understand what the link or section does</td>
+</tr>
+<tr>
+<td><strong>Flat Hierarchies</strong></td>
+<td>Everything is at the same level; no prioritization</td>
+</tr>
+<tr>
+<td><strong>Scalability Issues</strong></td>
+<td>Hard to add content later without redesigning structure</td>
+</tr>
+</tbody>
+</table>
+
+<div class="line"></div>
+
+<div class="conclusion">
+<div class="left">
+<h2>Wrap-up & Takeaways</h2>
+<ul class="checklist">
+<li>IA is not just about menus or site maps — it's about how users perceive, navigate, and make sense of content.</li>
+<li>IA also exists in filters, sort options, footers, breadcrumbs, onboarding flows, and even search experiences — all structured to help users find, understand, and act on content.</li>
+<li>Great IA feels invisible; poor IA is immediately felt.</li>
+<li>Invest in IA early to save time, money, and frustration later.</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>
