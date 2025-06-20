@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="assets/reset.css" rel="stylesheet">
+<link href="assets/style.css" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap" rel="stylesheet">
+<title>Storytelling in UX</title>
+<style>
+li {
+list-style-type: disc;
+margin-left: 5%;
+padding-bottom: 10px;
+}
+
+.section-title {
+margin-bottom: 4vh;
+}
+
+.section-title p {
+font-weight: normal;
+margin-top: 1vh;
+}
+
+.quote-desktop {
+display: none;
+}
+
+.quote-mobile {
+margin: 4vh 0;
+font-size: 20px;
+line-height: 1.3;
+color: blue;
+}
+
+.synthesis-container {
+display: grid;
+grid-template-columns: 1fr;
+gap: 2vh;
+margin-bottom: 6vh;
+}
+
+.synthesis-card {
+border: 0.5px solid #000;
+padding: 2vh;
+transition: all 0.3s ease;
+}
+
+.synthesis-card h3 {
+margin-bottom: 1vh;
+font-weight: normal;
+}
+
+.synthesis-description {
+font-weight: normal;
+}
+
+.activity {
+margin: 6vh 0;
+}
+
+.activity h2 {
+margin-bottom: 3vh;
+}
+
+.activity-content {
+display: flex;
+flex-direction: column;
+}
+
+.activity-content .left {
+margin-bottom: 3vh;
+}
+
+.activity-content ol {
+margin-top: 2vh;
+margin-left: 2vh;
+}
+
+.activity-content ol li {
+margin-bottom: 1vh;
+}
+
+.highlight {
+color: blue;
+margin-bottom: 1vh;
+}
+
+.quadrant-container {
+margin: 4vh 0;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: auto auto;
+gap: 2vh;
+}
+
+.quadrant {
+border: 1px solid #000;
+padding: 2vh;
+margin-bottom: 2vh;
+}
+
+.quadrant h4 {
+font-weight: 600;
+margin-bottom: 1vh;
+}
+
+.persona {
+margin: 4vh 0;
+border: 1px solid #000;
+padding: 2vh;
+}
+
+.persona h3 {
+margin-bottom: 1vh;
+}
+
+.persona .details {
+display: flex;
+flex-direction: column;
+gap: 1vh;
+margin-bottom: 2vh;
+}
+
+.persona .details p {
+margin: 0;
+}
+
+.hmw-list {
+margin-top: 2vh;
+}
+
+.hmw-list li {
+margin-bottom: 1vh;
+}
+
+.image-placeholder {
+background-color: #f0f0f0;
+height: 150px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 2vh;
+object-fit: cover;
+}
+
+h2 {
+line-height: 1.1;
+}
+
+.key-point {
+background-color: #f8f8f8;
+padding: 2vh;
+margin: 3vh 0;
+border-left: 4px solid blue;
+}
+
+.checklist li {
+margin-bottom: 1vh;
+list-style-type: none;
+position: relative;
+padding-left: 2vh;
+}
+
+.checklist li:before {
+content: "✓";
+position: absolute;
+left: 0;
+color: green;
+}
+
+/* Added style for better spacing of brief/task titles */
+strong {
+font-weight: 600;
+display: block;
+margin-bottom: 1.5vh;
+}
+
+.activity-content .left p strong {
+margin-top: 2vh;
+}
+
+.activity-content .left p:first-child strong {
+margin-top: 0;
+}
+
+/* Ensure proper spacing after brief/task sections */
+.activity-content .left p {
+margin-bottom: 2vh;
+}
+
+/* Table styles for UX Writing section */
+.ux-table {
+width: 100%;
+border-collapse: collapse;
+margin: 3vh 0;
+}
+
+.ux-table th, .ux-table td {
+border: 1px solid #ddd;
+padding: 1.5vh;
+text-align: left;
+}
+
+.ux-table th {
+background-color: #f8f8f8;
+font-weight: 600;
+}
+
+.ux-table tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+
+.principle-row {
+margin: 2vh 0;
+padding-bottom: 2vh;
+border-bottom: 1px solid #eee;
+}
+
+.principle-row h4 {
+font-weight: 600;
+margin-bottom: 1vh;
+}
+
+.emoji-marker {
+display: inline-block;
+margin-right: 1vh;
+}
+
+.example-box {
+background-color: #f0f0f0;
+padding: 2vh;
+margin: 2vh 0;
+border-radius: 4px;
+}
+
+.example-box p {
+margin-bottom: 1vh;
+}
+
+.good-example {
+color: green;
+}
+
+.bad-example {
+color: red;
+text-decoration: line-through;
+}
+
+@media screen and (min-width: 768px) {
+/* Quote */
+.quote-mobile {
+display: none;
+}
+
+.quote-desktop {
+display: block;
+font-size: 22px;
+line-height: 1.3;
+color: blue;
+}
+
+.left {
+flex: 70%;
+}
+
+/* Synthesis grid */
+.synthesis-container {
+grid-template-columns: repeat(2, 1fr);
+gap: 3vh 3vh;
+}
+
+/* Card hover effect */
+.synthesis-card:hover {
+background-color: #f0f0f0;
+}
+
+/* Activity layout */
+.activity-content {
+flex-direction: row;
+justify-content: space-between;
+}
+
+.activity-content .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.activity-content .right {
+width: 35%;
+align-self: flex-start;
+}
+
+/* Quadrant layout */
+.quadrant-container {
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 1fr);
+}
+
+/* Examples layout */
+.example {
+display: flex;
+justify-content: space-between;
+}
+
+.example .left {
+width: 60%;
+margin-right: 5%;
+margin-bottom: 0;
+}
+
+.example .right {
+width: 35%;
+}
+
+/* Larger synthesis cards grid for larger screens */
+@media screen and (min-width: 1024px) {
+.synthesis-container {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+}
+</style>
+</head>
+<body>
+<!-- Sticky Navigation Bar -->
+<nav class="navbar">
+<a href="index.html">
+<img src="assets/image/Logo Red BG.svg" alt="Lollypop Logo" class="logo">
+</a>
+</nav>
+<div class="hero">
+<div class="left">
+<h1>Crafting UX Narratives</h1>
+<p>Week 14, The Power of Storytelling in Design</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- Quote for mobile view -->
+<div class="quote-mobile">
+"Storytelling is the oldest technology we have for making people care. It turns information into emotion, and ideas into action."
+</div>
+
+<!-- SECTION 1: What is Storytelling -->
+<div class="section-title">
+<h2>📖 What is Storytelling, Really?</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p>At its core, storytelling is the act of structuring information in a way that creates meaning, emotion, and memory. It's how humans have shared knowledge, preserved culture, and built relationships since the beginning of time — long before there were slide decks or user journeys.</p>
+</div>
+<div class="right">
+<!-- Quote for desktop view -->
+<p class="quote-desktop">"Storytelling is the oldest technology we have for making people care. It turns information into emotion, and ideas into action."</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 2: Why Storytelling is Impactful -->
+<div class="section-title">
+<h2>✨ Why Storytelling is So Impactful Across Fields</h2>
+</div>
+
+<div class="synthesis-container">
+<div class="synthesis-card">
+<h3>It's how our brains are wired</h3>
+<div class="synthesis-description">
+<p>Our brains are naturally attuned to stories — not facts. When we hear a story, our brain lights up in ways that go beyond just listening — we simulate the experience, feel the emotions, and remember it far better.</p>
+<p>Neuroscience backs this up: we retain up to 22x more information when it's delivered as a story versus just facts (Stanford study).</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>It creates emotional resonance</h3>
+<div class="synthesis-description">
+<p>Whether it's advertising, filmmaking, leadership, or journalism — storytelling creates a human connection. It taps into empathy, fear, hope, and identity — and emotions drive decision-making more than logic ever will.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>It gives structure to complexity</h3>
+<div class="synthesis-description">
+<p>Data, research, and experiences can be overwhelming. Stories give them shape:</p>
+<ul>
+<li>A beginning (context)</li>
+<li>A middle (conflict)</li>
+<li>And an end (resolution)</li>
+</ul>
+<p>This structure makes information easier to digest and more impactful.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>It builds trust and credibility</h3>
+<div class="synthesis-description">
+<p>A story that includes struggle, vulnerability, or learning invites relatability. This is true for leaders, brands, startups pitching to VCs, and yes — UX designers presenting work.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>It moves people to action</h3>
+<div class="synthesis-description">
+<p>Great stories inspire behavior change: donate, click, share, trust, or buy. That's why they're at the heart of fields like:</p>
+<ul>
+<li>Marketing: to shape perception and loyalty</li>
+<li>Film & Media: to influence culture</li>
+<li>Public Speaking: to persuade and rally</li>
+<li>Education: to make concepts stick</li>
+<li>UX Design: to advocate for user needs and explain design decisions</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 3: Why Storytelling Matters in UX -->
+<div class="section-title">
+<h2>🎯 Why does storytelling matter so much in your case studies, and well, UX</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p>Storytelling turns design work into a narrative of impact.</p>
+</div>
+</div>
+
+<div class="synthesis-container">
+<div class="synthesis-card">
+<h3>It makes your work memorable</h3>
+<div class="synthesis-description">
+<p>People forget wireframes and flows, but they remember how a problem made someone feel — and how your design changed that. Stories help your audience retain and recall what you did and why.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>It humanizes the design process</h3>
+<div class="synthesis-description">
+<p>UX isn't just about screens — it's about real people facing real problems. Storytelling brings the user to life, showing:</p>
+<ul>
+<li>their motivations</li>
+<li>their frustrations</li>
+<li>and their needs</li>
+</ul>
+<p>It keeps the user at the center of the conversation.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>It clarifies your thinking and decision-making</h3>
+<div class="synthesis-description">
+<p>Telling a clear story forces you to articulate:</p>
+<ul>
+<li>what the problem really was</li>
+<li>how you approached it</li>
+<li>and why you made the choices you did</li>
+</ul>
+<p>This helps cut the fluff and highlight your critical thinking, not just your deliverables.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>It builds empathy and buy-in</h3>
+<div class="synthesis-description">
+<p>When you present work to stakeholders, clients, or recruiters, they're not just evaluating the design — they're looking to connect with the purpose. A story creates emotional engagement and makes them care about the outcome.</p>
+</div>
+</div>
+
+<div class="synthesis-card">
+<h3>It shows impact, not just output</h3>
+<div class="synthesis-description">
+<p>Good storytelling lets you move from "I designed X" to:</p>
+<p>"Here's the problem this person faced, and here's how our solution helped improve their experience."</p>
+<p>It connects the business value, user value, and design value.</p>
+</div>
+</div>
+</div>
+
+<div class="line"></div>
+
+<!-- SECTION 4: How to Apply Storytelling to UX Case Studies -->
+<div class="section-title">
+<h2>🧩 But how do you apply storytelling to a UX case study?</h2>
+</div>
+
+<div class="about">
+<div class="left">
+<p>You take the same principles that make any good story compelling — and use them to frame your design process, decisions, and outcomes.</p>
+</div>
+</div>
+
+<div class="principle-row">
+<h4>🧱 1. Story Structure = Case Study Structure</h4>
+<p>Great stories follow a structure:</p>
+<ul>
+<li>Context (setting the scene)</li>
+<li>Conflict (the challenge or tension)</li>
+<li>Journey (the actions taken to resolve the conflict)</li>
+<li>Resolution (how the story ends — and what changes)</li>
+</ul>
+</div>
+
+<table class="ux-table">
+<thead>
+<tr>
+<th>Storytelling Element</th>
+<th>UX Case Study Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Setting / Characters</td>
+<td>Business context, user personas</td>
+</tr>
+<tr>
+<td>Conflict</td>
+<td>The design problem or user pain point</td>
+</tr>
+<tr>
+<td>Quest / Journey</td>
+<td>Your UX process: research, synthesis, ideation, prototyping</td>
+</tr>
+<tr>
+<td>Resolution</td>
+<td>Final design, impact, learnings</td>
+</tr>
+</tbody>
+</table>
+
+<div class="principle-row">
+<h4>🔎 2. Your Role = The Problem Solver, Not the Hero</h4>
+<p>In stories, the hero faces the challenge, but it's the problem that creates tension.</p>
+<p>In a UX case study:</p>
+<ul>
+<li>The user is the hero</li>
+<li>The problem is the villain</li>
+<li>You are the guide — helping the user overcome it through thoughtful design</li>
+</ul>
+<p>This shift in perspective builds empathy and keeps your case study user-centered, not ego-driven.</p>
+</div>
+
+<div class="principle-row">
+<h4>💬 3. Show, Don't Just Tell</h4>
+<p>A good story doesn't just say "he was sad." It shows you why he was sad.</p>
+<p>Likewise, a strong case study doesn't just say: "We conducted interviews and redesigned the flow."</p>
+<p>It shows:</p>
+<ul>
+<li>The pain users felt</li>
+<li>The insight you uncovered</li>
+<li>The decisions you made because of those insights</li>
+<li>Before/after comparisons that make the impact visible</li>
+</ul>
+</div>
+
+<div class="principle-row">
+<h4>🎯 4. Focus on Decisions and Impact</h4>
+<p>What separates storytelling from reporting is meaning.</p>
+<p>Instead of just listing activities ("I did a survey, I made wireframes"), storytelling answers:</p>
+<ul>
+<li>Why did this step matter?</li>
+<li>What did I learn?</li>
+<li>How did it change the direction of the design?</li>
+<li>What was the real-world result?</li>
+</ul>
+<p>This makes your case study not just a timeline, but a narrative of growth and outcomes.</p>
+</div>
+
+<div class="principle-row">
+<h4>🛑 5. Avoid the "And Then" Trap</h4>
+<p>Weak case studies sound like: "We did research, and then we made personas, and then we made wireframes…"</p>
+<p>That's a chronology, not a story.</p>
+<p>Strong case studies sound like: "We assumed X, but users told us Y. That changed everything — so we scrapped our first idea and went back to the drawing board."</p>
+<p>That's a narrative with tension and learning.</p>
+</div>
+
+<div class="line"></div>
+
+<div class="conclusion">
+<div class="left">
+<h2>🪄 In Summary:</h2>
+<p>A great case study is not a portfolio piece. It's a story of how you solved a real human problem — through design thinking, empathy, and smart decisions.</p>
+<p>It's your chance to show not just what you made, but why it mattered.</p>
+</div>
+</div>
+
+</body>
+</html>
